@@ -1,0 +1,3469 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>Search</title>
+
+<style>
+
+/* ================= BODY ================= */
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #1f2937;
+
+    background: linear-gradient(
+        180deg,
+        #f7f9fc 0%,
+        #eef2f7 55%,
+        #e6edf6 100%
+    );
+
+    background-attachment: fixed;
+}
+
+/* סיסטם חלק */
+* {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+/* ================= NAVBAR ================= */
+.top-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 24px;
+
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.07),
+        0 1px 0 rgba(255,255,255,0.7) inset;
+
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.top-navbar.scrolled {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.top-navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0,114,255,0.06),
+        rgba(0,198,255,0.04),
+        transparent
+    );
+    pointer-events: none;
+}
+
+.top-navbar .logo {
+    font-weight: 800;
+    font-size: 15px;
+
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    letter-spacing: 0.5px;
+}
+
+/* ================= NAV LINKS ================= */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: #6b7280;
+    text-decoration: none;
+
+    position: relative;
+    padding: 6px 4px;
+
+    transition: all 0.25s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+    width: 0%;
+    height: 2px;
+    border-radius: 999px;
+
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0072ff;
+    transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* אפקט עדין של עומק בלינקים */
+.nav-links a:active {
+    transform: scale(0.96);
+}
+
+/* ================= TITLE ================= */
+.search-label{
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-top:55px;
+    margin-bottom:35px;
+
+    font-size:clamp(28px,4vw,48px);
+    font-weight:900;
+
+    letter-spacing:-1.2px;
+    line-height:1.05;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4285F4 0%,
+            #6FAEFF 12%,
+            #34A853 28%,
+            #86E56F 42%,
+            #FBBC05 58%,
+            #FFE27A 70%,
+            #EA4335 86%,
+            #FF8F84 100%
+        );
+
+    background-size:300% 100%;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    filter:
+        drop-shadow(0 0 12px rgba(66,133,244,.18))
+        drop-shadow(0 0 20px rgba(52,168,83,.10));
+
+    animation:
+        googleTextFlow 10s linear infinite,
+        googleFloat 6s ease-in-out infinite;
+}
+
+/* glass aura */
+.search-label::before{
+    content:"";
+
+    position:absolute;
+
+    width:140%;
+    height:220%;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:999px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(66,133,244,.12),
+            rgba(52,168,83,.08),
+            rgba(251,188,5,.06),
+            transparent 70%
+        );
+
+    filter:blur(45px);
+
+    z-index:-2;
+
+    animation:
+        googleAura 8s ease-in-out infinite;
+}
+
+/* premium animated underline */
+.search-label::after{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    bottom:-16px;
+
+    transform:
+        translateX(-50%);
+
+    width:180px;
+    height:4px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4285F4,
+            #34A853,
+            #FBBC05,
+            #EA4335,
+            #4285F4
+        );
+
+    background-size:300% 100%;
+
+    box-shadow:
+        0 0 10px rgba(66,133,244,.25),
+        0 0 20px rgba(52,168,83,.18),
+        0 0 30px rgba(234,67,53,.12);
+
+    animation:
+        googleLineFlow 4s linear infinite;
+}
+
+/* top sparkle */
+.search-label span{
+    position:relative;
+}
+
+.search-label span::before{
+    content:"✦";
+
+    position:absolute;
+
+    top:-18px;
+    right:-22px;
+
+    font-size:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4285F4,
+            #34A853,
+            #FBBC05,
+            #EA4335
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:
+        sparklePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes googleTextFlow{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:300% 50%;
+    }
+}
+
+@keyframes googleLineFlow{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:300% 50%;
+    }
+}
+
+@keyframes googleFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-2px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+@keyframes googleAura{
+
+    0%{
+        opacity:.65;
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:
+            translate(-50%,-50%)
+            scale(1.08);
+    }
+
+    100%{
+        opacity:.65;
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+}
+
+@keyframes sparklePulse{
+
+    0%{
+        opacity:.4;
+        transform:
+            scale(.8)
+            rotate(0deg);
+    }
+
+    50%{
+        opacity:1;
+        transform:
+            scale(1.25)
+            rotate(25deg);
+    }
+
+    100%{
+        opacity:.4;
+        transform:
+            scale(.8)
+            rotate(0deg);
+    }
+}
+
+/* ================= SEARCH ================= */
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin: 34px 15px;
+    position: relative;
+}
+
+.search-box textarea {
+    width: 92vw;
+    max-width: 720px;
+    height: 120px;
+
+    padding: 20px 22px;
+    border-radius: 24px;
+
+    border: 1px solid rgba(0,0,0,0.06);
+    outline: none;
+
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 18px 50px rgba(0,0,0,0.08),
+        0 1px 0 rgba(255,255,255,0.7) inset;
+
+    font-size: 15px;
+    resize: none;
+
+    transition: all 0.25s ease;
+}
+
+.search-box textarea:focus {
+    transform: translateY(-3px);
+    border: 3px solid rgba(0,114,255,0.25);
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,1),
+            rgba(255,255,255,1)
+        ) padding-box,
+
+        conic-gradient(
+            from var(--angle),
+            #4285f4,
+            #5b9cff,
+            #34a853,
+            #7bdc6b,
+            #fbbc05,
+            #ffd95a,
+            #ea4335,
+            #ff7a70,
+            #4285f4
+        ) border-box;
+
+    animation:
+        googleBorderSpin 5s linear infinite;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 25px 70px rgba(66,133,244,.15),
+        0 0 0 4px rgba(66,133,244,.06),
+        0 0 30px rgba(52,168,83,.08),
+        0 0 35px rgba(234,67,53,.06);
+}
+.search-box textarea{
+    width:92vw;
+    max-width:720px;
+    height:120px;
+
+    padding:20px 22px;
+    border-radius:24px;
+
+    border:2px solid transparent;
+    outline:none;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.88),
+            rgba(255,255,255,.88)
+        ) padding-box,
+
+        conic-gradient(
+            from var(--angle),
+            #4285f4,
+            #5b9cff,
+            #34a853,
+            #7bdc6b,
+            #fbbc05,
+            #ffd95a,
+            #ea4335,
+            #ff7a70,
+            #4285f4
+        ) border-box;
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.08),
+        0 1px 0 rgba(255,255,255,.7) inset,
+        0 0 20px rgba(66,133,244,.08);
+
+    font-size:15px;
+    resize:none;
+
+    animation:
+        googleBorderSpin 12s linear infinite,
+        googleGlow 5s ease-in-out infinite;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.search-box textarea:focus{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 25px 70px rgba(66,133,244,.15),
+        0 0 0 4px rgba(66,133,244,.06),
+        0 0 30px rgba(52,168,83,.08),
+        0 0 35px rgba(234,67,53,.06);
+
+    animation:
+        googleBorderSpin 5s linear infinite,
+        googleGlow 3s ease-in-out infinite;
+}
+
+@keyframes googleGlow{
+
+    0%{
+        filter:
+            brightness(1)
+            saturate(1);
+    }
+
+    50%{
+        filter:
+            brightness(1.06)
+            saturate(1.12);
+    }
+
+    100%{
+        filter:
+            brightness(1)
+            saturate(1);
+    }
+}
+
+@property --angle{
+    syntax:"<angle>";
+    inherits:false;
+    initial-value:0deg;
+}
+
+@keyframes googleBorderSpin{
+
+    0%{
+        --angle:0deg;
+    }
+
+    100%{
+        --angle:360deg;
+    }
+}
+/* ================= CLEAR BTN ================= */
+.clear-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.85);
+
+    font-size: 18px;
+    cursor: pointer;
+
+    display: none;
+    color: #9ca3af;
+
+    transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+    color: #111827;
+    transform: translateY(-50%) scale(1.15);
+}
+
+/* ================= DROPDOWN ================= */
+.dropdown {
+    width: 92%;
+    max-width: 560px;
+    margin: 30px auto;
+}
+
+/* ================= MAIN SEARCH ================= */
+.dropdown-search {
+    width: 100%;
+    padding: 15px 18px;
+
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.06);
+
+    font-size: 14px;
+    outline: none;
+
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 14px 40px rgba(0,0,0,0.06),
+        0 1px 0 rgba(255,255,255,0.7) inset;
+
+    transition: all 0.2s ease;
+}
+
+.dropdown-search:focus {
+    border-color: rgba(0,198,255,0.35);
+
+    box-shadow:
+        0 18px 55px rgba(0,114,255,0.12),
+        0 0 0 3px rgba(0,198,255,0.10);
+}
+
+/* ================= DROPDOWN LIST ================= */
+.dropdown-list {
+    margin-top: 12px;
+
+    background: rgba(255,255,255,0.82);
+    border-radius: 18px;
+
+    max-height: 280px;
+    overflow-y: auto;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(0,0,0,0.04);
+
+    box-shadow:
+        0 22px 60px rgba(0,0,0,0.08),
+        0 2px 0 rgba(255,255,255,0.7) inset;
+
+    display: none;
+
+    animation: fadeIn 0.18s ease;
+}
+
+.dropdown.open .dropdown-list {
+    display: block;
+}
+
+/* ================= ITEMS ================= */
+.dropdown-item {
+    padding: 14px 16px;
+
+    cursor: pointer;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+
+    transition: all 0.18s ease;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, #effcff, #e6f7ff);
+
+    transform: translateX(4px);
+
+    box-shadow:
+        0 6px 14px rgba(0,0,0,0.06);
+}
+
+/* scrollbar */
+.dropdown-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 999px;
+}
+
+/* ================= SUB FILTER ================= */
+#subDropdown {
+    margin-top: 16px;
+
+    background: rgba(255,255,255,0.88);
+    border-radius: 20px;
+
+    padding: 18px;
+
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(0,0,0,0.04);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.07),
+        0 1px 0 rgba(255,255,255,0.7) inset;
+}
+
+/* ================= FILTER GROUP ================= */
+.filter-group {
+    margin-bottom: 18px;
+}
+
+.filter-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+
+    color: #6b7280;
+}
+
+/* ================= OPTIONS ================= */
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* pills */
+.sub-item {
+    padding: 9px 14px;
+
+    background: #f1f5f9;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    color: #334155;
+
+    border: 1px solid rgba(0,0,0,0.05);
+
+    transition: all 0.18s ease;
+}
+
+.sub-item:hover {
+    background: #eaf6ff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 12px rgba(0,0,0,0.06);
+}
+
+.sub-item.selected {
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
+    color: #fff;
+
+    border-color: transparent;
+
+    box-shadow:
+        0 10px 22px rgba(0,114,255,0.25);
+}
+
+/* ================= SUB SEARCH ================= */
+.sub-search {
+    width: 100%;
+    padding: 10px 14px;
+
+    margin: 12px 0;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(0,0,0,0.06);
+
+    font-size: 13px;
+
+    background: rgba(255,255,255,0.9);
+
+    transition: all 0.18s ease;
+}
+
+.sub-search:focus {
+    border-color: rgba(0,114,255,0.35);
+
+    box-shadow:
+        0 0 0 3px rgba(0,114,255,0.10);
+}
+
+/* ================= SHOW MORE ================= */
+.show-more {
+    margin-top: 12px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    color: #6b7280;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    transition: all 0.18s ease;
+}
+
+.show-more:hover {
+    color: #111827;
+    transform: translateX(3px);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.price-range {
+    position: relative;
+    width: 100%;
+    padding: 50px 8px 10px;
+    box-sizing: border-box;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    background: transparent;
+}
+
+.price-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 100px;
+}
+
+.price-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    padding-left: 2px;
+}
+
+.price-range::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 22px;
+    height: 2px;
+    border-radius: 999px;
+    z-index: 1;
+
+    background: linear-gradient(180deg, #effcff 0%, #8eeaff 100%);
+
+    box-shadow:
+        inset 0 1px 2px rgba(0,0,0,0.10),
+        inset 0 -1px 2px rgba(255,255,255,0.7);
+}
+
+.price-range::after {
+    content: "";
+    position: absolute;
+    left: calc(8px + var(--min));
+    right: calc(100% - var(--max));
+    top: 22px;
+    height: 2px;
+    border-radius: 999px;
+    z-index: 2;
+
+    background: linear-gradient(90deg, #8eeaff 0%, #54dbff 50%, #38cfff 100%);
+
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.35),
+        inset 0 -1px 2px rgba(0,0,0,0.12),
+        0 2px 6px rgba(120,240,255,0.35);
+}
+/* ================= FLOATING DOT WAVES ================= */
+
+.bar{
+    position: absolute;
+
+    /* התחלה */
+    left: calc(4px + var(--min));
+    top: -21px;
+
+    /* סוף */
+    right: calc(100% - var(--max));
+
+    height: 150px;
+
+    overflow: hidden;
+
+    
+
+    
+}
+.bar::before{
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
+
+    box-shadow:
+        inset 0 0 22px rgba(255,255,255,.15),
+        0 0 24px rgba(0,180,255,.12);
+
+    z-index: 4;
+}
+
+/* =========================================
+   INNER
+========================================= */
+.bar-inner{
+    position: absolute;
+    inset: 0;
+    top:-5px ;
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 2;
+
+    border-radius: inherit;
+    
+    height: 50px;
+}
+
+/* =========================================
+   WAVE
+========================================= */
+.wave{
+    position:absolute;
+
+    left:0;
+    top:20px;
+
+    width:100%;
+    height:34px;
+
+    transform:translateY(-50%);
+    transform-origin:center center;
+
+    overflow:hidden;
+
+    opacity:.98;
+    isolation:isolate;
+    pointer-events:none;
+
+    will-change:
+        transform,
+        filter,
+        clip-path;
+
+    filter:
+        blur(.12px)
+        saturate(1.35)
+        brightness(1.05);
+
+    clip-path:
+        polygon(
+            0% 58%,
+            4% 54%,
+            8% 62%,
+            12% 49%,
+            16% 60%,
+            20% 46%,
+            24% 65%,
+            28% 55%,
+            32% 61%,
+            36% 44%,
+            40% 58%,
+            44% 53%,
+            48% 67%,
+            52% 49%,
+            56% 59%,
+            60% 45%,
+            64% 65%,
+            68% 53%,
+            72% 61%,
+            76% 47%,
+            80% 57%,
+            84% 52%,
+            88% 66%,
+            92% 55%,
+            96% 60%,
+            100% 50%,
+            100% 100%,
+            0% 100%
+        );
+
+    animation:
+        spotifySurface 4.5s ease-in-out infinite;
+}
+
+/* =========================================
+   MAIN BODY
+========================================= */
+.wave::before{
+    content:"";
+
+    position:absolute;
+    inset:-20%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #f6fffc 8%,
+            #d4ffe9 18%,
+            #97ffcb 30%,
+            #4dff9f 45%,
+            #1ed760 50%,
+            #3fff8d 60%,
+            #9cffcb 75%,
+            #e7fff3 90%,
+            #ffffff 100%
+        );
+
+    background-size:300% 100%;
+
+    filter:blur(.25px);
+
+    box-shadow:
+        0 0 8px rgba(30,215,96,.25),
+        0 0 18px rgba(30,215,96,.22),
+        0 0 40px rgba(30,215,96,.18),
+        0 0 70px rgba(30,215,96,.10),
+        inset 0 2px 6px rgba(255,255,255,.35),
+        inset 0 -4px 10px rgba(30,215,96,.20);
+
+    animation:
+        spotifyFlow 3.5s linear infinite,
+        spotifyPulse 2.8s ease-in-out infinite;
+}
+
+/* =========================================
+   GLOW + SHIMMER
+========================================= */
+.wave::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 10% 35%,
+            rgba(255,255,255,.95),
+            transparent 10%
+        ),
+
+        radial-gradient(
+            circle at 35% 40%,
+            rgba(255,255,255,.55),
+            transparent 18%
+        ),
+
+        radial-gradient(
+            circle at 65% 45%,
+            rgba(255,255,255,.35),
+            transparent 22%
+        ),
+
+        radial-gradient(
+            circle at 88% 40%,
+            rgba(255,255,255,.8),
+            transparent 12%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.35),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.9) 0%,
+            rgba(255,255,255,.1) 50%,
+            rgba(255,255,255,.9) 100%
+        );
+
+    mix-blend-mode:screen;
+
+    animation:
+        spotifyShimmer 2.6s linear infinite,
+        spotifyGlow 3s ease-in-out infinite;
+}
+
+/* =========================================
+   FLOW
+========================================= */
+@keyframes spotifyFlow{
+    0%{
+        background-position:0% 0%;
+    }
+
+    100%{
+        background-position:300% 0%;
+    }
+}
+
+/* =========================================
+   SURFACE
+========================================= */
+@keyframes spotifySurface{
+    0%{
+        clip-path:
+            polygon(
+                0% 58%,
+                8% 63%,
+                16% 54%,
+                24% 66%,
+                32% 48%,
+                40% 58%,
+                48% 67%,
+                56% 55%,
+                64% 63%,
+                72% 50%,
+                80% 59%,
+                88% 66%,
+                100% 53%,
+                100% 100%,
+                0% 100%
+            );
+    }
+
+    25%{
+        clip-path:
+            polygon(
+                0% 52%,
+                8% 60%,
+                16% 45%,
+                24% 63%,
+                32% 51%,
+                40% 66%,
+                48% 55%,
+                56% 62%,
+                64% 47%,
+                72% 58%,
+                80% 52%,
+                88% 67%,
+                100% 56%,
+                100% 100%,
+                0% 100%
+            );
+    }
+
+    50%{
+        clip-path:
+            polygon(
+                0% 62%,
+                8% 50%,
+                16% 64%,
+                24% 53%,
+                32% 60%,
+                40% 46%,
+                48% 66%,
+                56% 52%,
+                64% 61%,
+                72% 48%,
+                80% 63%,
+                88% 54%,
+                100% 60%,
+                100% 100%,
+                0% 100%
+            );
+    }
+
+    75%{
+        clip-path:
+            polygon(
+                0% 55%,
+                8% 65%,
+                16% 51%,
+                24% 60%,
+                32% 44%,
+                40% 64%,
+                48% 54%,
+                56% 63%,
+                64% 49%,
+                72% 58%,
+                80% 51%,
+                88% 66%,
+                100% 54%,
+                100% 100%,
+                0% 100%
+            );
+    }
+
+    100%{
+        clip-path:
+            polygon(
+                0% 58%,
+                8% 63%,
+                16% 54%,
+                24% 66%,
+                32% 48%,
+                40% 58%,
+                48% 67%,
+                56% 55%,
+                64% 63%,
+                72% 50%,
+                80% 59%,
+                88% 66%,
+                100% 53%,
+                100% 100%,
+                0% 100%
+            );
+    }
+}
+
+/* =========================================
+   BEAT PULSE
+========================================= */
+@keyframes spotifyPulse{
+    0%{
+        transform:
+            scaleY(.92)
+            scaleX(1);
+    }
+
+    50%{
+        transform:
+            scaleY(1.12)
+            scaleX(1.02);
+    }
+
+    100%{
+        transform:
+            scaleY(.92)
+            scaleX(1);
+    }
+}
+
+/* =========================================
+   SHIMMER
+========================================= */
+@keyframes spotifyShimmer{
+    0%{
+        transform:
+            translateX(-80px);
+    }
+
+    100%{
+        transform:
+            translateX(80px);
+    }
+}
+
+/* =========================================
+   GLOW
+========================================= */
+@keyframes spotifyGlow{
+    0%{
+        opacity:.6;
+        filter:blur(0px);
+    }
+
+    50%{
+        opacity:1;
+        filter:blur(.3px);
+    }
+
+    100%{
+        opacity:.6;
+        filter:blur(0px);
+    }
+}
+.min-slider,
+.max-slider{
+    width:100%;
+
+    position:absolute;
+    left:0;
+    top:-18px;
+
+    transform:translateY(-40%);
+
+    pointer-events:none;
+
+    -webkit-appearance:none;
+    appearance:none;
+
+    background:transparent;
+
+    z-index:30;
+}
+
+/* =========================================
+   PAINTED BRUSH HANDLE
+========================================= */
+.min-slider::-webkit-slider-thumb,
+.max-slider::-webkit-slider-thumb{
+
+    pointer-events:all;
+
+    -webkit-appearance:none;
+    appearance:none;
+
+    position:relative;
+
+    width:10px;
+    height:80px;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:
+        42% 58% 51% 49% /
+        36% 45% 55% 64%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 20%,
+            rgba(255,255,255,.95),
+            rgba(255,255,255,.2) 18%,
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 70% 70%,
+            rgba(255,255,255,.15),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #effcff 10%,
+            #c8f7ff 25%,
+            #8eeaff 45%,
+            #54dbff 62%,
+            #38cfff 78%,
+            #bff8ff 100%
+        );
+
+    box-shadow:
+
+        0 10px 18px rgba(0,0,0,.18),
+
+        0 0 12px rgba(120,240,255,.55),
+
+        0 0 24px rgba(120,240,255,.28),
+
+        inset
+        0 2px 3px
+        rgba(255,255,255,.95),
+
+        inset
+        0 -4px 8px
+        rgba(0,110,170,.18),
+
+        inset
+        0 0 18px
+        rgba(255,255,255,.35);
+
+    filter:
+        saturate(1.15);
+
+    animation:
+        brushFloat 3.6s ease-in-out infinite,
+        brushMorph 8s ease-in-out infinite;
+
+    transition:
+        transform .22s ease,
+        filter .22s ease,
+        box-shadow .22s ease;
+}
+
+/* =========================================
+   PAINT CORE
+========================================= */
+.min-slider::-webkit-slider-thumb::before,
+.max-slider::-webkit-slider-thumb::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:12px;
+    height:34px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:
+        50% 50% 40% 60% /
+        25% 25% 75% 75%;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #dffcff 15%,
+            #9ef2ff 35%,
+            #4ddfff 55%,
+            #00d2ff 80%,
+            #74eeff 100%
+        );
+
+    box-shadow:
+
+        0 0 10px rgba(255,255,255,.9),
+
+        0 0 18px rgba(130,245,255,.8),
+
+        0 0 28px rgba(80,230,255,.55),
+
+        inset
+        0 1px 2px
+        rgba(255,255,255,.85);
+}
+
+/* =========================================
+   BRUSH STROKE GLOW
+========================================= */
+.min-slider::-webkit-slider-thumb::after,
+.max-slider::-webkit-slider-thumb::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-8px;
+
+    border-radius:inherit;
+
+
+    z-index:-1;
+}
+
+/* =========================================
+   HOVER
+========================================= */
+
+/* =========================================
+   ACTIVE
+========================================= */
+
+
+/* =========================================
+   FLOATING BRUSH
+========================================= */
+
+/* =========================================
+   HAND DRAWN SHAPE
+========================================= */
+@keyframes brushMorph{
+
+    0%{
+        border-radius:
+            42% 58% 51% 49% /
+            36% 45% 55% 64%;
+    }
+
+    25%{
+        border-radius:
+            54% 46% 61% 39% /
+            47% 58% 42% 53%;
+    }
+
+    50%{
+        border-radius:
+            38% 62% 45% 55% /
+            56% 40% 60% 44%;
+    }
+
+    75%{
+        border-radius:
+            59% 41% 54% 46% /
+            42% 61% 39% 58%;
+    }
+
+    100%{
+        border-radius:
+            42% 58% 51% 49% /
+            36% 45% 55% 64%;
+    }
+}
+
+/* =========================================
+   PAINT GLOW
+========================================= */
+@keyframes brushAura{
+
+    0%{
+        opacity:.45;
+        transform:scale(.92);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.15);
+    }
+
+    100%{
+        opacity:.45;
+        transform:scale(.92);
+    }
+}
+/* =========================================
+   PRICE VALUES
+========================================= */
+/* =========================================
+   PRICE VALUES
+========================================= */
+.price-values{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+}
+
+.price-values .value-box{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    flex:1;
+    margin-top:40px;
+}
+
+.price-values .value-box span{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#7a8ca5;
+}
+
+.price-values input{
+
+    width:100%;
+    max-width:90px;
+
+    padding:8px 12px;
+
+    border:none;
+    outline:none;
+
+    border-radius:14px;
+
+    background:#fff;
+
+    text-align:center;
+
+    font-size:18px;
+    font-weight:700;
+
+    color:#00b5f1;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.04),
+        0 0 0 1px rgba(0,181,241,.08);
+
+    transition:
+        .18s ease;
+}
+
+.price-values input:hover{
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 4px 14px rgba(0,0,0,.06),
+        0 0 0 1px rgba(0,181,241,.12);
+}
+
+.price-values input:focus{
+
+    box-shadow:
+        0 0 0 3px rgba(0,181,241,.14),
+        0 4px 14px rgba(0,181,241,.12);
+}
+
+/* =========================================
+   CURRENCY
+========================================= */
+.currency-box{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+
+    top:-200px;
+    margin:34px auto 10px;
+
+    isolation:isolate;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.currency-header{
+    padding:18px 20px;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.95),
+            rgba(245,251,255,.82)
+        );
+
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+
+    cursor:pointer;
+
+    border:1px solid rgba(255,255,255,.65);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.08),
+        0 8px 20px rgba(0,181,241,.08),
+        inset 0 1px 0 rgba(255,255,255,.9),
+        inset 0 -1px 0 rgba(255,255,255,.4);
+
+    transition:
+        transform .35s cubic-bezier(.22,1,.36,1),
+        box-shadow .35s cubic-bezier(.22,1,.36,1),
+        border-color .35s ease;
+
+    position:relative;
+    overflow:hidden;
+    
+    
+}
+.currency-box,
+.currency-box *{
+    font-family:
+        Inter,
+        "SF Pro Display",
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+}
+/* glow layer */
+
+.currency-header::before{
+    content:"";
+
+    position:absolute;
+    inset:-40%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,198,255,.22),
+            transparent 70%
+        );
+
+    opacity:.4;
+
+    animation:
+        headerGlow 6s linear infinite;
+
+    pointer-events:none;
+}
+
+/* premium shine */
+
+.currency-header::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 20%,
+            rgba(255,255,255,.08) 35%,
+            rgba(255,255,255,.85) 50%,
+            rgba(255,255,255,.08) 65%,
+            transparent 80%
+        );
+
+    transform:translateX(-160%);
+    animation:headerShine 4.5s ease-in-out infinite;
+}
+
+@keyframes headerShine{
+    0%{
+        transform:translateX(-160%);
+    }
+
+    35%{
+        transform:translateX(180%);
+    }
+
+    100%{
+        transform:translateX(180%);
+    }
+}
+
+@keyframes headerGlow{
+    0%{
+        transform:
+            rotate(0deg)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            rotate(180deg)
+            scale(1.15);
+    }
+
+    100%{
+        transform:
+            rotate(360deg)
+            scale(1);
+    }
+}
+
+.currency-header:hover{
+    transform:
+        translateY(-4px)
+        scale(1.015);
+
+    border-color:
+        rgba(0,181,241,.25);
+
+    box-shadow:
+        0 30px 80px rgba(0,181,241,.14),
+        0 15px 35px rgba(0,0,0,.08),
+        inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+/* OPEN STATE */
+
+.currency-box.open .currency-header{
+    box-shadow:
+        0 40px 100px rgba(0,181,241,.18),
+        0 0 0 1px rgba(0,181,241,.18),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    animation:
+        headerPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes headerPulse{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    20%{
+        transform:translateY(-2px);
+    }
+}
+
+/* ==================================================
+   DROPDOWN
+================================================== */
+
+.currency-dropdown{
+    display:none;
+
+    position:absolute;
+    top:calc(100% + 16px);
+
+    width:180px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.94),
+            rgba(247,252,255,.90)
+        );
+
+    backdrop-filter:blur(24px);
+
+    border-radius:26px;
+
+    padding:18px;
+
+    z-index:50;
+
+    border:
+        1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 40px 120px rgba(0,0,0,.12),
+        0 15px 35px rgba(0,181,241,.08);
+
+    overflow:hidden;
+}
+
+.currency-dropdown::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.35),
+            transparent 40%
+        );
+
+    pointer-events:none;
+}
+
+.currency-box.open .currency-dropdown{
+    display:block;
+
+    animation:
+        dropdownFloat .35s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes dropdownFloat{
+    from{
+        opacity:0;
+
+        transform:
+            translateY(-14px)
+            scale(.96);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+/* ==================================================
+   SEARCH
+================================================== */
+
+.currency-search{
+    width:100%;
+
+    padding:14px 16px;
+
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.85);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.05);
+
+    margin-bottom:14px;
+
+    transition:
+        .28s cubic-bezier(.22,1,.36,1);
+}
+
+.currency-search::placeholder{
+    color:#8aa2b8;
+}
+
+.currency-search:focus{
+    background:#fff;
+
+    transform:
+        translateY(-2px)
+        scale(1.01);
+
+    box-shadow:
+        0 0 0 4px rgba(0,181,241,.12),
+        0 14px 35px rgba(0,181,241,.12);
+}
+
+/* ==================================================
+   LIST
+================================================== */
+
+.currency-list{
+    max-height:260px;
+    overflow-y:auto;
+
+    padding-right:4px;
+}
+
+.currency-list::-webkit-scrollbar{
+    width:8px;
+}
+
+.currency-list::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.currency-list::-webkit-scrollbar-thumb{
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d9e5f0,
+            #89dfff
+        );
+}
+
+/* ==================================================
+   ITEM
+================================================== */
+
+.currency-item{
+    position:relative;
+
+    padding:14px 14px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:
+        transform .25s cubic-bezier(.22,1,.36,1),
+        box-shadow .25s cubic-bezier(.22,1,.36,1),
+        background .25s ease;
+}
+
+.currency-item::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.7),
+            transparent
+        );
+
+    transform:translateX(-140%);
+    transition:transform .55s ease;
+}
+
+.currency-item:hover{
+    background:
+        linear-gradient(
+            135deg,
+            #f8fdff,
+            #e7f8ff
+        );
+
+    transform:
+        translateX(6px)
+        scale(1.015);
+
+    box-shadow:
+        0 12px 28px rgba(0,181,241,.10);
+}
+
+.currency-item:hover::before{
+    transform:translateX(140%);
+}
+
+.currency-item.active{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #009dff,
+            #00d4ff,
+            #5ce7ff
+        );
+
+    background-size:250% 250%;
+
+    animation:
+        activeFlow 5s linear infinite;
+
+    box-shadow:
+        0 18px 40px rgba(0,181,241,.28),
+        0 0 25px rgba(0,212,255,.18);
+
+    font-weight:700;
+}
+
+@keyframes activeFlow{
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:250% 50%;
+    }
+}
+/* =========================================
+   CATEGORIES
+========================================= */
+.categories{
+
+    display:flex;
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:14px;
+
+    padding:16px;
+}
+
+.circle{
+
+    width:74px;
+    height:74px;
+
+    overflow:hidden;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+        0 4px 14px rgba(0,0,0,.05);
+
+    transition:
+        .18s ease;
+}
+
+.category:hover .circle{
+
+    transform:
+        scale(1.06);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.08);
+}
+
+.category.active .circle{
+
+    transform:
+        scale(1.06);
+
+    box-shadow:
+        0 0 0 3px rgba(0,181,241,.18),
+        0 8px 20px rgba(0,181,241,.15);
+}
+
+.category.hidden{
+
+    opacity:0;
+
+    transform:
+        scale(.85);
+
+    pointer-events:none;
+
+    position:absolute;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+.bottom-footer{
+
+    margin-top:50px;
+
+    padding:16px;
+
+    display:flex;
+    justify-content:center;
+
+    gap:20px;
+
+    font-size:12px;
+}
+
+.bottom-footer a{
+
+    color:#7a8ca5;
+
+    text-decoration:none;
+
+    transition:.15s ease;
+}
+
+.bottom-footer a:hover{
+    color:#00b5f1;
+}
+
+/* =========================================
+   FLOAT BUTTON
+========================================= */
+#floatingSearchBtn{
+
+    position:fixed;
+
+    bottom:20px;
+    right:20px;
+
+    padding:14px 24px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c2ff,
+            #00a8f5
+        );
+
+    color:white;
+
+    font-size:14px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0,181,241,.22);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        .22s ease;
+}
+
+#floatingSearchBtn.show{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translateY(0);
+}
+
+#floatingSearchBtn:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 14px 35px rgba(0,181,241,.28);
+}
+/* =========================================
+   ANIMATIONS
+========================================= */
+@keyframes paintBlob{
+
+    0%{
+        border-radius:
+            52% 48% 58% 42% /
+            42% 57% 43% 58%;
+    }
+
+    25%{
+        border-radius:
+            63% 37% 46% 54% /
+            54% 42% 58% 46%;
+    }
+
+    50%{
+        border-radius:
+            40% 60% 52% 48% /
+            61% 38% 62% 39%;
+    }
+
+    75%{
+        border-radius:
+            57% 43% 63% 37% /
+            44% 58% 42% 56%;
+    }
+
+    100%{
+        border-radius:
+            52% 48% 58% 42% /
+            42% 57% 43% 58%;
+    }
+}
+
+@keyframes brushTextFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-2px);
+    }
+}
+
+@keyframes dropPaint{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(-12px)
+            scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="top-navbar">
+    <div class="logo">SmartShop</div>
+
+    <div class="nav-links">
+        <a href="Home.html">Home</a>
+        <a href="#">Search</a>
+        <a href="#">Filters</a>
+        <a href="#">Profile</a>
+    </div>
+</div>
+
+</div>
+<div class="search-label">✨ Discover something new</div>
+
+<div class="search-box">
+    <textarea placeholder="Describe the product..."></textarea>
+</div>
+
+<div class="dropdown">
+    <div class="search-box">
+    <input 
+        type="text" 
+        class="dropdown-search" 
+        placeholder="Search product type..."
+    >
+
+    <span class="clear-btn">×</span>
+</div>
+
+    <div class="dropdown-list" id="dropdownList">
+        <div class="dropdown-item">Phones</div>  
+        <div class="dropdown-item">Cars</div>  
+        <div class="dropdown-item">Furniture</div>  
+        <div class="dropdown-item">Gaming</div>  
+        <div class="dropdown-item">Clothing</div>  
+        <div class="dropdown-item">Books</div>  
+        <div class="dropdown-item">Sports</div>  
+        <div class="dropdown-item">Toys</div>  
+        <div class="dropdown-item">Music</div>  
+        <div class="dropdown-item">Appliances</div>  
+        <div class="dropdown-item">Jewelry</div>  
+        <div class="dropdown-item">Beauty</div>  
+        <div class="dropdown-item">Shoes</div>  
+        <div class="dropdown-item">Bags</div>  
+        <div class="dropdown-item">Watches</div>  
+        <div class="dropdown-item">Garden</div>  
+        <div class="dropdown-item">Pets</div>  
+        <div class="dropdown-item">Tools</div>  
+        <div class="dropdown-item">Art</div>  
+        <div class="dropdown-item">Office</div>
+    </div>
+
+</div>
+<div id="subDropdown"></div>
+
+<div class="categories">
+    <div class="category" id="cat1" data-category="Phones"><div class="circle"><img src="img1.jpg"></div></div>
+    <div class="category" id="cat2" data-category="Cars"><div class="circle"><img src="img2.jpg"></div></div>
+    <div class="category" id="cat3" data-category="Furniture"><div class="circle"><img src="img3.jpg"></div></div>
+    <div class="category" id="cat4" data-category="Gaming"><div class="circle"><img src="img4.jpg"></div></div>
+    <div class="category" id="cat5" data-category="Clothing"><div class="circle"><img src="img5.jpg"></div></div>
+    <div class="category" id="cat6" data-category="Books"><div class="circle"><img src="img6.jpg"></div></div>
+    <div class="category" id="cat7" data-category="Sports"><div class="circle"><img src="img7.jpg"></div></div>
+    <div class="category" id="cat8" data-category="Toys"><div class="circle"><img src="img8.jpg"></div></div>
+    <div class="category" id="cat9" data-category="Music"><div class="circle"><img src="img9.jpg"></div></div>
+    <div class="category" id="cat10" data-category="Appliances"><div class="circle"><img src="img10.jpg"></div></div>
+    <div class="category" id="cat11" data-category="Jewelry"><div class="circle"><img src="img11.jpg"></div></div>
+    <div class="category" id="cat12" data-category="Beauty"><div class="circle"><img src="img12.jpg"></div></div>
+    <div class="category" id="cat13" data-category="Shoes"><div class="circle"><img src="img13.jpg"></div></div>
+    <div class="category" id="cat14" data-category="Bags"><div class="circle"><img src="img14.jpg"></div></div>
+    <div class="category" id="cat15" data-category="Watches"><div class="circle"><img src="img15.jpg"></div></div>
+    <div class="category" id="cat16" data-category="Garden"><div class="circle"><img src="img16.jpg"></div></div>
+    <div class="category" id="cat17" data-category="Pets"><div class="circle"><img src="img17.jpg"></div></div>
+    <div class="category" id="cat18" data-category="Tools"><div class="circle"><img src="img18.jpg"></div></div>
+    <div class="category" id="cat19" data-category="Art"><div class="circle"><img src="img19.jpg"></div></div>
+    <div class="category" id="cat20" data-category="Office"><div class="circle"><img src="img20.jpg"></div></div>
+</div>
+<div class="bottom-footer">
+    <a href="#">Search</a>
+    <a href="#">Help</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+</div>
+<div id="floatingSearchBtn">Search</div>
+</body>
+<script>
+
+// =================
+// DATA
+// =================
+const filterData = {
+
+Phones: {
+    Brand: ["Apple", "Samsung", "Xiaomi", "OnePlus", "Google", "Huawei", "Oppo", "Vivo", "Nokia"],
+    Price: { min: 100, max: 2000 },
+    Condition: ["New", "Used", "Like New"],
+    Storage: ["64GB", "128GB", "256GB", "512GB"]
+},
+
+Cars: {
+    Brand: ["BMW", "Audi", "Tesla", "Mercedes", "Toyota", "Honda", "Ford", "Kia", "Hyundai"],
+    Price: { min: 3000, max: 80000 },
+    Year: ["2020+", "2015-2020", "Before 2015"],
+    Fuel: ["Gas", "Diesel", "Electric"]
+},
+
+Furniture: {
+    Type: ["Chair", "Table", "Sofa", "Bed", "Wardrobe", "Shelf", "Desk", "Cabinet", "Stool"],
+    Price: { min: 20, max: 5000 },
+    Condition: ["New", "Used"],
+    Material: ["Wood", "Metal", "Plastic", "Glass"]
+},
+
+Gaming: {
+    Platform: ["PC", "PlayStation", "Xbox", "Nintendo", "Steam Deck", "Mobile", "VR", "Arcade", "Cloud Gaming"],
+    Price: { min: 10, max: 1200 },
+    Condition: ["New", "Used"],
+    Genre: ["Action", "Sports", "RPG", "Adventure", "Shooter", "Strategy"]
+},
+
+Clothing: {
+    Type: ["Shirt", "Pants", "Shoes", "Jacket", "Hoodie", "Coat", "Dress", "Skirt", "Shorts"],
+    Price: { min: 5, max: 500 },
+    Size: ["S", "M", "L", "XL"],
+    Condition: ["New", "Used"]
+},
+
+Books: {
+    Genre: ["Fiction", "Non-fiction", "Comics", "Educational", "Biography", "History", "Science", "Fantasy", "Horror"],
+    Price: { min: 1, max: 200 },
+    Condition: ["New", "Used"],
+    Language: ["English", "Other", "Hebrew", "Russian"]
+},
+
+Sports: {
+    Type: ["Football", "Basketball", "Tennis", "Running Shoes", "Gym Equipment", "Yoga", "Swimming", "Cycling"],
+    Price: { min: 10, max: 800 },
+    Condition: ["New", "Used"],
+    Brand: ["Nike", "Adidas", "Puma", "Under Armour", "Reebok"]
+},
+
+Toys: {
+    Type: ["Lego", "Action Figures", "Puzzles", "Board Games", "Remote Cars", "Dolls", "Educational Toys", "Plush Toys"],
+    Price: { min: 5, max: 300 },
+    Age: ["3+", "6+", "12+", "16+"],
+    Condition: ["New", "Used"]
+},
+
+Music: {
+    Instrument: ["Guitar", "Piano", "Drums", "Microphone", "Violin", "Bass", "Saxophone", "Flute"],
+    Price: { min: 20, max: 5000 },
+    Condition: ["New", "Used"],
+    Brand: ["Yamaha", "Fender", "Casio", "Roland"]
+},
+
+Appliances: {
+    Type: ["Refrigerator", "Oven", "Washing Machine", "Microwave", "Air Conditioner", "Vacuum Cleaner"],
+    Price: { min: 50, max: 3000 },
+    Condition: ["New", "Used"],
+    Energy: ["A", "B", "C", "D"]
+},
+
+Jewelry: {
+    Type: ["Necklaces", "Rings", "Earrings", "Bracelets", "Watches", "Chains"],
+    Price: { min: 20, max: 20000 },
+    Material: ["Gold", "Silver", "Diamond", "Platinum"],
+    Condition: ["New", "Used"]
+},
+
+Beauty: {
+    Type: ["Lipstick", "Foundation", "Perfume", "Skincare", "Hair Care", "Makeup Tools"],
+    Price: { min: 5, max: 500 },
+    Brand: ["Dior", "Chanel", "L'Oréal", "Maybelline", "MAC"],
+    Condition: ["New"]
+},
+
+Shoes: {
+    Type: ["Sneakers", "Boots", "Sandals", "Heels", "Slippers", "Sports Shoes"],
+    Price: { min: 10, max: 1000 },
+    Size: ["36", "38", "40", "42", "44", "46"],
+    Condition: ["New", "Used"]
+},
+
+Bags: {
+    Type: ["Backpack", "Handbag", "Messenger Bag", "Clutch", "Suitcase", "Wallet"],
+    Price: { min: 10, max: 5000 },
+    Material: ["Leather", "Fabric", "Nylon"],
+    Condition: ["New", "Used"]
+},
+
+Watches: {
+    Type: ["Analog", "Digital", "Smartwatch", "Luxury", "Sport"],
+    Price: { min: 20, max: 50000 },
+    Brand: ["Rolex", "Casio", "Apple", "Samsung"],
+    Condition: ["New", "Used"]
+},
+
+Garden: {
+    Type: ["Plants", "Seeds", "Tools", "Fertilizers", "Pots", "Irrigation Systems"],
+    Price: { min: 2, max: 1000 },
+    Condition: ["New"],
+    Usage: ["Indoor", "Outdoor"]
+},
+
+Pets: {
+    Type: ["Dog Food", "Cat Toys", "Aquarium", "Bird Cage", "Leash", "Pet Bed", "Collar", "Toys", "Shampoo"],
+    Price: { min: 3, max: 2000 },
+    Animal: ["Dog", "Cat", "Bird", "Fish", "Hamster", "Rabbit", "Snake", "Horse", "Turtle"],
+    Condition: ["New"]
+},
+
+Tools: {
+    Type: ["Hammer", "Drill", "Screwdriver", "Wrench", "Saw", "Plier", "Level", "Tape Measure"],
+    Price: { min: 5, max: 2000 },
+    Condition: ["New", "Used"],
+    Power: ["Manual", "Electric", "Battery"]
+},
+
+Art: {
+    Type: ["Paint", "Brushes", "Canvas", "Sculpture", "Markers", "Easels"],
+    Price: { min: 5, max: 10000 },
+    Condition: ["New"],
+    Style: ["Modern", "Classic", "Abstract"]
+},
+
+Office: {
+    Type: ["Chair", "Desk", "Stationery", "Printer", "Laptop Stand", "Lamp"],
+    Price: { min: 10, max: 3000 },
+    Condition: ["New", "Used"],
+    Usage: ["Home", "Business"]
+}
+
+};; 
+
+// =================
+// ELEMENTS
+// =================
+const dropdown = document.querySelector(".dropdown");
+const header = document.querySelector(".dropdown-header");
+const clearBtn = document.querySelector(".clear-btn");
+const items = document.querySelectorAll("#dropdownList .dropdown-item");
+const searchInput = document.querySelector(".dropdown-search");
+const sub = document.getElementById("subDropdown");
+let SearchButtom = false
+const scrollBtn = document.getElementById("scrollTopBtn");
+const floatingBtn = document.getElementById("floatingSearchBtn");
+let scrollTimeout;
+
+// =================
+// פתיחה בפוקוס
+// =================
+searchInput.addEventListener("focus", () => {
+    updateClearButton()
+    dropdown.classList.add("open");
+    filterItems();
+});
+
+// =================
+// בחירה
+// =================
+items.forEach(item => {
+    item.addEventListener("click", () => {
+        searchInput.value = item.textContent;
+        buildSubDropdown(item.textContent);
+        activateCategory(item.textContent);
+
+        // 🔥 סוגר
+        dropdown.classList.remove("open");
+    });
+});
+
+// =================
+// לחיצה מחוץ
+// =================
+document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
+        currencyBox.classList.remove("open");
+    }
+});
+searchInput.addEventListener("input", filterItems);
+function filterItems() {
+    const value = searchInput.value.toLowerCase().trim();
+
+    // אם השדה ריק
+    if (value === "") {
+        floatingBtn.classList.remove("show");
+        SearchButtom = false;
+        DeleteSubDropdown();
+        dropdown.classList.add("open");
+    }
+
+    updateClearButton();
+
+    // סינון פריטים
+    items.forEach(item => {
+        const text = item.textContent.toLowerCase().trim();
+
+        item.style.display = text.includes(value)
+            ? "block"
+            : "none";
+    });
+
+    // חיפוש התאמה מלאה
+    const match = Array.from(items).find(item =>
+        item.textContent.toLowerCase().trim() === value
+    );
+
+    if (!match) return;
+
+    const name = match.textContent;
+
+    buildSubDropdown(name);
+    activateCategory(name);
+}
+
+function activateCategory(name) {
+    const categories = document.querySelectorAll(".category");
+
+    categories.forEach(cat => {
+        const catName = cat.getAttribute("data-category");
+
+        if (catName === name) {
+            cat.classList.add("active");
+            cat.classList.remove("hidden");
+        } else {
+            cat.classList.remove("active");
+            cat.classList.add("hidden");
+        }
+    });
+};
+
+function updateClearButton() {
+    clearBtn.style.display = searchInput.value ? "block" : "none";
+}
+// לחיצה על X
+clearBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    floatingBtn.classList.remove("show");
+    SearchButtom = false;
+    DeleteSubDropdown();
+    clearBtn.style.display = "none";
+
+    searchInput.focus(); // מחזיר פוקוס
+});
+// =================
+// CATEGORIES
+// =================
+document.querySelectorAll(".category").forEach(cat => {
+    cat.addEventListener("click", () => {
+
+        const isActive = cat.classList.contains("active");
+
+        if (isActive) {
+            document.querySelectorAll(".category").forEach(c => {
+                c.classList.remove("hidden", "active");
+            });
+            return;
+        }
+
+        document.querySelectorAll(".category").forEach(c => {
+            c.classList.remove("active");
+            c.classList.add("hidden");
+        });
+
+        cat.classList.add("active");
+        cat.classList.remove("hidden");
+
+        const name = cat.getAttribute("data-category");
+
+        searchInput.value = name;
+        buildSubDropdown(name);
+    });
+});
+
+
+// =================
+// BUILD FILTERS
+// =================
+function buildSubDropdown(category) {
+    const data = filterData[category];
+    
+    if (!data) {
+        sub.innerHTML = "";
+        return;
+    }
+    updateClearButton();
+    SearchButtom = true;
+    floatingBtn.classList.add("show");
+    const html = Object.entries(data).map(([group, items]) => {
+        
+// ================= PRICE =================
+if (group === "Price") {
+    return `
+        <div class="filter-group">
+            <div class="filter-title">${group}</div>
+
+            <div class="price-range">
+<div class="bar">
+    <div class="bar-inner">
+      
+    </div>
+</div>                <input type="range"
+                    min="${items.min}"
+                    max="${items.max}"
+                    value="${items.min}"
+                    class="min-slider">
+
+                <input type="range"
+                    min="${items.min}"
+                    max="${items.max}"
+                    value="${items.max}"
+                    class="max-slider">
+                    
+                    
+<div class="price-values">
+
+    <div class="price-field">
+        <label>Min Price</label>
+        <input type="number" class="min-input" value="${items.min}">
+    </div>
+
+    <div class="price-field">
+        <label>Max Price</label>
+        <input type="number" class="max-input" value="${items.max}">
+    </div>
+
+</div>
+
+                <div class="currency-box">
+                    <div class="currency-header">USD ($) ▼</div>
+
+                    <div class="currency-dropdown">
+                        <input type="text" class="currency-search" placeholder="Search...">
+                        
+                            <div class="currency-list">
+                        <div class="currency-item">USD ($)</div>
+                        <div class="currency-item">EUR (€)</div>
+                        <div class="currency-item">ILS (₪)</div>
+                        <div class="currency-item">GEL (₾)</div>
+                        <div class="currency-item">GBP (£)</div>
+                        <div class="currency-item">JPY (¥)</div>
+                        <div class="currency-item">CAD (C$)</div>
+                        <div class="currency-item">AUD (A$)</div>
+                        <div class="currency-item">CHF (Fr)</div>
+                        <div class="currency-item">CNY (¥)</div>
+                        <div class="currency-item">INR (₹)</div>
+                        <div class="currency-item">KRW (₩)</div>
+                        <div class="currency-item">BRL (R$)</div>
+                        <div class="currency-item">RUB (₽)</div>
+                        <div class="currency-item">TRY (₺)</div>
+                        <div class="currency-item">ZAR (R)</div>
+                        <div class="currency-item">MXN ($)</div>
+                        <div class="currency-item">SEK (kr)</div>
+                        <div class="currency-item">NOK (kr)</div>
+                        <div class="currency-item">DKK (kr)</div>
+                        <div class="currency-item">PLN (zł)</div>
+                        <div class="currency-item">THB (฿)</div>
+                        <div class="currency-item">AED (د.إ)</div>
+                        <div class="currency-item">SAR (﷼)</div>
+                        <div class="currency-item">HKD (HK$)</div>
+                        <div class="currency-item">SGD (S$)</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+        // ================= OTHER FILTERS =================
+        const MAX_VISIBLE = 8;
+        const isLong = items.length > MAX_VISIBLE;
+
+        return `
+            <div class="filter-group">
+                <div class="filter-title">${group}</div>
+
+                <input type="text" class="sub-search" placeholder="Search ${group}...">
+
+                <div class="filter-options">
+                    ${items.map((item, i) => `
+                        <div class="sub-item" style="display:${i < MAX_VISIBLE ? "block" : "none"}">
+                            ${item}
+                        </div>
+                    `).join("")}
+                </div>
+
+                ${isLong ? `
+                    <div class="show-more" data-expanded="false">
+                        More ${group}
+                    </div>
+                ` : ""}
+            </div>
+        `;
+    }).join("");
+
+    sub.innerHTML = html;
+    setupSub();
+}
+
+
+// =================
+// FILTER BEHAVIOR
+// =================
+function setupSub() {
+
+// ================= PRICE =================
+const minSlider = document.querySelector(".min-slider");
+const maxSlider = document.querySelector(".max-slider");
+const minInput  = document.querySelector(".min-input");
+const maxInput  = document.querySelector(".max-input");
+const range = document.querySelector(".price-range");
+
+
+if (minSlider && maxSlider && minInput && maxInput) {
+
+    const ABS_MIN = parseInt(minSlider.min) || 0;
+    const ABS_MAX = parseInt(maxSlider.max) || 10000;
+
+    const updateBars = () => {
+
+        const min = parseInt(minSlider.value);
+        const max = parseInt(maxSlider.value);
+        
+    const minPercent = ((min - ABS_MIN) / (ABS_MAX - ABS_MIN)) * 100;
+    const maxPercent = ((max - ABS_MIN) / (ABS_MAX - ABS_MIN)) * 100;
+
+    range.style.setProperty("--min", minPercent + "%");
+    range.style.setProperty("--max", maxPercent + "%");
+   
+
+    };
+    
+minSlider.addEventListener("input", updateBars);
+maxSlider.addEventListener("input", updateBars);
+
+    const update = () => {
+
+        let min = parseInt(minSlider.value);
+        let max = parseInt(maxSlider.value);
+
+        if (min > max) min = max;
+        if (max < min) max = min;
+
+        minSlider.value = min;
+        maxSlider.value = max;
+
+        minInput.value = min;
+        maxInput.value = max;
+
+        updateBars();
+    };
+
+    const applyMinInput = () => {
+        let val = parseInt(minInput.value);
+
+        if (isNaN(val)) val = ABS_MIN;
+        if (val < ABS_MIN) val = ABS_MIN;
+        if (val > parseInt(maxSlider.value)) {
+            val = parseInt(maxSlider.value);
+        }
+
+        minSlider.value = val;
+        update();
+    };
+
+    const applyMaxInput = () => {
+        let val = parseInt(maxInput.value);
+
+        if (isNaN(val)) val = ABS_MAX;
+        if (val > ABS_MAX) val = ABS_MAX;
+        if (val < parseInt(minSlider.value)) {
+            val = parseInt(minSlider.value);
+        }
+
+        maxSlider.value = val;
+        update();
+    };
+
+    minSlider.oninput = update;
+    maxSlider.oninput = update;
+
+    minInput.addEventListener("keydown", e => {
+        if (e.key === "Enter") applyMinInput();
+    });
+
+    maxInput.addEventListener("keydown", e => {
+        if (e.key === "Enter") applyMaxInput();
+    });
+
+    minInput.addEventListener("blur", applyMinInput);
+    maxInput.addEventListener("blur", applyMaxInput);
+
+    update();
+}
+
+const bar =
+    document.querySelector(".bar");
+
+const barInner =
+    document.querySelector(".bar-inner");
+
+const sliders =
+    document.querySelectorAll(
+        ".min-slider, .max-slider"
+    );
+
+
+/* =========================================
+   CLEAR WAVES
+========================================= */
+
+const WAVE_WIDTH = 2400;
+
+let waves = [];
+let noiseOffset = 0;
+let animationId = null;
+
+/* =========================================
+   CREATE FLOW
+========================================= */
+function createWaveFlow(){
+
+
+
+    cancelAnimationFrame(animationId);
+
+    barInner.innerHTML = "";
+    waves = [];
+    noiseOffset = 0;
+
+    createWaveLayer(0.0, 1.00, 1.00, 0);
+    createWaveLayer(1.4, 0.90, 0.85, 1);
+    createWaveLayer(2.8, 0.75, 0.65, 2);
+    createWaveLayer(4.2, 0.60, 0.45, 3);
+    createWaveLayer(5.6, 0.45, 0.25, 4);
+
+    animateWaves();
+}
+
+/* =========================================
+   CREATE LAYER
+========================================= */
+function createWaveLayer(
+    phase,
+    amplitudeMultiplier,
+    opacity,
+    index
+){
+
+    const svg =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "svg"
+        );
+
+    svg.setAttribute(
+        "viewBox",
+        `0 0 ${WAVE_WIDTH} 320`
+    );
+
+    svg.setAttribute(
+        "preserveAspectRatio",
+        "none"
+    );
+
+    svg.style.position =
+        "absolute";
+
+    svg.style.left =
+        "0";
+
+    svg.style.top =
+        "70%";
+
+    svg.style.width =
+        "200%";
+
+    svg.style.height =
+        "200%";
+
+    svg.style.pointerEvents =
+        "none";
+
+    svg.style.opacity =
+        opacity;
+
+    svg.style.mixBlendMode =
+        "screen";
+
+    const defs =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "defs"
+        );
+
+    const gradient =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "linearGradient"
+        );
+
+    const gradientId =
+        `waveGradient_${index}_${Math.random()}`;
+
+    gradient.setAttribute(
+        "id",
+        gradientId
+    );
+
+    gradient.setAttribute(
+        "gradientUnits",
+        "userSpaceOnUse"
+    );
+
+    gradient.setAttribute(
+        "x1",
+        "0"
+    );
+
+    gradient.setAttribute(
+        "x2",
+        WAVE_WIDTH
+    );
+
+    gradient.setAttribute(
+        "y1",
+        "0"
+    );
+
+    gradient.setAttribute(
+        "y2",
+        "0"
+    );
+
+const colors = [
+    "#4285F4",
+    "#5F9EFF",
+    "#7CB7FF",
+
+    "#34A853",
+    "#57C66E",
+    "#8BEA94",
+
+    "#FBBC05",
+    "#FFD44A",
+    "#FFE79A",
+
+    "#EA4335",
+    "#F86A5C",
+    "#FFAAA1",
+
+    "#EA4335",
+    "#FBBC05",
+    "#34A853",
+    "#4285F4"
+];
+    colors.forEach(
+        (color,index)=>{
+
+            const stop =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "stop"
+                );
+
+            stop.setAttribute(
+                "offset",
+                `${(index/(colors.length-1))*100}%`
+            );
+
+            stop.setAttribute(
+                "stop-color",
+                color
+            );
+
+            gradient.appendChild(
+                stop
+            );
+        }
+    );
+
+    defs.appendChild(
+        gradient
+    );
+
+    const path =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "path"
+        );
+
+    path.setAttribute(
+        "fill",
+        `url(#${gradientId})`
+    );
+
+    svg.appendChild(defs);
+    svg.appendChild(path);
+
+    barInner.appendChild(svg);
+
+    waves.push({
+        svg,
+        path,
+        gradient,
+        phase,
+        amplitudeMultiplier
+    });
+}
+
+/* =========================================
+   ADVANCED FLUID SURFACE
+========================================= */
+function buildWavePath(
+    time,
+    amplitudeMultiplier
+){
+
+    const width =
+        WAVE_WIDTH;
+
+    const height =
+        280;
+
+    const centerY =
+
+        200 +
+
+        Math.sin(
+            time * 0.15
+        ) * 10 +
+
+        Math.cos(
+            time * 0.07
+        ) * 5;
+
+    const points = [];
+
+    for(
+        let x = 0;
+        x <= width;
+        x += 16
+    ){
+
+        const giantSwell =
+
+            Math.sin(
+                x * 0.0014 +
+                time * 0.55
+            ) *
+
+            60 *
+
+            amplitudeMultiplier;
+
+        const secondarySwell =
+
+            Math.cos(
+                x * 0.0028 -
+                time * 0.90
+            ) *
+
+            35 *
+
+            amplitudeMultiplier;
+
+        const tertiary =
+
+            Math.sin(
+                x * 0.0055 +
+                time * 1.60
+            ) *
+
+            20 *
+
+            amplitudeMultiplier;
+
+        const rippleA =
+
+            Math.sin(
+                x * 0.016 +
+                time * 3.2
+            ) *
+
+            6 *
+
+            amplitudeMultiplier;
+
+        const rippleB =
+
+            Math.cos(
+                x * 0.028 -
+                time * 2.7
+            ) *
+
+            4 *
+
+            amplitudeMultiplier;
+
+        const rippleC =
+
+            Math.sin(
+                x * 0.045 +
+                time * 4.5
+            ) *
+
+            2 *
+
+            amplitudeMultiplier;
+
+        const breathing =
+
+            Math.sin(
+                time * 0.28
+            ) *
+
+            12 *
+
+            amplitudeMultiplier;
+
+        const y =
+
+            centerY +
+            giantSwell +
+            secondarySwell +
+            tertiary +
+            rippleA +
+            rippleB +
+            rippleC +
+            breathing;
+
+        points.push({
+            x,
+            y
+        });
+    }
+
+    let d =
+        `M 0 ${height}`;
+
+    d +=
+        ` L ${points[0].x} ${points[0].y}`;
+
+    for(
+        let i = 0;
+        i < points.length - 1;
+        i++
+    ){
+
+        const current =
+            points[i];
+
+        const next =
+            points[i + 1];
+
+        const xc =
+            (current.x + next.x) / 2;
+
+        const yc =
+            (current.y + next.y) / 2;
+
+        d +=
+            ` Q ${current.x} ${current.y} ${xc} ${yc}`;
+    }
+
+    const last =
+        points[
+            points.length - 1
+        ];
+
+    d +=
+        ` L ${last.x} ${last.y}`;
+
+    d +=
+        ` L ${width} ${height}`;
+
+    d +=
+        ` L 0 ${height} Z`;
+
+    return d;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+function animateWaves(){
+
+
+    noiseOffset += 0.09;
+
+    waves.forEach(
+        wave=>{
+
+            const time =
+                noiseOffset +
+                wave.phase;
+
+            const floatY =
+
+                Math.sin(
+                    time * 0.35
+                ) * 8 +
+
+                Math.cos(
+                    time * 0.18
+                ) * 4;
+
+            const scaleY =
+
+                1 +
+
+                Math.sin(
+                    time * 0.14
+                ) *
+
+                0.045;
+
+            const scaleX =
+
+                1 +
+
+                Math.cos(
+                    time * 0.08
+                ) *
+
+                0.015;
+
+            const skew =
+
+                Math.sin(
+                    time * 0.10
+                ) *
+
+                1.2;
+
+            wave.svg.style.transform =
+                `
+                translateY(calc(-50% + ${floatY}px))
+                scaleX(${scaleX})
+                scaleY(${scaleY})
+                skewX(${skew}deg)
+                `;
+
+            wave.path.setAttribute(
+                "d",
+                buildWavePath(
+                    time,
+                    wave.amplitudeMultiplier
+                )
+            );
+
+            const gradientShift =
+
+                (
+                    Math.sin(
+                        time * 0.22
+                    ) + 1
+                ) *
+
+                400;
+
+            wave.gradient.setAttribute(
+                "x1",
+                -gradientShift
+            );
+
+            wave.gradient.setAttribute(
+                "x2",
+                WAVE_WIDTH -
+                gradientShift
+            );
+
+            const blur =
+
+                1 +
+                (
+                    1 -
+                    wave.amplitudeMultiplier
+                ) *
+                6;
+
+            const glow =
+
+                20 *
+                wave.amplitudeMultiplier;
+
+
+        }
+    );
+
+    animationId =
+        requestAnimationFrame(
+            animateWaves
+        );
+}
+
+/* =========================================
+   CLEAR
+========================================= */
+function clearWaves(){
+
+    cancelAnimationFrame(
+        animationId
+    );
+
+    waves = [];
+
+    barInner.innerHTML = "";
+}
+
+/* =========================================
+   START
+========================================= */
+createWaveFlow();
+
+    // ================= GROUPS =================//
+    document.querySelectorAll(".filter-group").forEach(groupEl => {
+
+        const btn = groupEl.querySelector(".show-more");
+        const items = groupEl.querySelectorAll(".sub-item");
+
+        if (btn) {
+            btn.onclick = () => {
+
+                const expanded = btn.dataset.expanded === "true";
+
+                items.forEach((item, i) => {
+                    item.style.display = expanded
+                        ? (i < 8 ? "block" : "none")
+                        : "block";
+                });
+
+                btn.textContent = expanded ? "More" : "Show less";
+                btn.dataset.expanded = (!expanded).toString();
+            };
+        }
+
+        const search = groupEl.querySelector(".sub-search");
+
+        if (search) {
+            search.oninput = () => {
+                const value = search.value.toLowerCase();
+
+                items.forEach(item => {
+                    item.style.display =
+                        item.textContent.toLowerCase().includes(value)
+                            ? "block"
+                            : "none";
+                });
+            };
+        }
+
+        items.forEach(item => {
+            item.onclick = () => {
+                item.classList.toggle("selected");
+            };
+        });
+    });
+
+    const currencyHeader = document.querySelector(".currency-header");
+    const currencyBox = document.querySelector(".currency-box");
+
+    if (currencyHeader && currencyBox) {
+
+        currencyHeader.onclick = () => {
+            currencyBox.classList.toggle("open");
+        };
+          const currencyItems = document.querySelectorAll(".currency-item");
+        const currencySearch = document.querySelector(".currency-search");
+           document.addEventListener("click", (e) => {
+    if (!currencyBox.contains(e.target)) {
+        currencyBox.classList.remove("open");
+    }
+});
+
+        currencyItems.forEach(item => {
+            item.onclick = () => {
+                currencyHeader.textContent = item.textContent + " ▼";
+                currencyBox.classList.remove("open");
+            };
+        });
+
+        if (currencySearch) {
+            currencySearch.oninput = () => {
+                const val = currencySearch.value.toLowerCase();
+
+                currencyItems.forEach(item => {
+                    item.style.display =
+                        item.textContent.toLowerCase().includes(val)
+                            ? "block"
+                            : "none";
+                });
+            };
+        }
+    }
+}
+
+const navbar = document.querySelector(".top-navbar");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("query");
+
+    if (!query) return;
+
+    // ניקוי
+    const value = query.toLowerCase();
+
+    // כל ה-dropdown items
+    const items = document.querySelectorAll("#dropdownList .dropdown-item");
+
+    items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+
+        if (text.includes(value)) {
+
+            // מעדכן dropdown
+            searchInput.value= item.textContent;
+
+            // בונה פילטרים
+            buildSubDropdown(item.textContent);
+
+            // מפעיל עיגול
+            activateCategory(item.textContent);
+        }
+    });
+});
+window.addEventListener("DOMContentLoaded", () => {
+    let scrollTimeout;
+
+    window.addEventListener("scroll", () => {
+        if (!SearchButtom) return
+        floatingBtn.classList.remove("show");
+
+        clearTimeout(scrollTimeout);
+
+        scrollTimeout = setTimeout(() => {
+            floatingBtn.classList.add("show");
+        }, 300);
+    });
+
+});
+function DeleteSubDropdown() {
+    
+    const activeCategory = document.querySelector(".category.active");
+
+    if (activeCategory) {
+        activeCategory.click();
+    }
+    document.getElementById("subDropdown").innerHTML = "";
+
+}
+</script>
+</html>
+
