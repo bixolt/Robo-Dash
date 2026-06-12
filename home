@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>My Project</title>
+
+<style>
+body {
+    background: #f4f8fb;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 4px 14px rgba(0, 150, 255, 0.08);
+}
+
+.nav-item {
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-item img {
+    width: 28px;
+    opacity: 0.7;
+}
+
+.nav-item p {
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+
+.nav-item:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* TOP CATEGORIES */
+.top-categories {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 15px;
+}
+
+.circle-item {
+    text-align: center;
+}
+
+.circle-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,150,255,0.15);
+}
+
+.circle-item p {
+    font-size: 12px;
+    margin-top: 6px;
+}
+.hero-section {
+    padding: 20px;
+}
+
+.hero-cards {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+}
+
+.hero-card {
+    min-width: 220px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    padding: 18px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,150,255,0.2);
+    transition: 0.3s;
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+}
+
+.hero-card .tag {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.hero-card h3 {
+    margin: 8px 0;
+}
+
+.hero-card span {
+    font-size: 13px;
+    opacity: 0.9;
+}
+/* SEARCH */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.search-bar input {
+    width: 70%;
+    max-width: 500px;
+    padding: 13px 16px;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    box-shadow: 0 4px 14px rgba(0,150,255,0.1);
+}
+
+.search-bar input:focus {
+    box-shadow: 0 6px 20px rgba(0,150,255,0.2);
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-bar button:hover {
+    transform: scale(1.05);
+}
+.search-bar button.error {
+    background: #ff4d4d;
+    animation: shake 0.4s;
+}
+
+/* אנימציית רעידה */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+.search-suggestions {
+    width: 70%;
+    max-width: 500px;
+    margin: -10px auto 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,150,255,0.1);
+
+    /* ⭐ שדרוג חשוב */
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/* scrollbar יפה יותר (אופציונלי אבל מומלץ) */
+.search-suggestions::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb {
+    background: #cce6ff;
+    border-radius: 10px;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.suggestion-item:hover {
+    background: #f0f8ff;
+}
+
+/* SECTION */
+.section {
+    padding: 18px;
+}
+
+.section h2 {
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.slider {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    cursor: grab;
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider:active {
+    cursor: grabbing;
+}
+.track {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.track img {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* VIP */
+.vip-section {
+    margin-top: 40px;
+}
+
+.vip-products {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.vip-footer-link {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.vip-footer-link a {
+    font-size: 14px;
+    color: #0072ff;
+    text-decoration: none;
+}
+
+.vip-footer-link a:hover {
+    text-decoration: underline;
+}
+
+.vip-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 15px;
+    box-shadow: 0 6px 18px rgba(0,150,255,0.08);
+    transition: 0.3s;
+}
+
+.vip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,150,255,0.15);
+}
+
+.vip-card img {
+    width: 140px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.vip-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.vip-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.vip-desc {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.vip-price {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0072ff;
+}
+
+/* ACTIONS */
+.quick-actions {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #111;
+    transition: 0.3s;
+    animation: float 6s ease-in-out infinite;
+}
+
+.action-item span {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* CIRCLE */
+.circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,150,255,0.2);
+}
+
+.circle-1 {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.circle-2 {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+}
+
+.circle-3 {
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+}
+
+.action-item:hover {
+    transform: translateY(-6px);
+}
+
+.action-item:hover .circle {
+    transform: scale(1.1);
+}
+
+/* FLOAT */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background: #0f172a;
+    margin-top: 30px;
+}
+
+.footer a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+/* LINKS */
+.section h2 a {
+    text-decoration: none;
+    color: #111;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.section h2 a:hover {
+    color: #0072ff;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    font-size: 20px;
+
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,150,255,0.25);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+
+    transition: 0.3s;
+    z-index: 999;
+}
+
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scrollTopBtn:hover {
+    transform: scale(1.1);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+    <a href="Settings.html">
+        <div class="nav-item">
+            <img src="img1.jpg">
+            <p>Settings</p>
+        </div>
+    </a>
+
+    <a href="Policy.html">
+        <div class="nav-item">
+            <img src="img2.jpg">
+            <p>Policy</p>
+        </div>
+    </a>
+
+    <a href="Chat.html">
+        <div class="nav-item">
+            <img src="img3.jpg">
+            <p>Chat</p>
+        </div>
+    </a>
+
+    <a href="Users.html">
+        <div class="nav-item">
+            <img src="img4.jpg">
+            <p>Users</p>
+        </div>
+    </a>
+
+</div>
+
+<!-- CIRCLES -->
+<div class="top-categories">
+
+    <a href="Search.html">
+        <div class="circle-item">
+            <img src="search.png">
+            <p>Search</p>
+        </div>
+    </a>
+
+    <a href="Ad.html">
+        <div class="circle-item">
+            <img src="ad.png">
+            <p>Ad</p>
+        </div>
+    </a>
+
+    <a href="Help.html">
+        <div class="circle-item">
+            <img src="help.png">
+            <p>Help</p>
+        </div>
+    </a>
+
+    <a href="About.html">
+        <div class="circle-item">
+            <img src="about.png">
+            <p>About</p>
+        </div>
+    </a>
+
+    <a href="Profile.html">
+        <div class="circle-item">
+            <img src="user.png">
+            <p>Profile</p>
+        </div>
+    </a>
+
+</div>
+</div>
+<div class="section hero-section">
+
+  <h2>✨ Discover for you</h2>
+
+  <div class="hero-cards">
+
+    <div class="hero-card">
+      <p class="tag">🔥 Best Deals</p>
+      <h3>Up to 50% off</h3>
+      <span>Find hot discounts now</span>
+    </div>
+
+    <div class="hero-card">
+      <p class="tag">⭐ VIP</p>
+      <h3>Premium Products</h3>
+      <span>Top quality items</span>
+    </div>
+
+    <div class="hero-card">
+      <p class="tag">📍 Near You</p>
+      <h3>Close to you</h3>
+      <span>Products around your area</span>
+    </div>
+</div>
+</div>
+<div class="section" id="favorite">
+    <h2><a href="#favorite">Your favorite 💙️</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+</div>
+<div class="search-bar">
+    <input type="text" placeholder="Search products, cars, phones...">
+    <button>Search</button>
+</div>
+    <div class="search-suggestions"></div>
+<div class="section" id="phones">
+    <h2><a href="#phones">Phones</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="cars">
+    <h2><a href="#cars">Cars</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="furniture">
+    <h2><a href="#furniture">Furniture</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="gaming">
+    <h2><a href="#gaming">Gaming</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="clothing">
+    <h2><a href="#clothing">Clothing</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="books">
+    <h2><a href="#books">Books</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="sports">
+    <h2><a href="#sports">Sports</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="toys">
+    <h2><a href="#toys">Toys</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="music">
+    <h2><a href="#music">Music</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="appliances">
+    <h2><a href="#appliances">Appliances</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="jewelry">
+    <h2><a href="#jewelry">Jewelry</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="beauty">
+    <h2><a href="#beauty">Beauty</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="shoes">
+    <h2><a href="#shoes">Shoes</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="bags">
+    <h2><a href="#bags">Bags</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="watches">
+    <h2><a href="#watches">Watches</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="garden">
+    <h2><a href="#garden">Garden</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="pets">
+    <h2><a href="#pets">Pets</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="tools">
+    <h2><a href="#tools">Tools</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="art">
+    <h2><a href="#art">Art</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="office">
+    <h2><a href="#office">Office</a></h2>
+    <div class="slider">
+        <div class="track">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+        </div>
+    </div>
+</div>
+<div class="quick-actions">
+
+    <a href="#search" class="action-item">
+        <div class="circle circle-1"></div>
+        <span>Smart Search</span>
+    </a>
+
+    <a href="#chat" class="action-item">
+        <div class="circle circle-2"></div>
+        <span>Live Chat</span>
+    </a>
+
+    <a href="#upload" class="action-item">
+        <div class="circle circle-3"></div>
+        <span>Upload Product</span>
+    </a>
+
+</div>    
+</div>
+<footer class="footer">
+    <a href="#">Search</a>
+    <a href="#">Questions</a>
+    <a href="#">Contact</a>
+    <a href="#">Jobs</a>
+</footer>
+<div id="scrollTopBtn">⬆</div>
+</body>
+</html>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // ===== SLIDER =====
+    const sliders = document.querySelectorAll(".slider");
+
+    sliders.forEach(slider => {
+        const track = slider.querySelector(".track");
+
+        let isDown = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        let timeout;
+
+        function stopAuto() {
+            if (track) track.style.animationPlayState = "paused";
+            clearTimeout(timeout);
+        }
+
+        function startAuto() {
+            timeout = setTimeout(() => {
+                if (track) track.style.animationPlayState = "running";
+            }, 2000);
+        }
+
+        // DESKTOP
+        slider.addEventListener("mousedown", (e) => {
+            isDown = true;
+            startX = e.pageX;
+            scrollLeft = slider.scrollLeft;
+            stopAuto();
+        });
+
+        slider.addEventListener("mouseup", () => {
+            isDown = false;
+            startAuto();
+        });
+
+        slider.addEventListener("mouseleave", () => {
+            isDown = false;
+            startAuto();
+        });
+
+        slider.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+
+            e.preventDefault();
+            const walk = (e.pageX - startX) * 1.5;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // MOBILE
+        slider.addEventListener("touchstart", (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX;
+            scrollLeft = slider.scrollLeft;
+            stopAuto();
+        });
+
+        slider.addEventListener("touchend", () => {
+            isDown = false;
+            startAuto();
+        });
+
+        slider.addEventListener("touchmove", (e) => {
+            if (!isDown) return;
+
+            const walk = (e.touches[0].pageX - startX) * 1.5;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    });
+
+    // ===== SEARCH =====
+    const searchInput = document.querySelector(".search-bar input");
+    const searchBtn = document.querySelector(".search-bar button");
+    const sections = document.querySelectorAll(
+        ".section[id]:not(#favorite):not(.hero-section)"
+    );
+    const suggestionsBox = document.querySelector(".search-suggestions");
+
+    if (!searchInput || !suggestionsBox) return;
+
+    function runSearch(value) {
+        const searchValue = value.toLowerCase().trim();
+        suggestionsBox.innerHTML = "";
+
+        sections.forEach(section => {
+            const titleEl = section.querySelector("h2");
+            if (!titleEl) return;
+
+            const title = titleEl.innerText.toLowerCase();
+
+            if (title.includes(searchValue) ||searchValue==="") {
+                section.style.display = "block";
+
+                const div = document.createElement("div");
+                div.className = "suggestion-item";
+                div.innerText = titleEl.innerText;
+
+                div.addEventListener("click", () => {
+                    searchInput.value = titleEl.innerText;
+                    runSearch(titleEl.innerText);
+                    suggestionsBox.innerHTML = "";
+
+                    
+                });
+
+                suggestionsBox.appendChild(div);
+
+            } else {
+                section.style.display = "none";
+            }
+        });
+    }
+
+    // typing
+    searchInput.addEventListener("input", function () {
+        runSearch(this.value);
+    });
+
+    // focus (השדרוג שלך)
+    searchInput.addEventListener("focus", function () {
+        runSearch(this.value);
+    });
+    searchInput.addEventListener("blur", function (e) {
+    // אם עברנו לכפתור → לא סוגרים
+    if (e.relatedTarget === searchBtn) return;
+
+    setTimeout(() => {
+        suggestionsBox.innerHTML = "";
+    }, 150);
+});
+
+    // button redirect
+if (searchBtn) {
+    searchBtn.addEventListener("click", () => {
+        const value = searchInput.value.toLowerCase().trim();
+        if (!value) return;
+
+        let found = false;
+
+        sections.forEach(section => {
+            const titleEl = section.querySelector("h2");
+            if (!titleEl) return;
+
+            const title = titleEl.innerText.toLowerCase();
+
+            if (title===value) {
+                found = true;
+            }
+        });
+
+        // אם מצאנו → מעבר דף
+        if (found) {
+            window.location.href = `seach/search.html?query=${encodeURIComponent(value)}`;
+        } else {
+            // ❌ לא נמצא → אפקט שגיאה
+            searchBtn.classList.add("error");
+
+            setTimeout(() => {
+                searchBtn.classList.remove("error");
+            }, 500);
+        }
+    });
+}
+
+});
+
+const searchInput = document.querySelector(".search-bar input");
+const scrollBtn = document.getElementById("scrollTopBtn");
+let scrollTimeout;
+
+// בזמן גלילה
+window.addEventListener("scroll", () => {
+    // מסתיר מיד בזמן גלילה
+    scrollBtn.classList.remove("show");
+    
+   const searchPosition = searchInput.offsetTop;
+    // מנקה טיימר קודם
+    clearTimeout(scrollTimeout);
+
+    // אחרי שהמשתמש מפסיק לגלול → מחזיר
+    scrollTimeout = setTimeout(() => {
+        if (window.scrollY > searchPosition) {
+            scrollBtn.classList.add("show");
+        }
+    }, 100); // 200ms אחרי עצירה
+});
+
+// לחיצה → למעלה
+
+scrollBtn.addEventListener("click", () => {
+    searchInput.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+});
+</script>
