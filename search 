@@ -121,50 +121,57 @@ body{
         "SF Pro Display",
         Arial,
         sans-serif;
+color:#1f2937;
 
-    color:#1f2937;
+background:
+    radial-gradient(
+        circle at 12% 18%,
+        rgba(255,215,0,.28),
+        transparent 30%
+    ),
 
-    background:
-        radial-gradient(
-            circle at 12% 18%,
-            rgba(255,215,0,.35),
-            transparent 30%
-        ),
+    radial-gradient(
+        circle at 88% 15%,
+        rgba(255,230,160,.18),
+        transparent 28%
+    ),
 
-        radial-gradient(
-            circle at 88% 15%,
-            rgba(255,230,160,.22),
-            transparent 28%
-        ),
+    radial-gradient(
+        circle at 22% 82%,
+        rgba(255,193,7,.12),
+        transparent 36%
+    ),
 
-        radial-gradient(
-            circle at 22% 82%,
-            rgba(255,193,7,.18),
-            transparent 36%
-        ),
+    radial-gradient(
+        circle at 82% 78%,
+        rgba(66,133,244,.18),
+        transparent 38%
+    ),
 
-        radial-gradient(
-            circle at 82% 78%,
-            rgba(66,133,244,.15),
-            transparent 38%
-        ),
+    radial-gradient(
+        circle at 55% 35%,
+        rgba(120,190,255,.12),
+        transparent 42%
+    ),
 
-        radial-gradient(
-            circle at 55% 35%,
-            rgba(120,190,255,.08),
-            transparent 42%
-        ),
+    radial-gradient(
+        circle at 50% 50%,
+        rgba(147,197,253,.08),
+        transparent 55%
+    ),
 
-        linear-gradient(
-            135deg,
-            #ffffff 0%,
-            #fffdf8 20%,
-            #faf7ef 45%,
-            #f7f9fc 75%,
-            #eef4fb 100%
-        );
+    linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f8fbff 20%,
+        #f1f7ff 45%,
+        #eef5ff 75%,
+        #e6f0ff 100%
+    );
 
-    background-attachment:fixed;
+background-attachment:fixed;
+background-repeat:no-repeat;
+background-size:cover;
 }
 
 /* ================= NAVBAR ================= */
@@ -798,7 +805,7 @@ body{
 }
 
 .dropdown.shrink{
-    width:45%;
+    width:40%;
 }
 
 .search-box{
@@ -1259,13 +1266,17 @@ inset 0 0 100px rgba(255,240,190,.22),
     border-radius: 999px;
     z-index: 1;
 
-    background: linear-gradient(180deg, #effcff 0%, #8eeaff 100%);
+    background:
+        linear-gradient(
+            180deg,
+            #d6d6d6,
+            #bdbdbd
+        );
 
     box-shadow:
-        inset 0 1px 2px rgba(0,0,0,0.10),
-        inset 0 -1px 2px rgba(255,255,255,0.7);
+        inset 0 1px 1px rgba(255,255,255,0.35),
+        inset 0 -1px 1px rgba(0,0,0,0.08);
 }
-
 .price-range::after {
     content: "";
     position: absolute;
@@ -1276,12 +1287,38 @@ inset 0 0 100px rgba(255,240,190,.22),
     border-radius: 999px;
     z-index: 2;
 
-    background: linear-gradient(90deg, #8eeaff 0%, #54dbff 50%, #38cfff 100%);
+    background:
+    linear-gradient(
+        90deg,
+        #d4af37,
+        #ffcc66,
+        #ffd700,
+        #e6b800,
+        #b8860b,
+        #d4af37
+    );
+
+    background-size: 300% 100%;
+
+    animation: googleFlow 6s linear infinite;
 
     box-shadow:
         inset 0 1px 1px rgba(255,255,255,0.35),
         inset 0 -1px 2px rgba(0,0,0,0.12),
-        0 2px 6px rgba(120,240,255,0.35);
+        0 2px 10px rgba(66,133,244,0.25),
+        0 2px 10px rgba(52,168,83,0.20),
+        0 2px 10px rgba(251,188,5,0.20),
+        0 2px 10px rgba(234,67,53,0.20);
+}
+
+@keyframes googleFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 300% 50%;
+    }
 }
 /* ================= FLOATING DOT WAVES ================= */
 
@@ -1341,368 +1378,7 @@ inset 0 0 100px rgba(255,240,190,.22),
 /* =========================================
    WAVE
 ========================================= */
-.wave{
-    position:absolute;
 
-    left:0;
-    top:20px;
-
-    width:100%;
-    height:36px;
-
-    transform:translateY(-50%);
-    transform-origin:center center;
-
-    overflow:hidden;
-
-    pointer-events:none;
-    isolation:isolate;
-
-    opacity:.98;
-
-    will-change:
-        transform,
-        filter,
-        clip-path;
-
-    filter:
-        blur(.12px)
-        saturate(1.35)
-        brightness(1.04);
-
-    clip-path:
-        polygon(
-            0% 58%,
-            4% 52%,
-            8% 64%,
-            12% 48%,
-            16% 61%,
-            20% 45%,
-            24% 66%,
-            28% 54%,
-            32% 62%,
-            36% 46%,
-            40% 57%,
-            44% 51%,
-            48% 68%,
-            52% 48%,
-            56% 60%,
-            60% 45%,
-            64% 67%,
-            68% 54%,
-            72% 62%,
-            76% 47%,
-            80% 58%,
-            84% 52%,
-            88% 66%,
-            92% 54%,
-            96% 61%,
-            100% 50%,
-            100% 100%,
-            0% 100%
-        );
-
-    animation:
-        googleSurface 5s ease-in-out infinite;
-}
-
-/* =========================================
-   MAIN GOOGLE LIQUID
-========================================= */
-.wave::before{
-    content:"";
-
-    position:absolute;
-    inset:-25%;
-
-    background:
-        linear-gradient(
-            90deg,
-
-            #4285F4 0%,
-            #6EA8FF 8%,
-            #8FC2FF 14%,
-
-            #34A853 24%,
-            #7BDC6B 33%,
-
-            #FBBC05 46%,
-            #FFE27A 56%,
-
-            #EA4335 68%,
-            #FF9B91 78%,
-
-            #4285F4 90%,
-            #8FC2FF 100%
-        );
-
-    background-size:400% 100%;
-
-    filter:
-        blur(.2px)
-        saturate(1.3);
-
-    box-shadow:
-        0 0 10px rgba(66,133,244,.20),
-        0 0 20px rgba(66,133,244,.18),
-        0 0 35px rgba(52,168,83,.16),
-        0 0 55px rgba(251,188,5,.14),
-        0 0 85px rgba(234,67,53,.10),
-
-        inset 0 2px 5px rgba(255,255,255,.35),
-        inset 0 -4px 10px rgba(66,133,244,.12);
-
-    animation:
-        googleFlow 4s linear infinite,
-        googleBreath 3.5s ease-in-out infinite;
-}
-
-/* =========================================
-   PREMIUM GLASS SHINE
-========================================= */
-.wave::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:
-
-        radial-gradient(
-            circle at 8% 35%,
-            rgba(255,255,255,.95),
-            transparent 10%
-        ),
-
-        radial-gradient(
-            circle at 28% 45%,
-            rgba(255,255,255,.55),
-            transparent 18%
-        ),
-
-        radial-gradient(
-            circle at 52% 40%,
-            rgba(255,255,255,.45),
-            transparent 22%
-        ),
-
-        radial-gradient(
-            circle at 75% 42%,
-            rgba(255,255,255,.55),
-            transparent 18%
-        ),
-
-        radial-gradient(
-            circle at 92% 35%,
-            rgba(255,255,255,.95),
-            transparent 10%
-        ),
-
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.42),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.95),
-            rgba(255,255,255,.08),
-            rgba(255,255,255,.95)
-        );
-
-    mix-blend-mode:screen;
-
-    animation:
-        googleShimmer 2.5s linear infinite,
-        googleGlow 3s ease-in-out infinite;
-}
-
-/* =========================================
-   COLOR FLOW
-========================================= */
-@keyframes googleFlow{
-
-    0%{
-        background-position:0% 0%;
-    }
-
-    100%{
-        background-position:400% 0%;
-    }
-}
-
-/* =========================================
-   LIQUID SURFACE
-========================================= */
-@keyframes googleSurface{
-
-    0%{
-        clip-path:
-            polygon(
-                0% 56%,
-                8% 64%,
-                16% 53%,
-                24% 67%,
-                32% 47%,
-                40% 58%,
-                48% 66%,
-                56% 53%,
-                64% 64%,
-                72% 49%,
-                80% 59%,
-                88% 65%,
-                100% 54%,
-                100% 100%,
-                0% 100%
-            );
-    }
-
-    25%{
-        clip-path:
-            polygon(
-                0% 51%,
-                8% 61%,
-                16% 46%,
-                24% 64%,
-                32% 52%,
-                40% 68%,
-                48% 54%,
-                56% 63%,
-                64% 47%,
-                72% 58%,
-                80% 50%,
-                88% 67%,
-                100% 57%,
-                100% 100%,
-                0% 100%
-            );
-    }
-
-    50%{
-        clip-path:
-            polygon(
-                0% 63%,
-                8% 49%,
-                16% 66%,
-                24% 52%,
-                32% 61%,
-                40% 45%,
-                48% 68%,
-                56% 51%,
-                64% 63%,
-                72% 47%,
-                80% 65%,
-                88% 53%,
-                100% 60%,
-                100% 100%,
-                0% 100%
-            );
-    }
-
-    75%{
-        clip-path:
-            polygon(
-                0% 54%,
-                8% 66%,
-                16% 50%,
-                24% 61%,
-                32% 44%,
-                40% 65%,
-                48% 53%,
-                56% 64%,
-                64% 48%,
-                72% 57%,
-                80% 50%,
-                88% 66%,
-                100% 55%,
-                100% 100%,
-                0% 100%
-            );
-    }
-
-    100%{
-        clip-path:
-            polygon(
-                0% 56%,
-                8% 64%,
-                16% 53%,
-                24% 67%,
-                32% 47%,
-                40% 58%,
-                48% 66%,
-                56% 53%,
-                64% 64%,
-                72% 49%,
-                80% 59%,
-                88% 65%,
-                100% 54%,
-                100% 100%,
-                0% 100%
-            );
-    }
-}
-
-/* =========================================
-   SOFT GOOGLE BREATH
-========================================= */
-@keyframes googleBreath{
-
-    0%{
-        transform:
-            scaleY(.93)
-            scaleX(1);
-    }
-
-    50%{
-        transform:
-            scaleY(1.10)
-            scaleX(1.015);
-    }
-
-    100%{
-        transform:
-            scaleY(.93)
-            scaleX(1);
-    }
-}
-
-/* =========================================
-   LIGHT SWEEP
-========================================= */
-@keyframes googleShimmer{
-
-    0%{
-        transform:
-            translateX(-100px);
-    }
-
-    100%{
-        transform:
-            translateX(100px);
-    }
-}
-
-/* =========================================
-   PREMIUM GLOW
-========================================= */
-@keyframes googleGlow{
-
-    0%{
-        opacity:.65;
-        filter:blur(0px);
-    }
-
-    50%{
-        opacity:1;
-        filter:blur(.25px);
-    }
-
-    100%{
-        opacity:.65;
-        filter:blur(0px);
-    }
-}
 .min-slider,
 .max-slider{
     width:100%;
@@ -2432,9 +2108,12 @@ font-family:
 }
 
 
+
 ////////////////////////////////////
 //////////////////////////////////////
 ////////////////_////////////////////////
+
+
 
 
 
@@ -2603,9 +2282,8 @@ let scrollTimeout;
 // פתיחה בפוקוס
 // =================
 searchInput.addEventListener("focus", () => {
-    updateClearButton()
+    updateClearButton();
     dropdown.classList.add("open");
-    filterItems();
 });
 
 // =================
@@ -2618,6 +2296,7 @@ function handleSearchChange(value) {
         floatingBtn.classList.remove("show");
         SearchButtom = false;
         DeleteSubDropdown();
+        clearBtn.style.display = "none";
         dropdown.classList.add("open");
     }
 
@@ -2637,7 +2316,7 @@ function handleSearchChange(value) {
         dropdown.classList.remove("shrink");
         return;
     }
-
+    searchInput.value = v;
     dropdown.classList.add("shrink");
     buildSubDropdown(match.textContent);
     activateCategory(match.textContent);
@@ -2647,8 +2326,6 @@ searchInput.addEventListener("input", (e) => {
 });
 items.forEach(item => {
     item.addEventListener("click", () => {
-        searchInput.value = item.textContent;
-
         handleSearchChange(item.textContent);
 
         dropdown.classList.remove("open");
@@ -2660,49 +2337,10 @@ items.forEach(item => {
 document.addEventListener("click", (e) => {
     if (!dropdown.contains(e.target)) {
         dropdown.classList.remove("open");
-        currencyBox.classList.remove("open");
+        
     }
 });
-searchInput.addEventListener("input", filterItems);
-function filterItems() {
-    const value = searchInput.value.toLowerCase().trim();
 
-    // אם השדה ריק
-    if (value === "") {
-        floatingBtn.classList.remove("show");
-        SearchButtom = false;
-        DeleteSubDropdown();
-        dropdown.classList.add("open");
-    }
-
-    updateClearButton();
-
-    // סינון פריטים
-    items.forEach(item => {
-        const text = item.textContent.toLowerCase().trim();
-
-        item.style.display = text.includes(value)
-            ? "block"
-            : "none";
-    });
-
-    // חיפוש התאמה מלאה
-    const match = Array.from(items).find(item =>
-        item.textContent.toLowerCase().trim() === value
-    );
-
-if (!match) {
-    document.querySelector('.dropdown').classList.remove('shrink');
-    return;
-}
-
-const name = match.textContent;
-
-document.querySelector('.dropdown').classList.add('shrink');
-
-buildSubDropdown(name);
-activateCategory(name);
-}
 
 function activateCategory(name) {
     const categories = document.querySelectorAll(".category");
@@ -2726,11 +2364,8 @@ function updateClearButton() {
 // לחיצה על X
 clearBtn.addEventListener("click", () => {
     searchInput.value = "";
-    floatingBtn.classList.remove("show");
-    SearchButtom = false;
-    DeleteSubDropdown();
-    clearBtn.style.display = "none";
-
+    
+    handleSearchChange(searchInput.value)
     searchInput.focus(); // מחזיר פוקוס
 });
 // =================
@@ -2757,9 +2392,7 @@ document.querySelectorAll(".category").forEach(cat => {
         cat.classList.remove("hidden");
 
         const name = cat.getAttribute("data-category");
-
-        searchInput.value = name;
-        buildSubDropdown(name);
+        handleSearchChange(name);
     });
 });
 
@@ -3000,206 +2633,240 @@ const sliders =
 /* =========================================
    CLEAR WAVES
 ========================================= */
-
 const WAVE_WIDTH = 2400;
 
-let waves = [];
+const WAVE_COUNT = 2;
+
+let waves = new Array(WAVE_COUNT);
+
 let noiseOffset = 0;
 let animationId = null;
+let pathUpdateAccumulator = 0;
 
 /* =========================================
-   CREATE FLOW
+CREATE FLOW
 ========================================= */
 function createWaveFlow(){
-
-
 
     cancelAnimationFrame(animationId);
 
     barInner.innerHTML = "";
-    waves = [];
+
+    waves = new Array(WAVE_COUNT);
+
     noiseOffset = 0;
 
-    createWaveLayer(0.0, 1.00, 1.00, 0);
-    createWaveLayer(1.4, 0.90, 0.85, 1);
-    createWaveLayer(2.8, 0.75, 0.65, 2);
-    createWaveLayer(4.2, 0.60, 0.45, 3);
-    createWaveLayer(5.6, 0.45, 0.25, 4);
+    createWaveLayer(
+        0.0,
+        1.00,
+        1.00,
+        0
+    );
+
+    createWaveLayer(
+        1.4,
+        0.90,
+        0.85,
+        1
+    );
+
+
 
     animateWaves();
 }
-
 /* =========================================
-   CREATE LAYER
+CREATE LAYER
 ========================================= */
 function createWaveLayer(
-    phase,
-    amplitudeMultiplier,
-    opacity,
-    index
+phase,
+amplitudeMultiplier,
+opacity,
+index
 ){
 
-    const svg =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "svg"
-        );
+const svg =  
+    document.createElementNS(  
+        "http://www.w3.org/2000/svg",  
+        "svg"  
+    ); 
+svg.style.willChange = "transform";
 
-    svg.setAttribute(
-        "viewBox",
-        `0 0 ${WAVE_WIDTH} 320`
-    );
+svg.setAttribute(  
+    "viewBox",  
+    `0 0 ${WAVE_WIDTH} 320`  
+);  
 
-    svg.setAttribute(
-        "preserveAspectRatio",
-        "none"
-    );
+svg.setAttribute(  
+    "preserveAspectRatio",  
+    "none"  
+);  
 
-    svg.style.position =
-        "absolute";
+svg.style.position =  
+    "absolute";  
 
-    svg.style.left =
-        "0";
+svg.style.left =  
+    "0";  
 
-    svg.style.top =
-        "70%";
+svg.style.top =  
+    "70%";  
 
-    svg.style.width =
-        "220%";
+svg.style.width =  
+    "110%";  
 
-    svg.style.height =
-        "180%";
+svg.style.height =  
+    "180%";  
 
-    svg.style.pointerEvents =
-        "none";
+svg.style.pointerEvents =  
+    "none";  
 
-    svg.style.opacity =
-        opacity;
-
+svg.style.opacity =  
+    opacity;  
     svg.style.mixBlendMode =
-        "screen";
+    navigator.hardwareConcurrency <= 4
+        ? "normal"
+        : "screen";
 
-    const defs =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "defs"
-        );
 
-    const gradient =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "linearGradient"
-        );
+const defs =  
+    document.createElementNS(  
+        "http://www.w3.org/2000/svg",  
+        "defs"  
+    );  
 
-    const gradientId =
-        `waveGradient_${index}_${Math.random()}`;
+const gradient =  
+    document.createElementNS(  
+        "http://www.w3.org/2000/svg",  
+        "linearGradient"  
+    );  
 
-    gradient.setAttribute(
-        "id",
-        gradientId
-    );
+const gradientId =  
+    `waveGradient_${index}`;  
 
-    gradient.setAttribute(
-        "gradientUnits",
-        "userSpaceOnUse"
-    );
+gradient.setAttribute(  
+    "id",  
+    gradientId  
+);  
 
-    gradient.setAttribute(
-        "x1",
-        "0"
-    );
+gradient.setAttribute(  
+    "gradientUnits",  
+    "userSpaceOnUse"  
+);  
 
-    gradient.setAttribute(
-        "x2",
-        WAVE_WIDTH
-    );
+gradient.setAttribute(  
+    "x1",  
+    "0"  
+);  
 
-    gradient.setAttribute(
-        "y1",
-        "0"
-    );
+gradient.setAttribute(  
+    "x2",  
+    WAVE_WIDTH  
+);  
 
-    gradient.setAttribute(
-        "y2",
-        "0"
-    );
+gradient.setAttribute(  
+    "y1",  
+    "0"  
+);  
+
+gradient.setAttribute(  
+    "y2",  
+    "0"  
+);  
 
 const colors = [
-    "rgba(102,157,246,0.65)", // soft blue
-    "rgba(91,185,116,0.65)",  // soft green
-    "rgba(253,214,99,0.65)",  // soft yellow
-    "rgba(242,139,130,0.65)", // soft red
-
-    "rgba(138,180,248,0.65)",
-    "rgba(129,201,133,0.65)",
-    "rgba(252,232,178,0.65)",
-    "rgba(246,174,169,0.65)",
-
-    "rgba(174,203,250,0.6)",
-    "rgba(183,225,205,0.6)",
-    "rgba(255,241,194,0.6)",
-    "rgba(250,217,213,0.6)"
+    "rgba(245,220,165,0.78)",
+    "rgba(241,212,148,0.82)",
+    "rgba(237,204,132,0.86)",
+    "rgba(233,196,118,0.90)",
+    "rgba(239,208,140,0.84)",
+    "rgba(245,220,165,0.78)"
 ];
-    colors.forEach(
-        (color,index)=>{
 
-            const stop =
-                document.createElementNS(
-                    "http://www.w3.org/2000/svg",
-                    "stop"
-                );
+for(  
+    let i = 0;  
+    i < colors.length;  
+    i++  
+){  
 
-            stop.setAttribute(
-                "offset",
-                `${(index/(colors.length-1))*100}%`
-            );
+    const stop =  
+        document.createElementNS(  
+            "http://www.w3.org/2000/svg",  
+            "stop"  
+        );  
 
-            stop.setAttribute(
-                "stop-color",
-                color
-            );
+    stop.setAttribute(  
+        "offset",  
+        `${(i / (colors.length - 1)) * 100}%`  
+    );  
 
-            gradient.appendChild(
-                stop
-            );
-        }
-    );
+    stop.setAttribute(  
+        "stop-color",  
+        colors[i]  
+    );  
 
-    defs.appendChild(
-        gradient
-    );
+    gradient.appendChild(  
+        stop  
+    );  
+}  
 
-    const path =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "path"
-        );
+defs.appendChild(  
+    gradient  
+);  
 
-    path.setAttribute(
-        "fill",
-        `url(#${gradientId})`
-    );
+const path =  
+    document.createElementNS(  
+        "http://www.w3.org/2000/svg",  
+        "path"  
+    );  
 
-    svg.appendChild(defs);
-    svg.appendChild(path);
+path.setAttribute(  
+    "fill",  
+    `url(#${gradientId})`  
+);  
 
-    barInner.appendChild(svg);
+svg.appendChild(  
+    defs  
+);  
 
-    waves.push({
-        svg,
-        path,
-        gradient,
-        phase,
-        amplitudeMultiplier
-    });
+svg.appendChild(  
+    path  
+);  
+
+barInner.appendChild(  
+    svg  
+);  
+
+waves[index] = {  
+    svg,  
+    path,  
+    gradient,  
+    phase,  
+    amplitudeMultiplier  
+};
+
 }
 
 /* =========================================
-   ADVANCED FLUID SURFACE
+ADVANCED FLUID SURFACE
+========================================= */
+const WAVE_STEP = 80;
+
+const wavePoints = [];
+
+for(
+    let i = 0;
+    i < WAVE_COUNT;
+    i++
+){
+    wavePoints[i] = [];
+}
+
+/* =========================================
+BUILD WAVE PATH
 ========================================= */
 function buildWavePath(
     time,
-    amplitudeMultiplier
+    amplitudeMultiplier,
+    index
 ){
 
     const width =
@@ -3207,6 +2874,9 @@ function buildWavePath(
 
     const height =
         280;
+
+    const points =
+        wavePoints[index];
 
     const centerY =
 
@@ -3220,116 +2890,100 @@ function buildWavePath(
             time * 0.07
         ) * 5;
 
-    const points = [];
+    const breathing =
+
+        Math.sin(
+            time * 0.28
+        ) *
+
+        12 *
+
+        amplitudeMultiplier;
+
+    let pointIndex = 0;
 
     for(
         let x = 0;
         x <= width;
-        x += 16
+        x += WAVE_STEP
     ){
 
-        const giantSwell =
+        let point =
+            points[pointIndex];
 
-            Math.sin(
-                x * 0.0014 +
-                time * 0.55
-            ) *
+        if(!point){
 
-            60 *
+            point =
 
-            amplitudeMultiplier;
+                points[pointIndex] = {
 
-        const secondarySwell =
+                    x: 0,
+                    y: 0
 
-            Math.cos(
-                x * 0.0028 -
-                time * 0.90
-            ) *
+                };
+        }
 
-            35 *
+        point.x =
+            x;
 
-            amplitudeMultiplier;
+        point.y =
 
-        const tertiary =
 
-            Math.sin(
-                x * 0.0055 +
-                time * 1.60
-            ) *
+    centerY +
 
-            20 *
+    Math.sin(
+        x * 0.0014 +
+        time * 0.55
+    ) *
 
-            amplitudeMultiplier;
+    60 *
 
-        const rippleA =
+    amplitudeMultiplier +
 
-            Math.sin(
-                x * 0.016 +
-                time * 3.2
-            ) *
+    Math.cos(
+        x * 0.0028 -
+        time * 0.90
+    ) *
 
-            6 *
+    35 *
 
-            amplitudeMultiplier;
+    amplitudeMultiplier +
 
-        const rippleB =
+    Math.sin(
+        x * 0.0055 +
+        time * 1.60
+    ) *
 
-            Math.cos(
-                x * 0.028 -
-                time * 2.7
-            ) *
+    20 *
 
-            4 *
+    amplitudeMultiplier +
 
-            amplitudeMultiplier;
+    Math.sin(
+        x * 0.016 +
+        time * 3.2
+    ) *
 
-        const rippleC =
+    4 *
 
-            Math.sin(
-                x * 0.045 +
-                time * 4.5
-            ) *
+    amplitudeMultiplier +
 
-            2 *
-
-            amplitudeMultiplier;
-
-        const breathing =
-
-            Math.sin(
-                time * 0.28
-            ) *
-
-            12 *
-
-            amplitudeMultiplier;
-
-        const y =
-
-            centerY +
-            giantSwell +
-            secondarySwell +
-            tertiary +
-            rippleA +
-            rippleB +
-            rippleC +
-            breathing;
-
-        points.push({
-            x,
-            y
-        });
+    breathing;
+    pointIndex++;
     }
 
     let d =
-        `M 0 ${height}`;
+        "M 0 " +
+        height;
 
     d +=
-        ` L ${points[0].x} ${points[0].y}`;
+        " L " +
+        points[0].x +
+        " " +
+        points[0].y;
 
     for(
         let i = 0;
-        i < points.length - 1;
+        i < pointIndex - 1;
         i++
     ){
 
@@ -3339,69 +2993,120 @@ function buildWavePath(
         const next =
             points[i + 1];
 
-        const xc =
-            (current.x + next.x) / 2;
-
-        const yc =
-            (current.y + next.y) / 2;
-
         d +=
-            ` Q ${current.x} ${current.y} ${xc} ${yc}`;
+
+            " Q " +
+
+            current.x +
+
+            " " +
+
+            current.y +
+
+            " " +
+
+            (
+                (current.x + next.x) *
+                0.5
+            ) +
+
+            " " +
+
+            (
+                (current.y + next.y) *
+                0.5
+            );
     }
 
     const last =
         points[
-            points.length - 1
+            pointIndex - 1
         ];
 
     d +=
-        ` L ${last.x} ${last.y}`;
 
-    d +=
-        ` L ${width} ${height}`;
+        " L " +
 
-    d +=
-        ` L 0 ${height} Z`;
+        last.x +
+
+        " " +
+
+        last.y +
+
+        " L " +
+
+        width +
+
+        " " +
+
+        height +
+
+        " L 0 " +
+
+        height +
+
+        " Z";
 
     return d;
 }
 
 /* =========================================
-   ANIMATION
+ANIMATION
 ========================================= */
+let frameCounter = 0;
+
 function animateWaves(){
 
+    noiseOffset += 0.055;
+    
+    if (noiseOffset > 60) {
+        noiseOffset = 0;
+    }
 
-    noiseOffset += 0.07;
+    frameCounter++;
 
-    waves.forEach(
-        wave=>{
+    const updatePath =
+        (frameCounter & 1) === 0;
 
-            const time =
-                noiseOffset +
-                wave.phase;
+    const updateGradient =
+        (frameCounter & 3) === 0;
 
-            const floatY =
+    for(
+        let i = 0;
+        i < WAVE_COUNT;
+        i++
+    ){
+        const wave =
+            waves[i];
+            
+    if (!wave) continue;
+        const time =
+            noiseOffset +
+            wave.phase;
+
+        wave.svg.style.transform =
+
+            "translate3d(0,calc(-50% + " +
+
+            (
 
                 Math.sin(
                     time * 0.35
-                ) * 8 +
+                ) *
+
+                8 +
 
                 Math.cos(
                     time * 0.18
-                ) * 4;
-
-            const scaleY =
-
-                1 +
-
-                Math.sin(
-                    time * 0.14
                 ) *
 
-                0.045;
+                4
 
-            const scaleX =
+            ) +
+
+            "px),0) scaleX(" +
+
+            (
 
                 1 +
 
@@ -3409,70 +3114,62 @@ function animateWaves(){
                     time * 0.08
                 ) *
 
-                0.015;
+                0.015
 
-            const skew =
+            ) +
+
+            ") scaleY(" +
+
+            (
+
+                1 +
 
                 Math.sin(
-                    time * 0.10
+                    time * 0.14
                 ) *
 
-                1.2;
+                0.045
 
-            wave.svg.style.transform =
-                `
-                translateY(calc(-50% + ${floatY}px))
-                scaleX(${scaleX})
-                scaleY(${scaleY})
-                skewX(${skew}deg)
-                `;
+            ) +
+
+            ")";
+
+        if(updatePath){
 
             wave.path.setAttribute(
                 "d",
                 buildWavePath(
                     time,
-                    wave.amplitudeMultiplier
+                    wave.amplitudeMultiplier,
+                    i
                 )
             );
+        }
 
-            const gradientShift =
+        if(updateGradient){
+
+            const shift =
 
                 (
                     Math.sin(
                         time * 0.22
-                    ) + 1
+                    ) +
+                    1
                 ) *
-
                 400;
 
             wave.gradient.setAttribute(
                 "x1",
-                -gradientShift
+                -shift
             );
 
             wave.gradient.setAttribute(
                 "x2",
                 WAVE_WIDTH -
-                gradientShift
+                shift
             );
-
-            const blur =
-
-                1 +
-                (
-                    1 -
-                    wave.amplitudeMultiplier
-                ) *
-                6;
-
-            const glow =
-
-                20 *
-                wave.amplitudeMultiplier;
-
-
         }
-    );
+    }
 
     animationId =
         requestAnimationFrame(
@@ -3481,22 +3178,36 @@ function animateWaves(){
 }
 
 /* =========================================
-   CLEAR
+CLEAR
 ========================================= */
 function clearWaves(){
 
-    cancelAnimationFrame(
-        animationId
-    );
+cancelAnimationFrame(  
+    animationId  
+);  
+animationId = null;
+waves =  
+    new Array(WAVE_COUNT);  
 
-    waves = [];
+barInner.innerHTML = "";
 
-    barInner.innerHTML = "";
 }
 
 /* =========================================
-   START
+START
 ========================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+        if (document.hidden) {
+            cancelAnimationFrame(animationId);
+        }
+        else if (!animationId) {
+            animateWaves();
+        }
+    }
+);
 createWaveFlow();
 
     // ================= GROUPS =================//
@@ -3597,26 +3308,8 @@ window.addEventListener("DOMContentLoaded", () => {
     if (!query) return;
 
     // ניקוי
-    const value = query.toLowerCase();
-
-    // כל ה-dropdown items
-    const items = document.querySelectorAll("#dropdownList .dropdown-item");
-
-    items.forEach(item => {
-        const text = item.textContent.toLowerCase();
-
-        if (text.includes(value)) {
-
-            // מעדכן dropdown
-            searchInput.value= item.textContent;
-
-            // בונה פילטרים
-            buildSubDropdown(item.textContent);
-
-            // מפעיל עיגול
-            activateCategory(item.textContent);
-        }
-    });
+    handleSearchChange(query);
+    return
 });
 window.addEventListener("DOMContentLoaded", () => {
     let scrollTimeout;
