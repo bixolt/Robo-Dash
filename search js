@@ -1,0 +1,1267 @@
+
+
+// =================
+// DATA
+// =================
+const filterData = {
+
+Phones: {
+    Brand: ["Apple", "Samsung", "Xiaomi", "OnePlus", "Google", "Huawei", "Oppo", "Vivo", "Nokia"],
+    Price: { min: 100, max: 2000 },
+    Condition: ["New", "Used", "Like New"],
+    Storage: ["64GB", "128GB", "256GB", "512GB"]
+},
+
+Cars: {
+    Brand: ["BMW", "Audi", "Tesla", "Mercedes", "Toyota", "Honda", "Ford", "Kia", "Hyundai"],
+    Price: { min: 3000, max: 80000 },
+    Year: ["2020+", "2015-2020", "Before 2015"],
+    Fuel: ["Gas", "Diesel", "Electric"]
+},
+
+Furniture: {
+    Type: ["Chair", "Table", "Sofa", "Bed", "Wardrobe", "Shelf", "Desk", "Cabinet", "Stool"],
+    Price: { min: 20, max: 5000 },
+    Condition: ["New", "Used"],
+    Material: ["Wood", "Metal", "Plastic", "Glass"]
+},
+
+Gaming: {
+    Platform: ["PC", "PlayStation", "Xbox", "Nintendo", "Steam Deck", "Mobile", "VR", "Arcade", "Cloud Gaming"],
+    Price: { min: 10, max: 1200 },
+    Condition: ["New", "Used"],
+    Genre: ["Action", "Sports", "RPG", "Adventure", "Shooter", "Strategy"]
+},
+
+Clothing: {
+    Type: ["Shirt", "Pants", "Shoes", "Jacket", "Hoodie", "Coat", "Dress", "Skirt", "Shorts"],
+    Price: { min: 5, max: 500 },
+    Size: ["S", "M", "L", "XL"],
+    Condition: ["New", "Used"]
+},
+
+Books: {
+    Genre: ["Fiction", "Non-fiction", "Comics", "Educational", "Biography", "History", "Science", "Fantasy", "Horror"],
+    Price: { min: 1, max: 200 },
+    Condition: ["New", "Used"],
+    Language: ["English", "Other", "Hebrew", "Russian"]
+},
+
+Sports: {
+    Type: ["Football", "Basketball", "Tennis", "Running Shoes", "Gym Equipment", "Yoga", "Swimming", "Cycling"],
+    Price: { min: 10, max: 800 },
+    Condition: ["New", "Used"],
+    Brand: ["Nike", "Adidas", "Puma", "Under Armour", "Reebok"]
+},
+
+Toys: {
+    Type: ["Lego", "Action Figures", "Puzzles", "Board Games", "Remote Cars", "Dolls", "Educational Toys", "Plush Toys"],
+    Price: { min: 5, max: 300 },
+    Age: ["3+", "6+", "12+", "16+"],
+    Condition: ["New", "Used"]
+},
+
+Music: {
+    Instrument: ["Guitar", "Piano", "Drums", "Microphone", "Violin", "Bass", "Saxophone", "Flute"],
+    Price: { min: 20, max: 5000 },
+    Condition: ["New", "Used"],
+    Brand: ["Yamaha", "Fender", "Casio", "Roland"]
+},
+
+Appliances: {
+    Type: ["Refrigerator", "Oven", "Washing Machine", "Microwave", "Air Conditioner", "Vacuum Cleaner"],
+    Price: { min: 50, max: 3000 },
+    Condition: ["New", "Used"],
+    Energy: ["A", "B", "C", "D"]
+},
+
+Jewelry: {
+    Type: ["Necklaces", "Rings", "Earrings", "Bracelets", "Watches", "Chains"],
+    Price: { min: 20, max: 20000 },
+    Material: ["Gold", "Silver", "Diamond", "Platinum"],
+    Condition: ["New", "Used"]
+},
+
+Beauty: {
+    Type: ["Lipstick", "Foundation", "Perfume", "Skincare", "Hair Care", "Makeup Tools"],
+    Price: { min: 5, max: 500 },
+    Brand: ["Dior", "Chanel", "L'Oréal", "Maybelline", "MAC"],
+    Condition: ["New"]
+},
+
+Shoes: {
+    Type: ["Sneakers", "Boots", "Sandals", "Heels", "Slippers", "Sports Shoes"],
+    Price: { min: 10, max: 1000 },
+    Size: ["36", "38", "40", "42", "44", "46"],
+    Condition: ["New", "Used"]
+},
+
+Bags: {
+    Type: ["Backpack", "Handbag", "Messenger Bag", "Clutch", "Suitcase", "Wallet"],
+    Price: { min: 10, max: 5000 },
+    Material: ["Leather", "Fabric", "Nylon"],
+    Condition: ["New", "Used"]
+},
+
+Watches: {
+    Type: ["Analog", "Digital", "Smartwatch", "Luxury", "Sport"],
+    Price: { min: 20, max: 50000 },
+    Brand: ["Rolex", "Casio", "Apple", "Samsung"],
+    Condition: ["New", "Used"]
+},
+
+Garden: {
+    Type: ["Plants", "Seeds", "Tools", "Fertilizers", "Pots", "Irrigation Systems"],
+    Price: { min: 2, max: 1000 },
+    Condition: ["New"],
+    Usage: ["Indoor", "Outdoor"]
+},
+
+Pets: {
+    Type: ["Dog Food", "Cat Toys", "Aquarium", "Bird Cage", "Leash", "Pet Bed", "Collar", "Toys", "Shampoo"],
+    Price: { min: 3, max: 2000 },
+    Animal: ["Dog", "Cat", "Bird", "Fish", "Hamster", "Rabbit", "Snake", "Horse", "Turtle"],
+    Condition: ["New"]
+},
+
+Tools: {
+    Type: ["Hammer", "Drill", "Screwdriver", "Wrench", "Saw", "Plier", "Level", "Tape Measure"],
+    Price: { min: 5, max: 2000 },
+    Condition: ["New", "Used"],
+    Power: ["Manual", "Electric", "Battery"]
+},
+
+Art: {
+    Type: ["Paint", "Brushes", "Canvas", "Sculpture", "Markers", "Easels"],
+    Price: { min: 5, max: 10000 },
+    Condition: ["New"],
+    Style: ["Modern", "Classic", "Abstract"]
+},
+
+Office: {
+    Type: ["Chair", "Desk", "Stationery", "Printer", "Laptop Stand", "Lamp"],
+    Price: { min: 10, max: 3000 },
+    Condition: ["New", "Used"],
+    Usage: ["Home", "Business"]
+}
+
+};; 
+
+// =================
+// ELEMENTS
+// =================
+const dropdown = document.querySelector(".dropdown");
+const header = document.querySelector(".dropdown-header");
+const clearBtn = document.querySelector(".clear-btn");
+const items = document.querySelectorAll("#dropdownList .dropdown-item");
+const searchInput = document.querySelector(".dropdown-search");
+const sub = document.getElementById("subDropdown");
+let SearchButtom = false
+const scrollBtn = document.getElementById("scrollTopBtn");
+const floatingBtn = document.getElementById("floatingSearchBtn");
+let scrollTimeout;
+
+// =================
+// פתיחה בפוקוס
+// =================
+searchInput.addEventListener("focus", () => {
+    updateClearButton();
+    dropdown.classList.add("open");
+});
+
+// =================
+// בחירה
+// =================
+const shrinkWidths = {
+    phones: 49,
+    cars: 42,
+    furniture: 52,
+    gaming: 49,
+    clothing: 52,
+    books: 46.5,
+    sports: 46,
+    toys: 41,
+    music: 45,
+    appliances: 58,
+    jewelry: 48,
+    beauty: 48,
+    shoes: 45,
+    bags: 41,
+    watches: 51,
+    garden: 48,
+    pets: 43,
+    tools: 41,
+    art: 36,
+    office: 44
+};
+
+function handleSearchChange(value) {
+    const v = value.toLowerCase().trim();
+    const isEmpty = v === "";
+
+    if (isEmpty) {
+        floatingBtn.classList.remove("show");
+        SearchButtom = false;
+        DeleteSubDropdown();
+        clearBtn.style.display = "none";
+        dropdown.classList.add("open");
+    }
+
+    updateClearButton();
+
+    items.forEach(item => {
+        const text = item.textContent.toLowerCase().trim();
+        item.style.display = text.includes(v) ? "block" : "none";
+    });
+
+    const match = Array.from(items).find(item =>
+        item.textContent.toLowerCase().trim() === v
+    );
+
+    if (!match) {
+        dropdown.classList.remove("shrink");
+        dropdown.style.width = "";
+
+        const hasResults = Array.from(items).some(item =>
+            item.style.display === "block"
+        );
+
+        if (!hasResults && !isEmpty) {
+            dropdown.classList.remove("open");
+        }
+
+        return;
+    }
+    searchInput.value = v.charAt(0).toUpperCase() + v.slice(1);
+    dropdown.style.setProperty(
+        "--shrink-width",
+        `${shrinkWidths[v] ?? 40}%`
+    );
+
+    dropdown.classList.add("shrink");
+    sub.style.display = "block";
+    buildSubDropdown(match.textContent);
+    activateCategory(match.textContent);
+}
+searchInput.addEventListener("input", (e) => {
+    handleSearchChange(e.target.value);
+});
+items.forEach(item => {
+    item.addEventListener("click", () => {
+        handleSearchChange(item.textContent);
+
+        dropdown.classList.remove("open");
+    });
+});
+// =================
+// לחיצה מחוץ
+// =================
+document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
+        
+    }
+});
+
+
+function activateCategory(name) {
+    const categories = document.querySelectorAll(".category");
+
+    categories.forEach(cat => {
+        const catName = cat.getAttribute("data-category");
+
+        if (catName === name) {
+            cat.classList.add("active");
+            cat.classList.remove("hidden");
+        } else {
+            cat.classList.remove("active");
+            cat.classList.add("hidden");
+        }
+    });
+};
+
+function updateClearButton() {
+    clearBtn.style.display = searchInput.value ? "block" : "none";
+}
+// לחיצה על X
+clearBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    
+    handleSearchChange(searchInput.value)
+    searchInput.focus(); // מחזיר פוקוס
+});
+// =================
+// CATEGORIES
+// =================
+document.querySelectorAll(".category").forEach(cat => {
+    cat.addEventListener("click", () => {
+
+        const isActive = cat.classList.contains("active");
+
+        if (isActive) {
+            document.querySelectorAll(".category").forEach(c => {
+                c.classList.remove("hidden", "active");
+            });
+            return;
+        }
+
+        document.querySelectorAll(".category").forEach(c => {
+            c.classList.remove("active");
+            c.classList.add("hidden");
+        });
+
+        cat.classList.add("active");
+        cat.classList.remove("hidden");
+
+        const name = cat.getAttribute("data-category");
+        handleSearchChange(name);
+    });
+});
+
+
+// =================
+// BUILD FILTERS
+// =================
+function buildSubDropdown(category) {
+    const data = filterData[category];
+  
+    if (!data) {
+        sub.innerHTML = "";
+        return;
+    }
+  
+    updateClearButton();
+    SearchButtom = true;
+    floatingBtn.classList.add("show");
+    const html = Object.entries(data).map(([group, items]) => {
+        
+// ================= PRICE =================
+if (group === "Price") {
+    return `
+        <div class="filter-group">
+            <div class="filter-title">${group}</div>
+
+            <div class="price-range">
+<div class="bar">
+    <div class="bar-inner">
+      
+    </div>
+</div>                <input type="range"
+                    min="${items.min}"
+                    max="${items.max}"
+                    value="${items.min}"
+                    class="min-slider">
+
+                <input type="range"
+                    min="${items.min}"
+                    max="${items.max}"
+                    value="${items.max}"
+                    class="max-slider">
+                    
+                    
+<div class="price-values">
+
+    <div class="price-field">
+        <label>Min Price</label>
+        <input type="number" class="min-input" value="${items.min}">
+    </div>
+
+    <div class="price-field">
+        <label>Max Price</label>
+        <input type="number" class="max-input" value="${items.max}">
+    </div>
+
+</div>
+
+                <div class="currency-box">
+                    <div class="currency-header">USD ($) ▼</div>
+
+                    <div class="currency-dropdown">
+                        <input type="text" class="currency-search" placeholder="Search...">
+                        
+                            <div class="currency-list">
+                        <div class="currency-item">USD ($)</div>
+                        <div class="currency-item">EUR (€)</div>
+                        <div class="currency-item">ILS (₪)</div>
+                        <div class="currency-item">GEL (₾)</div>
+                        <div class="currency-item">GBP (£)</div>
+                        <div class="currency-item">JPY (¥)</div>
+                        <div class="currency-item">CAD (C$)</div>
+                        <div class="currency-item">AUD (A$)</div>
+                        <div class="currency-item">CHF (Fr)</div>
+                        <div class="currency-item">CNY (¥)</div>
+                        <div class="currency-item">INR (₹)</div>
+                        <div class="currency-item">KRW (₩)</div>
+                        <div class="currency-item">BRL (R$)</div>
+                        <div class="currency-item">RUB (₽)</div>
+                        <div class="currency-item">TRY (₺)</div>
+                        <div class="currency-item">ZAR (R)</div>
+                        <div class="currency-item">MXN ($)</div>
+                        <div class="currency-item">SEK (kr)</div>
+                        <div class="currency-item">NOK (kr)</div>
+                        <div class="currency-item">DKK (kr)</div>
+                        <div class="currency-item">PLN (zł)</div>
+                        <div class="currency-item">THB (฿)</div>
+                        <div class="currency-item">AED (د.إ)</div>
+                        <div class="currency-item">SAR (﷼)</div>
+                        <div class="currency-item">HKD (HK$)</div>
+                        <div class="currency-item">SGD (S$)</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+        // ================= OTHER FILTERS =================
+        const MAX_VISIBLE = 8;
+        const isLong = items.length > MAX_VISIBLE;
+
+        return `
+            <div class="filter-group">
+                <div class="filter-title">${group}</div>
+
+                <input type="text" class="sub-search" placeholder="Search ${group}...">
+
+                <div class="filter-options">
+                    ${items.map((item, i) => `
+                        <div class="sub-item" style="display:${i < MAX_VISIBLE ? "block" : "none"}">
+                            ${item}
+                        </div>
+                    `).join("")}
+                </div>
+
+                ${isLong ? `
+                    <div class="show-more" data-expanded="false">
+                        More ${group}
+                    </div>
+                ` : ""}
+            </div>
+        `;
+    }).join("");
+
+    sub.innerHTML = html;
+    setupSub();
+}
+
+
+// =================
+// FILTER BEHAVIOR
+// =================
+function setupSub() {
+
+// ================= PRICE =================
+const minSlider = document.querySelector(".min-slider");
+const maxSlider = document.querySelector(".max-slider");
+const minInput  = document.querySelector(".min-input");
+const maxInput  = document.querySelector(".max-input");
+const range = document.querySelector(".price-range");
+
+
+if (minSlider && maxSlider && minInput && maxInput) {
+
+    const ABS_MIN = parseInt(minSlider.min) || 0;
+    const ABS_MAX = parseInt(maxSlider.max) || 10000;
+
+    const updateBars = () => {
+
+        const min = parseInt(minSlider.value);
+        const max = parseInt(maxSlider.value);
+        
+    const minPercent = ((min - ABS_MIN) / (ABS_MAX - ABS_MIN)) * 100;
+    const maxPercent = ((max - ABS_MIN) / (ABS_MAX - ABS_MIN)) * 100;
+
+    range.style.setProperty("--min", minPercent + "%");
+    range.style.setProperty("--max", maxPercent + "%");
+   
+
+    };
+    
+minSlider.addEventListener("input", updateBars);
+maxSlider.addEventListener("input", updateBars);
+
+    const update = () => {
+
+        let min = parseInt(minSlider.value);
+        let max = parseInt(maxSlider.value);
+
+        if (min > max) min = max;
+        if (max < min) max = min;
+
+        minSlider.value = min;
+        maxSlider.value = max;
+
+        minInput.value = min;
+        maxInput.value = max;
+
+        updateBars();
+    };
+
+    const applyMinInput = () => {
+        let val = parseInt(minInput.value);
+
+        if (isNaN(val)) val = ABS_MIN;
+        if (val < ABS_MIN) val = ABS_MIN;
+        if (val > parseInt(maxSlider.value)) {
+            val = parseInt(maxSlider.value);
+        }
+
+        minSlider.value = val;
+        update();
+    };
+
+    const applyMaxInput = () => {
+        let val = parseInt(maxInput.value);
+
+        if (isNaN(val)) val = ABS_MAX;
+        if (val > ABS_MAX) val = ABS_MAX;
+        if (val < parseInt(minSlider.value)) {
+            val = parseInt(minSlider.value);
+        }
+
+        maxSlider.value = val;
+        update();
+    };
+
+    minSlider.oninput = update;
+    maxSlider.oninput = update;
+
+    minInput.addEventListener("keydown", e => {
+        if (e.key === "Enter") applyMinInput();
+    });
+
+    maxInput.addEventListener("keydown", e => {
+        if (e.key === "Enter") applyMaxInput();
+    });
+
+    minInput.addEventListener("blur", applyMinInput);
+    maxInput.addEventListener("blur", applyMaxInput);
+
+    update();
+}
+
+const bar =
+    document.querySelector(".bar");
+
+const barInner =
+    document.querySelector(".bar-inner");
+
+const sliders =
+    document.querySelectorAll(
+        ".min-slider, .max-slider"
+    );
+
+
+/* =========================================
+   CLEAR WAVES
+========================================= */
+const WAVE_WIDTH = 2400;
+
+const WAVE_COUNT = 2;
+
+let waves = new Array(WAVE_COUNT);
+
+let noiseOffset = 0;
+let animationId = null;
+let pathUpdateAccumulator = 0;
+
+/* =========================================
+CREATE FLOW
+========================================= */
+function createWaveFlow(){
+
+    cancelAnimationFrame(animationId);
+
+    barInner.innerHTML = "";
+
+    waves = new Array(WAVE_COUNT);
+
+    noiseOffset = 0;
+
+createWaveLayer(
+    0.0,
+    1.00,
+    1.00,
+    0
+);
+
+createWaveLayer(
+    1.4,
+    0.90,
+    0.90,
+    1
+);
+
+    animateWaves();
+}
+/* =========================================
+CREATE LAYER
+========================================= */
+function createWaveLayer(
+phase,
+amplitudeMultiplier,
+opacity,
+index
+){
+
+const svg =  
+    document.createElementNS(  
+        "http://www.w3.org/2000/svg",  
+        "svg"  
+    ); 
+svg.style.willChange = "transform";
+
+svg.setAttribute(  
+    "viewBox",  
+    `0 0 ${WAVE_WIDTH} 320`  
+);  
+
+svg.setAttribute(  
+    "preserveAspectRatio",  
+    "none"  
+);  
+
+svg.style.position =  
+    "absolute";  
+
+svg.style.left =  
+    "0";  
+
+svg.style.top =  
+    "70%";  
+
+svg.style.width =  
+    "110%";  
+
+svg.style.height =  
+    "180%";  
+
+svg.style.pointerEvents =  
+    "none";  
+
+svg.style.opacity =  
+    opacity;  
+    
+    svg.style.mixBlendMode =
+    navigator.hardwareConcurrency <= 4
+        ? "normal"
+        : "screen";
+
+
+const defs =  
+    document.createElementNS(  
+        "http://www.w3.org/2000/svg",  
+        "defs"  
+    );  
+
+const gradient =  
+    document.createElementNS(  
+        "http://www.w3.org/2000/svg",  
+        "linearGradient"  
+    );  
+
+const gradientId =  
+    `waveGradient_${index}`;  
+
+gradient.setAttribute(  
+    "id",  
+    gradientId  
+);  
+
+gradient.setAttribute(  
+    "gradientUnits",  
+    "userSpaceOnUse"  
+);  
+
+gradient.setAttribute(  
+    "x1",  
+    "0"  
+);  
+
+gradient.setAttribute(  
+    "x2",  
+    WAVE_WIDTH  
+);  
+
+gradient.setAttribute(  
+    "y1",  
+    "0"  
+);  
+
+gradient.setAttribute(  
+    "y2",  
+    "0"  
+);  
+
+const colors = [
+    "rgba(5,5,5,0.95)",
+    "rgba(12,12,12,0.98)",
+    "rgba(25,25,25,1)",
+    "rgba(45,45,45,1)",
+    "rgba(25,25,25,1)",
+    "rgba(8,8,8,0.96)"
+];
+for(  
+    let i = 0;  
+    i < colors.length;  
+    i++  
+){  
+
+    const stop =  
+        document.createElementNS(  
+            "http://www.w3.org/2000/svg",  
+            "stop"  
+        );  
+
+    stop.setAttribute(  
+        "offset",  
+        `${(i / (colors.length - 1)) * 100}%`  
+    );  
+
+    stop.setAttribute(  
+        "stop-color",  
+        colors[i]  
+    );  
+
+    gradient.appendChild(  
+        stop  
+    );  
+}  
+
+defs.appendChild(  
+    gradient  
+);  
+
+const path =  
+    document.createElementNS(  
+        "http://www.w3.org/2000/svg",  
+        "path"  
+    );  
+
+path.setAttribute(  
+    "fill",  
+    `url(#${gradientId})`  
+);  
+
+svg.appendChild(  
+    defs  
+);  
+
+svg.appendChild(  
+    path  
+); 
+
+path.style.filter =
+    "drop-shadow(0 0 35px rgba(255,255,255,0.95))";
+
+barInner.appendChild(  
+    svg  
+);  
+
+waves[index] = {  
+    svg,  
+    path,  
+    gradient,  
+    phase,  
+    amplitudeMultiplier  
+};
+
+}
+
+/* =========================================
+ADVANCED FLUID SURFACE
+========================================= */
+const WAVE_STEP = 80;
+
+const wavePoints = [];
+
+for(
+    let i = 0;
+    i < WAVE_COUNT;
+    i++
+){
+    wavePoints[i] = [];
+}
+
+/* =========================================
+BUILD WAVE PATH
+========================================= */
+function buildWavePath(
+    time,
+    amplitudeMultiplier,
+    index
+    
+    
+){
+
+    
+
+    const width =
+        WAVE_WIDTH;
+
+    const height =
+        280;
+
+    const points =
+        wavePoints[index];
+
+    const centerY =
+
+        200 +
+
+        Math.sin(
+            time * 0.15
+        ) * 10 +
+
+        Math.cos(
+            time * 0.07
+        ) * 5;
+
+    const breathing =
+
+        Math.sin(
+            time * 0.28
+        ) *
+
+        12 *
+
+        amplitudeMultiplier;
+
+    let pointIndex = 0;
+
+    for(
+        let x = 0;
+        x <= width;
+        x += WAVE_STEP
+    ){
+
+        let point =
+            points[pointIndex];
+
+        if(!point){
+
+            point =
+
+                points[pointIndex] = {
+
+                    x: 0,
+                    y: 0
+
+                };
+        }
+
+        point.x =
+            x;
+
+        point.y =
+
+
+    centerY +
+
+    Math.sin(
+        x * 0.0014 +
+        time * 0.55
+    ) *
+
+    60 *
+
+    amplitudeMultiplier +
+
+    Math.cos(
+        x * 0.0028 -
+        time * 0.90
+    ) *
+
+    35 *
+
+    amplitudeMultiplier +
+
+    Math.sin(
+        x * 0.0055 +
+        time * 1.60
+    ) *
+
+    20 *
+
+    amplitudeMultiplier +
+
+    Math.sin(
+        x * 0.016 +
+        time * 3.2
+    ) *
+
+    4 *
+
+    amplitudeMultiplier +
+
+    breathing;
+    pointIndex++;
+    }
+
+    let d =
+        "M 0 " +
+        height;
+
+    d +=
+        " L " +
+        points[0].x +
+        " " +
+        points[0].y;
+
+    for(
+        let i = 0;
+        i < pointIndex - 1;
+        i++
+    ){
+
+        const current =
+            points[i];
+
+        const next =
+            points[i + 1];
+
+        d +=
+
+            " Q " +
+
+            current.x +
+
+            " " +
+
+            current.y +
+
+            " " +
+
+            (
+                (current.x + next.x) *
+                0.5
+            ) +
+
+            " " +
+
+            (
+                (current.y + next.y) *
+                0.5
+            );
+    }
+
+    const last =
+        points[
+            pointIndex - 1
+        ];
+
+    d +=
+
+        " L " +
+
+        last.x +
+
+        " " +
+
+        last.y +
+
+        " L " +
+
+        width +
+
+        " " +
+
+        height +
+
+        " L 0 " +
+
+        height +
+
+        " Z";
+
+    return d;
+}
+
+/* =========================================
+ANIMATION
+========================================= */
+let frameCounter = 0;
+
+function animateWaves(){
+
+    noiseOffset += 0.055;
+    
+    if (noiseOffset > 60) {
+        noiseOffset = 0;
+    }
+
+    frameCounter++;
+
+    const updatePath =
+        (frameCounter & 1) === 0;
+
+    const updateGradient =
+        (frameCounter & 3) === 0;
+
+    for(
+        let i = 0;
+        i < WAVE_COUNT;
+        i++
+    ){
+        const wave =
+            waves[i];
+            
+    if (!wave) continue;
+        const time =
+            noiseOffset +
+            wave.phase;
+
+        wave.svg.style.transform =
+
+            "translate3d(0,calc(-50% + " +
+
+            (
+
+                Math.sin(
+                    time * 0.35
+                ) *
+
+                8 +
+
+                Math.cos(
+                    time * 0.18
+                ) *
+
+                4
+
+            ) +
+
+            "px),0) scaleX(" +
+
+            (
+
+                1 +
+
+                Math.cos(
+                    time * 0.08
+                ) *
+
+                0.015
+
+            ) +
+
+            ") scaleY(" +
+
+            (
+
+                1 +
+
+                Math.sin(
+                    time * 0.14
+                ) *
+
+                0.045
+
+            ) +
+
+            ")";
+
+        if(updatePath){
+
+            wave.path.setAttribute(
+                "d",
+                buildWavePath(
+                    time,
+                    wave.amplitudeMultiplier,
+                    i
+                )
+            );
+        }
+
+        if(updateGradient){
+
+            const shift =
+
+                (
+                    Math.sin(
+                        time * 0.22
+                    ) +
+                    1
+                ) *
+                400;
+
+            wave.gradient.setAttribute(
+                "x1",
+                -shift
+            );
+
+            wave.gradient.setAttribute(
+                "x2",
+                WAVE_WIDTH -
+                shift
+            );
+        }
+    }
+
+    animationId =
+        requestAnimationFrame(
+            animateWaves
+        );
+}
+
+/* =========================================
+CLEAR
+========================================= */
+function clearWaves(){
+
+cancelAnimationFrame(  
+    animationId  
+);  
+animationId = null;
+waves =  
+    new Array(WAVE_COUNT);  
+
+barInner.innerHTML = "";
+
+}
+
+/* =========================================
+START
+========================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+        if (document.hidden) {
+            cancelAnimationFrame(animationId);
+        }
+        else if (!animationId) {
+            animateWaves();
+        }
+    }
+);
+createWaveFlow();
+
+    // ================= GROUPS =================//
+    document.querySelectorAll(".filter-group").forEach(groupEl => {
+
+        const btn = groupEl.querySelector(".show-more");
+        const items = groupEl.querySelectorAll(".sub-item");
+
+        if (btn) {
+            btn.onclick = () => {
+
+                const expanded = btn.dataset.expanded === "true";
+
+                items.forEach((item, i) => {
+                    item.style.display = expanded
+                        ? (i < 8 ? "block" : "none")
+                        : "block";
+                });
+
+                btn.textContent = expanded ? "More" : "Show less";
+                btn.dataset.expanded = (!expanded).toString();
+            };
+        }
+
+        const search = groupEl.querySelector(".sub-search");
+
+        if (search) {
+            search.oninput = () => {
+                const value = search.value.toLowerCase();
+
+                items.forEach(item => {
+                    item.style.display =
+                        item.textContent.toLowerCase().includes(value)
+                            ? "block"
+                            : "none";
+                });
+            };
+        }
+
+        items.forEach(item => {
+            item.onclick = () => {
+                item.classList.toggle("selected");
+            };
+        });
+    });
+
+    const currencyHeader = document.querySelector(".currency-header");
+    const currencyBox = document.querySelector(".currency-box");
+
+    if (currencyHeader && currencyBox) {
+
+        currencyHeader.onclick = () => {
+            currencyBox.classList.toggle("open");
+        };
+          const currencyItems = document.querySelectorAll(".currency-item");
+        const currencySearch = document.querySelector(".currency-search");
+           document.addEventListener("click", (e) => {
+    if (!currencyBox.contains(e.target)) {
+        currencyBox.classList.remove("open");
+    }
+});
+
+        currencyItems.forEach(item => {
+            item.onclick = () => {
+                currencyHeader.textContent = item.textContent + " ▼";
+                currencyBox.classList.remove("open");
+            };
+        });
+
+        if (currencySearch) {
+            currencySearch.oninput = () => {
+                const val = currencySearch.value.toLowerCase();
+
+                currencyItems.forEach(item => {
+                    item.style.display =
+                        item.textContent.toLowerCase().includes(val)
+                            ? "block"
+                            : "none";
+                });
+            };
+        }
+    }
+}
+
+const navbar = document.querySelector(".top-navbar");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("query");
+
+    if (!query) return;
+
+    // ניקוי
+    handleSearchChange(query);
+    return
+});
+window.addEventListener("DOMContentLoaded", () => {
+    let scrollTimeout;
+
+    window.addEventListener("scroll", () => {
+        if (!SearchButtom) return
+        floatingBtn.classList.remove("show");
+
+        clearTimeout(scrollTimeout);
+
+        scrollTimeout = setTimeout(() => {
+            floatingBtn.classList.add("show");
+        }, 300);
+    });
+
+});
+function DeleteSubDropdown() {
+    
+    const activeCategory = document.querySelector(".category.active");
+    
+    if (activeCategory) {
+        activeCategory.click();
+    }
+    sub.style.display = "none";
+    document.getElementById("subDropdown").innerHTML = "";
+
+}
