@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<title>Search</title>
+
+
+</style>
+<meta charset="UTF-8">
+
+    <link rel="stylesheet" href="searching.css">
+   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+
+<body
+><div class="gold-particles">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+</div>
+<div class="top-navbar">
+    <div class="logo">SmartShop</div>
+
+    <div class="nav-links">
+        <a href="../home/Home.html">Home</a>
+        <a href="#">Search</a>
+        <a href="#">Filters</a>
+        <a href="#">Profile</a>
+    </div>
+</div>
+
+</div>
+<div class="search-label">✨ Discover something new</div>
+
+
+<div class="dropdown">
+
+   <div class="search-box">
+
+    <input 
+        type="text" 
+        class="dropdown-search" 
+        placeholder="Search product type..."
+
+    >
+    <span class="orb-blue"></span>
+<span class="orb-red"></span>
+<span class="orb-green"></span>
+<span class="orb-yellow"></span>
+<div class="clear-btn">
+      <span>x</span>
+</div>
+  
+</div>
+
+    <div class="dropdown-list" id="dropdownList">
+        <div class="dropdown-item">Phones</div>  
+        <div class="dropdown-item">Cars</div>  
+        <div class="dropdown-item">Furniture</div>  
+        <div class="dropdown-item">Gaming</div>  
+        <div class="dropdown-item">Clothing</div>  
+        <div class="dropdown-item">Books</div>  
+        <div class="dropdown-item">Sports</div>  
+        <div class="dropdown-item">Toys</div>  
+        <div class="dropdown-item">Music</div>  
+        <div class="dropdown-item">Appliances</div>  
+        <div class="dropdown-item">Jewelry</div>  
+        <div class="dropdown-item">Beauty</div>  
+        <div class="dropdown-item">Shoes</div>  
+        <div class="dropdown-item">Bags</div>  
+        <div class="dropdown-item">Watches</div>  
+        <div class="dropdown-item">Garden</div>  
+        <div class="dropdown-item">Pets</div>  
+        <div class="dropdown-item">Tools</div>  
+        <div class="dropdown-item">Art</div>  
+        <div class="dropdown-item">Office</div>
+
+
+    </div>
+
+</div>
+<div class="describe-box">
+    <textarea placeholder="Describe the product..."></textarea>
+</div>
+
+<div id="subDropdown"></div>
+
+<div class="categories">
+    <div class="category" id="cat1" data-category="Phones"><div class="circle"><img src="img1.jpg"></div></div>
+    <div class="category" id="cat2" data-category="Cars"><div class="circle"><img src="img2.jpg"></div></div>
+    <div class="category" id="cat3" data-category="Furniture"><div class="circle"><img src="img3.jpg"></div></div>
+    <div class="category" id="cat4" data-category="Gaming"><div class="circle"><img src="img4.jpg"></div></div>
+    <div class="category" id="cat5" data-category="Clothing"><div class="circle"><img src="img5.jpg"></div></div>
+    <div class="category" id="cat6" data-category="Books"><div class="circle"><img src="img6.jpg"></div></div>
+    <div class="category" id="cat7" data-category="Sports"><div class="circle"><img src="img7.jpg"></div></div>
+    <div class="category" id="cat8" data-category="Toys"><div class="circle"><img src="img8.jpg"></div></div>
+    <div class="category" id="cat9" data-category="Music"><div class="circle"><img src="img9.jpg"></div></div>
+    <div class="category" id="cat10" data-category="Appliances"><div class="circle"><img src="img10.jpg"></div></div>
+    <div class="category" id="cat11" data-category="Jewelry"><div class="circle"><img src="img11.jpg"></div></div>
+    <div class="category" id="cat12" data-category="Beauty"><div class="circle"><img src="img12.jpg"></div></div>
+    <div class="category" id="cat13" data-category="Shoes"><div class="circle"><img src="img13.jpg"></div></div>
+    <div class="category" id="cat14" data-category="Bags"><div class="circle"><img src="img14.jpg"></div></div>
+    <div class="category" id="cat15" data-category="Watches"><div class="circle"><img src="img15.jpg"></div></div>
+    <div class="category" id="cat16" data-category="Garden"><div class="circle"><img src="img16.jpg"></div></div>
+    <div class="category" id="cat17" data-category="Pets"><div class="circle"><img src="img17.jpg"></div></div>
+    <div class="category" id="cat18" data-category="Tools"><div class="circle"><img src="img18.jpg"></div></div>
+    <div class="category" id="cat19" data-category="Art"><div class="circle"><img src="img19.jpg"></div></div>
+    <div class="category" id="cat20" data-category="Office"><div class="circle"><img src="img20.jpg"></div></div>
+</div>
+<div class="bottom-footer">
+    <a href="#">Search</a>
+    <a href="#">Help</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+</div>
+<div id="floatingSearchBtn">Search</div>
+<script src="search.js"></script>
+</body>
+</html>
