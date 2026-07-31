@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="searching.css">
    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
-  
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
     <div class="logo">SmartShop</div>
 
     <div class="nav-links">
-        <a href="../home/Home.html">Home</a>
+       <a href="../home/Home.html">Home</a>
         <a href="#">Search</a>
         <a href="#">Filters</a>
         <a href="#">Profile</a>
@@ -53,7 +53,7 @@
 <div class="clear-btn">
       <span>x</span>
 </div>
-  
+
 </div>
 
     <div class="dropdown-list" id="dropdownList">
