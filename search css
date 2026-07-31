@@ -8,7 +8,7 @@ body{
         "SF Pro Display",
         Arial,
         sans-serif;
-background: bleck;
+
 
 background:#121212;
 background-attachment:fixed;
@@ -17,6 +17,8 @@ background-size:cover;
 }
 
 /* ================= NAVBAR ================= */
+/* ================= NAVBAR ================= */
+
 .top-navbar{
     position:sticky;
     top:0;
@@ -28,56 +30,20 @@ background-size:cover;
 
     padding:14px 24px;
 
-    background:rgba(16,16,16,.96);
+    background:#121212;
 
-    backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.35),
-        inset 0 1px 0 rgba(16,16,16,.85);
-
-    transition:
-        transform .25s ease,
-        opacity .25s ease;
-}
-
-.top-navbar.scrolled{
-    transform:translateY(-110%);
-    opacity:0;
-    pointer-events:none;
-}
-
-.top-navbar::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(16,16,16,.35),
-            rgba(16,16,16,.15),
-            transparent
-        );
-
-    pointer-events:none;
+    border-bottom:1px solid #2a2a2a;
 }
 
 /* ================= LOGO ================= */
 
 .top-navbar .logo{
-    font-weight:200;
+    font-weight:100;
     font-size:15px;
 
-    color:#ffffff;
+    color:#c9c9c9;
 
     letter-spacing:.5px;
-
-    -webkit-text-fill-color:initial;
-    background:none;
 }
 
 /* ================= NAV LINKS ================= */
@@ -94,15 +60,13 @@ background-size:cover;
     padding:6px 4px;
 
     font-size:13px;
-    font-weight:300;
+    font-weight:200;
 
-    color:#8a8a8a;
+    color:#7d7d7d;
 
     text-decoration:none;
 
-    transition:
-        color .25s ease,
-        transform .25s ease;
+    transition:color .2s ease;
 }
 
 .nav-links a::after{
@@ -114,26 +78,19 @@ background-size:cover;
     bottom:-4px;
 
     width:0;
-    height:2px;
+    height:1px;
 
-    border-radius:999px;
+    background:#9b9b9b;
 
-    background:#ffffff;
-
-    transition:width .3s ease;
+    transition:width .25s ease;
 }
 
 .nav-links a:hover{
-    color:#d5d5d5;
-    transform:translateY(-1px);
+    color:#cfcfcf;
 }
 
 .nav-links a:hover::after{
     width:100%;
-}
-
-.nav-links a:active{
-    transform:scale(.96);
 }
 
 /* ================= TITLE ================= */
@@ -159,11 +116,11 @@ background-size:cover;
     background:
     linear-gradient(
         90deg,
-        #5f5f5f 0%,
-        #747474 22%,
-        #c8c8c8 50%,
-        #747474 78%,
-        #5f5f5f 100%
+        #6a6a6a 0%,
+        #7a7a7a 22%,
+        #9c9c9c 50%,
+        #7a7a7a 78%,
+        #6a6a6a 100%
     );
 
     background-size:220% 100%;
@@ -309,7 +266,7 @@ background-size:cover;
     display:flex;
     justify-content:center;
     align-items:center;
-    margin:48px 18px;
+    margin:16px 18px;
 }
 
 .describe-box::before{
@@ -318,9 +275,9 @@ background-size:cover;
     position:absolute;
 
     width:min(94vw,840px);
-    height:260px;
+    height:180px;
 
-    border-radius:42px;
+    border-radius:36px;
 
     background:
         radial-gradient(
@@ -331,7 +288,7 @@ background-size:cover;
             transparent 72%
         );
 
-    filter:blur(55px);
+    filter:blur(45px);
 
     z-index:-2;
 }
@@ -341,18 +298,20 @@ background-size:cover;
     position:relative;
 
     width:min(92vw,760px);
-    min-height:160px;
+    min-height:30px;
 
-    padding:24px 26px;
+    height:36px;
+
+    padding:6px 14px;
 
     resize:none;
 
     outline:none;
 
     border:
-        0.8px solid rgba(72,76,84,.55);
+        0.6px solid rgba(72,76,84,.55);
 
-    border-radius:32px;
+    border-radius:22px;
 
     font-family:
         "Manrope",
@@ -361,17 +320,16 @@ background-size:cover;
         "SF Pro Display",
         sans-serif;
 
-    font-size:20px;
+    font-size:16px;
+
     font-weight:100;
 
-    line-height:1.75;
+    line-height:1.2;
 
     letter-spacing:-0.02em;
-
     color:gray;
 
     background:#101010;
-
     transition:
         transform .25s ease,
         box-shadow .25s ease,
@@ -389,13 +347,12 @@ background-size:cover;
         "SF Pro Display",
         sans-serif;
 
-    font-size:20px;
+    font-size:18px;
 
     font-weight:200;
 
     letter-spacing:-0.01em;
 }
-
 
 .describe-box textarea:focus{
 
@@ -420,7 +377,6 @@ background-size:cover;
 
 }
 
-
 .dropdown.shrink{
 
     width:var(--shrink-width);
@@ -431,8 +387,6 @@ background-size:cover;
 /* =========================
    Search Box
 ========================= */
-
-
 .search-box{
 
     position:relative;
@@ -446,25 +400,20 @@ background-size:cover;
    Input
 ========================= */
 
-
 .dropdown-search{
 
     width:100%;
 
-    height:64px;
+    height:36px;
 
-
-    padding:0 24px 0 28px;
-
+    padding:0 18px;
 
     border:
         0.6px solid rgba(95,100,110,.45);
 
-
     outline:none;
 
-    border-radius:32px;
-
+    border-radius:20px;
 
     font-family:
         "Manrope",
@@ -473,53 +422,29 @@ background-size:cover;
         "SF Pro Display",
         sans-serif;
 
-
-    font-size:22px;
+    font-size:18px;
 
     font-weight:100;
-
+    transform: scale(1.03);
     letter-spacing:-0.02em;
 
-
     color:gray;
-
-
     background:#101010;
-
-
-    transition:
-        border-color .25s ease,
-        transform .25s ease,
-        background .25s ease,
-        color .25s ease;
-
 }
 
-
-
 .dropdown-search:hover{
-
     border-color:
         rgba(140,145,155,.55);
 
 }
 
-
-
 .dropdown-search:focus{
-
-    
     
     color:#f3f3f3;
-
-
     border:1px solid rgba(50,50,50,.95);
-
     background:#050505;
 
 }
-
-
 
 .dropdown-search::placeholder{
 
@@ -532,7 +457,7 @@ background-size:cover;
         "SF Pro Display",
         sans-serif;
 
-    font-size:18px;
+    font-size:17px;
 
     font-weight:200;
 
@@ -540,8 +465,6 @@ background-size:cover;
 
     line-height:64px;
 }
-
-
 
 /* =========================
    Clear Button
@@ -556,9 +479,7 @@ background-size:cover;
 
     right:20px;
 
-
     z-index:2;
-
 
     display:none;
 
@@ -566,92 +487,73 @@ background-size:cover;
 
     justify-content:center;
 
+    width:22px;
 
-    width:42px;
-
-    height:42px;
-
-
-    margin:0;
-
-    padding:0;
-
+    height:22px;
 
     cursor:pointer;
 
+    border:none;
 
-    border-radius:30%;
-
+    border-radius:32%;
 
     background:#101010;
 
+    color:gray;
 
-    color:#b0b0b0;
-
-
-    font-size:30px;
+    font-size:25px;
 
     font-weight:100;
-
 
     border:
         0.2px solid rgba(85,85,85,.45);
 
+    padding:0;
 
     transform:translateY(-50%);
-
-
-    transition:
-        transform .3s ease,
-        border-color .3s ease,
-        color .3s ease;
-
 }
-
-
 
 .clear-btn span{
 
-    margin:14px;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    height:100%;
 
     padding:0;
 
-    transform:translateY(-1px);
+    margin:0;
+
+    line-height:1;
+
+    transform:
+        translate(0.5px, -2px);
 
     user-select:none;
 
     pointer-events:none;
-
 }
-
-
 
 .clear-btn:hover{
 
     transform:
         translateY(-50%)
         scale(1.05);
-
-
-    
-
-
-    color:#f3f3f3;
-
+        color:#f3f3f3;
 }
-
-
 
 /* =========================
    Dropdown List
 ========================= */
 
-
 .dropdown-list{
 
     display:none;
-
-
     margin-top:16px;
 
 
@@ -668,21 +570,16 @@ background-size:cover;
 
     border:
         0.2px solid rgba(85,85,85,.45);
-
-
+    transform: scale(1.02);
     color:#d4d4d4;
 
 }
-
-
 
 .dropdown.open .dropdown-list{
 
     display:block;
 
 }
-
-
 
 /* =========================
    Items
@@ -692,28 +589,16 @@ background-size:cover;
 .dropdown-item{
 
     padding:18px 24px;
-
-
-    font-size:14px;
+    font-size:12px;
 
     color:#a0a0a0;
-
-
     cursor:pointer;
 
 
     border-bottom:
         0.2px solid rgba(35,35,35,.55);
 
-
-    transition:
-        padding .25s ease,
-        background .25s ease,
-        color .25s ease;
-
 }
-
-
 
 .dropdown-item:last-child{
 
@@ -741,7 +626,7 @@ background-size:cover;
 
 .dropdown-list::-webkit-scrollbar{
 
-    width:5px;
+    width:2px;
 
 }
 
@@ -767,43 +652,34 @@ background-size:cover;
 
 }
 
-
-
-
-
 /* ================= SUB FILTER ================= */
 #subDropdown {
-background:#121212;
+    background:#121212;
     
     border-radius: 20px;
     
     padding: 18px;
 
     backdrop-filter: blur(14px);
-
+    border:
+        0.6px solid rgba(95,100,110,.45);
     display:none;
     
-box-shadow:
-    0 20px 50px rgba(0,0,0,0.35),
-    0 1px 0 rgba(90,90,90,0.35) inset;
+
 }
 
 /* ================= FILTER GROUP ================= */
 .filter-group {
-    margin-bottom: 18px;
+    margin-bottom: 80px;
 }
 
 .filter-title {
     font-weight: 200;
-
-    font-size: 12px;
+    font-size: 20px;
     letter-spacing: 0.6px;
     text-transform: uppercase;
-
-    color: #8b8f96;
+    color:gray;
 }
-
-
 /* ================= OPTIONS ================= */
 
 .filter-options {
@@ -817,7 +693,7 @@ box-shadow:
 
 .sub-item {
 
-    padding:14px 16px;
+    padding:8px 12px;
 
     background:#101010;
 
@@ -825,27 +701,19 @@ box-shadow:
 
     cursor:pointer;
 
-    font-size:13px;
+    font-size:14px;
     font-weight:200;
 
     color:#8b8b8b;
-
-    border:none;
-
-    transition:
-        background .25s ease,
-        color .25s ease,
-        border .25s ease,
-        transform .25s ease;
+    border:0.4px solid rgba(72,76,84,.55);
 }
-
 
 /* selected */
 
 .sub-item.selected {
-    background:#050505;
+    background:#166534;
     box-shadow:none;
-     color:#f5f5f5;
+    color:#f5f5f5;
 
 }
 
@@ -856,7 +724,7 @@ box-shadow:
 
     width:40%;
 
-    padding:10px 14px;
+    padding:6px 10px;
 
     margin:12px 0;
 
@@ -869,13 +737,13 @@ box-shadow:
     font-weight:200;
 
     background:#101010;
+    border:0.4px solid rgba(72,76,84,.55);
 
     color:gray;
 
     outline:none;
 
 }
-
 
 .sub-search:focus {
 
@@ -884,9 +752,7 @@ box-shadow:
     color:#d0d0d0;
 
     
-
 }
-
 
 /* ================= SHOW MORE ================= */
 
@@ -907,12 +773,7 @@ box-shadow:
     align-items:center;
 
     gap:4px;
-
-    transition:
-        color .18s ease,
-        transform .18s ease;
 }
-
 
 .show-more:hover {
 
@@ -921,46 +782,45 @@ box-shadow:
     transform:
         translateX(3px);
 }
-.price-range {
-    position: relative;
-    width: 100%;
-    padding: 50px 8px 10px;
-    box-sizing: border-box;
-    top: 125px;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    background: transparent;
+
+.price-range{
+    position:relative;
+    width:100%;
+    padding:50px 8px 10px;
+    box-sizing:border-box;
+    top:125px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    background:transparent;
 }
 
-
-.price-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 50px;
+.price-field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-top:50px;
 }
 
-
-.price-field label {
-    font-size: 12px;
-    font-weight: 600;
-    color: #8a8a8a;
-    padding-left: 2px;
+.price-field label{
+    font-size:14px;
+    font-weight:200;
+    color:#8a8a8a;
+    padding-left:2px;
 }
 
+.price-range::before{
 
-.price-range::before {
+    content:"";
 
-    content: "";
+    position:absolute;
 
-    position: absolute;
+    left:2px;
+    right:2px;
 
-    left: 8px;
-    right: 8px;
-    top: 22px;
+    top:22px;
 
-    height: 2px;
+    height:0px;
 
     border-radius:999px;
 
@@ -969,35 +829,29 @@ box-shadow:
     background:
         linear-gradient(
             90deg,
-            #ffffff,
-            #eeeeee,
-            #ffffff,
-            #e8e8e8,
-            #ffffff
+            var(--before-range-line-bg,#121212),
+            var(--before-range-line-bg,#121212),
+            var(--before-range-line-bg,#121212),
+            var(--before-range-line-bg,#121212),
+            var(--before-range-line-bg,#121212)
         );
 
     border:
-        1px solid rgba(0,0,0,.75);
+        var(--before-range-line-border,
+        1px solid rgba(90,90,90,.75));
 
-    box-shadow:
-        0 1px 5px rgba(0,0,0,.25),
-        inset 0 1px 2px rgba(255,255,255,.9);
 }
+.price-range::after{
 
-
-.price-range::after {
-
-    content: "";
+    content:"";
 
     position:absolute;
 
-    left:calc(8px + var(--min) - 5px);
-    right:calc(100% - var(--max));
+    left:calc(2px + var(--min));
+
+    right:calc(99.5% - var(--max));
 
     top:22px;
-
-    height:2px;
-
     border-radius:999px;
 
     z-index:2;
@@ -1005,17 +859,15 @@ box-shadow:
     background:
         linear-gradient(
             90deg,
-            #ffffff,
-            #f5f5f5,
-            #ffffff
+            var(--after-range-line-bg,#121212),
+            var(--after-range-line-bg,#121212),
+            var(--after-range-line-bg,#121212)
         );
 
     border:
-        1px solid rgba(0,0,0,.85);
+        var(--after-range-line-border,
+        1px solid rgba(90,90,90,.85));
 
-    box-shadow:
-        0 0 8px rgba(0,0,0,.25),
-        inset 0 1px 2px rgba(255,255,255,.95);
 }
 /* ================= FLOATING DOT WAVES ================= */
 
@@ -1023,18 +875,15 @@ box-shadow:
     position: absolute;
 
     /* התחלה */
-    left: calc(4px + var(--min) - 1px);
+    left: calc(1px + var(--min));
     top: -21px;
 
     /* סוף */
-    right: calc(100% - var(--max));
+    right: calc(99.5% - var(--max));
 
     height: 150px;
 
     overflow: hidden;
-
-
-
 
 }
 .bar::before{
@@ -1048,9 +897,7 @@ box-shadow:
 
     pointer-events: none;
 
-    box-shadow:
-        inset 0 0 22px rgba(255,255,255,.15),
-        0 0 24px rgba(0,180,255,.12);
+
 
     z-index: 4;
 }
@@ -1080,7 +927,7 @@ box-shadow:
     width:100%;
     position:absolute;
     left:0;
-    top:-10px;
+    top:-4px;
     transform:translateY(-40%);
     pointer-events:none;
     -webkit-appearance:none;
@@ -1088,52 +935,28 @@ box-shadow:
     background:transparent;
     z-index:30;
 }
-
-
 /* ==================================================
-   MINIMAL WHITE / BLACK BORDER STYLE
+   MINIMAL DARK / GRAY BORDER STYLE
    ================================================== */
 
 .min-slider::-webkit-slider-thumb,
 .max-slider::-webkit-slider-thumb{
 
     pointer-events:all;
-
     -webkit-appearance:none;
     appearance:none;
 
-    width:4px;
-    height:55px;
+    width:1px;
+    height:42px;
 
     cursor:pointer;
-
     border-radius:999px;
 
-    background:#ffffff;
+    background:var(--slider-thumb-bg,#121212);
 
-    border:
-        1px solid rgba(0,0,0,.85);
+    border:var(--slider-thumb-border,
+    1px solid rgba(90,90,90,.85));
 
-    box-shadow:
-        inset 0 1px 2px rgba(255,255,255,.9),
-        inset 0 -2px 4px rgba(0,0,0,.15),
-        0 4px 14px rgba(0,0,0,.25),
-        0 0 0 1px rgba(0,0,0,.08);
-}
-
-
-/* hover */
-
-.min-slider::-webkit-slider-thumb:hover,
-.max-slider::-webkit-slider-thumb:hover{
-
-    transform:scaleX(1.08);
-
-    box-shadow:
-        inset 0 1px 3px rgba(255,255,255,1),
-        inset 0 -3px 6px rgba(0,0,0,.18),
-        0 0 18px rgba(0,0,0,.18),
-        0 6px 18px rgba(0,0,0,.28);
 }
 
 
@@ -1141,42 +964,10 @@ box-shadow:
 
 .min-slider::-webkit-slider-thumb:active,
 .max-slider::-webkit-slider-thumb:active{
-
-    transform:scaleX(1.15);
-
-    box-shadow:
-        inset 0 1px 4px rgba(255,255,255,1),
-        inset 0 -4px 8px rgba(0,0,0,.25),
-        0 0 25px rgba(0,0,0,.22),
-        0 8px 22px rgba(0,0,0,.35);
+    
+    background:#050505;
 }
 
-
-/* Firefox */
-
-.min-slider::-moz-range-thumb,
-.max-slider::-moz-range-thumb{
-
-    width:4px;
-    height:55px;
-
-    border:none;
-
-    cursor:pointer;
-
-    border-radius:999px;
-
-    background:#ffffff;
-
-    border:
-        1px solid rgba(0,0,0,.85);
-
-    box-shadow:
-        inset 0 1px 2px rgba(255,255,255,.9),
-        inset 0 -2px 4px rgba(0,0,0,.15),
-        0 4px 14px rgba(0,0,0,.25),
-        0 0 0 1px rgba(0,0,0,.08);
-}
 /* =========================================
    PRICE VALUES
 ========================================= */
@@ -1185,8 +976,7 @@ box-shadow:
     justify-content:space-between;
     align-items:flex-start;
     gap:12px;
-    margin-bottom: 100px;
-
+    margin-bottom:90px;
 }
 
 .price-values .value-box{
@@ -1195,8 +985,7 @@ box-shadow:
     align-items:center;
     gap:6px;
     flex:1;
-    top: -100px;
-    
+    top:-100px;
 }
 
 .price-values .value-box span{
@@ -1204,19 +993,12 @@ box-shadow:
     font-weight:100;
     letter-spacing:1px;
     text-transform:uppercase;
-    color:#7a8ca5;
+    color:#8b8b8b;
 }
 
-/* =========================================================
-   PREMIUM INPUT FIELD (PRICE VALUES)
-   Clean Apple-like UI • Soft Depth • Subtle Glow • Smooth Feel
-========================================================= */
-
 .price-values input{
-
-    width:100%;
-    max-width:150px;
-    height:40px;
+    max-width:120px;
+    height:30px;
 
     padding:0 12px;
 
@@ -1225,7 +1007,7 @@ box-shadow:
 
     border-radius:16px;
 
-    background:#ffffff;
+    background:#101010;
 
     text-align:center;
 
@@ -1233,34 +1015,26 @@ box-shadow:
     font-weight:100;
     letter-spacing:0.3px;
 
-    color:#7d7d7d;
-   border:
-        1px solid rgba(140,145,155,.30);
+    color:gray;
 
+    border:0.8px solid rgba(72,76,84,.55);
 
+}
 
-    
+.price-values input::placeholder{
+    color:#8b8b8b;
+    font-weight:200;
 }
 
 .price-values input:hover{
-
-    
-border:
-        1px solid rgba(0,0,0,.77);
-
+    background:#0b0b0b;
 }
 
 .price-values input:focus{
 
-    color:#111111;
+    color:#f5f5f5;
 
-    background:#ffffff;
-
-    border:
-        1px solid rgba(0,0,0,.77);
-
-  
-
+    background:#050505;
 }
 
 /* =========================================
@@ -1298,7 +1072,7 @@ border:
     position:relative;
     display:flex;
     flex-direction:column;
-    top:-390px;
+    top:-380px;
     margin:auto;
 
     font-family:
@@ -1318,7 +1092,7 @@ border:
     position:relative;
     overflow:hidden;
 
-    padding:18px 20px;
+    padding:8px 10px;
     border-radius:24px;
     cursor:pointer;
 
@@ -1332,15 +1106,12 @@ border:
 .currency-header:hover{
     background:#101010;
     color:#bdbdbd;
-    border:1px solid rgba(60,60,60,.8);
 }
 
 .currency-box.open .currency-header{
     background:#050505;
     color:#f0f0f0;
-    border:1px solid rgba(50,50,50,.95);
-
-    
+    border:0.4px solid rgba(50,50,50,.95);
 }
 
 /* ========================= DROPDOWN ========================= */
@@ -1350,12 +1121,11 @@ border:
 
     position:absolute;
     top:calc(100% + 14px);
-    width:180px;
+    width:140px;
     z-index:50;
 
-    padding:16px;
+    padding:8px;
     border-radius:24px;
-
     background:#101010;
     border:1px solid rgba(50,50,50,.95);
 }
@@ -1369,17 +1139,15 @@ border:
 .currency-search{
     width:100%;
 
-    padding:13px 15px;
+    padding:8px 10px;
     margin-bottom:14px;
 
-    border:1px solid rgba(65,65,65,.75);
+    border:0.4px solid rgba(65,65,65,.75);
     outline:none;
     border-radius:16px;
 
     background:#101010;
     color:#bdbdbd;
-
-    transition:border-color .2s ease;
 }
 
 .currency-search::placeholder{
@@ -1402,15 +1170,13 @@ border:
 /* ========================= LIST ========================= */
 
 .currency-list{
-    max-height:260px;
-
+    max-height:240px;
     overflow-y:auto;
-    scrollbar-width:thin;
     scrollbar-color:#555 transparent;
 }
 
 .currency-list::-webkit-scrollbar{
-    width:4px;
+    width:2px;
 }
 
 .currency-list::-webkit-scrollbar-track{
@@ -1423,29 +1189,23 @@ border:
     border:1px solid rgba(50,50,50,.95);
 }
 
-.currency-list::-webkit-scrollbar-thumb:hover{
-    background:#101010;
-    border:1px solid rgba(35,35,35,1);
-}
+
 
 /* ========================= ITEM ========================= */
 
 .currency-item{
-    padding:14px;
-    border-radius:16px;
+    padding:8px;
     cursor:pointer;
-
     color:#8b8b8b;
     background:#101010;
-
-    transition:background .2s ease,color .2s ease;
+    border-bottom:
+        0.1px solid rgba(35,35,35,.55);
+    
 }
 
 .currency-item:hover{
-    background:#101010;
+    background:black;
 }
-
-
 
 /* =========================================
    CATEGORIES
@@ -1551,21 +1311,16 @@ border:
     right:20px;
     font-family:"SF Pro Display","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 
-    padding:14px 24px;
+    padding:6px 16px;
 
 
-    border-radius:16px;
+    border-radius:32px;
+    background:#1e40af;
 
+    color:white;
+    font-size:18px;
 
-    background:#ffffff;
-
-
-    color:#111111;
-
-
-    font-size:14px;
-
-    font-weight:600;
+    font-weight:200;
 
 
     cursor:pointer;
@@ -1574,10 +1329,6 @@ border:
     border:
 
         1px solid rgba(140,145,155,.30);
-
-
-
-
 
     opacity:0;
 
