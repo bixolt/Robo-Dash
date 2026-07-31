@@ -1,29 +1,3314 @@
-
-
 // =================
 // DATA
 // =================
 const filterData = {
 
 Phones: {
-    Brand: ["Apple", "Samsung", "Xiaomi", "OnePlus", "Google", "Huawei", "Oppo", "Vivo", "Nokia"],
-    Price: { min: 100, max: 2000 },
-    Condition: ["New", "Used", "Like New"],
-    Storage: ["64GB", "128GB", "256GB", "512GB"]
+Brand: [
+    "Apple",
+    "Samsung",
+    "Google",
+    "Xiaomi",
+    "Redmi",
+    "POCO",
+    "OnePlus",
+    "Huawei",
+    "Honor",
+    "Oppo",
+    "Vivo",
+    "Motorola",
+    "Nothing",
+    "Realme",
+    "Sony",
+    "Asus",
+    "Nokia",
+    "Lenovo",
+    "ZTE",
+    "TCL",
+    "Meizu",
+    "Sharp",
+    "BlackBerry",
+    "HTC",
+    "LG",
+    "RedMagic",
+    "nubia",
+    "iQOO",
+    "Infinix",
+    "Tecno",
+    "Doogee",
+    "Ulefone",
+    "Cubot",
+    "Cat",
+    "Fairphone",
+    "Energizer",
+    "Blu",
+    "Micromax",
+    "Lava",
+    "Panasonic",
+    "Alcatel",
+    "Microsoft",
+    "Essential",
+    "LeEco",
+    "Gionee",
+    "Vernee",
+    "Umidigi",
+    "OUKITEL",
+    "Blackview",
+    "AGM",
+    "Hotwav",
+    "iiF150",
+    "8849",
+    "Leitz",
+    "Kyocera",
+    "Fujitsu",
+    "Rakuten",
+    "VAIO",
+    "Yota",
+    "Hisense",
+    "Coolpad",
+    "Smartisan",
+    "Wiko",
+    "Archos",
+    "Prestigio",
+    "Philips",
+    "Dell",
+    "Acer",
+    "HP",
+    "Siemens",
+    "BenQ",
+    "Palm",
+    "Vertu",
+    "MobiWire",
+    "BQ",
+    "Kruger&Matz",
+    "Crosscall",
+    "Hammer",
+    "myPhone",
+    "Doro",
+    "Jolla",
+    "Kazam",
+    "Yezz",
+    "Allview",
+    "Xolo",
+    "Celkon",
+    "Karbonn",
+    "Spice",
+    "Intex",
+    "Swipe",
+    "Lyf",
+    "Comio",
+    "Elephone",
+    "Unihertz",
+    "FOSSiBOT",
+    "Oscal",
+    "Nomu",
+    "Turing",
+    "Sirin Labs",
+    "Razer",
+    "Amazon",
+    "T-Mobile",
+    "Orange",
+    "Vodafone",
+    "Gigabyte",
+    "Geotel",
+    "Zopo",
+    "Jiayu",
+    "THL",
+    "Elephone",
+    "Poptel",
+    "Maze",
+    "Verizon",
+    "Xgody"
+],
+
+    Price: {
+        min: 50,
+        max: 3000
+    },
+
+    Cond: [
+        "Brand New",
+        "Factory Sealed",
+        "Factory New",
+        "New",
+        "Original Seal",
+        "Sealed Box",
+        "Open Box",
+        "Unused",
+        "Demo Unit",
+        "Display Unit",
+        "Like New",
+        "Mint",
+        "Mint+",
+        "Excellent",
+        "Very Good",
+        "Good",
+        "Fair",
+        "Used",
+        "Lightly Used",
+        "Heavily Used",
+        "Refurbished",
+        "Manufacturer Refurbished",
+        "Seller Refurbished",
+        "Certified Refurbished",
+        "Certified Pre-Owned",
+        "Renewed",
+        "Renewed Premium",
+        "For Parts",
+        "Broken Screen",
+        "Battery Replacement Needed"
+    ],
+
+    Store: [
+    "4GB",
+    "8GB",
+    "16GB",
+    "32GB",
+    "64GB",
+    "128GB",
+    "256GB",
+    "512GB",
+    "1TB",
+    "2TB",
+    "Expandable Storage",
+    "Expandable Up To 128GB",
+    "Expandable Up To 256GB",
+    "Expandable Up To 512GB",
+    "Expandable Up To 1TB",
+    "Expandable Up To 2TB",
+    "microSD Slot",
+    "microSDHC Support",
+    "microSDXC Support",
+    "Dedicated microSD Slot",
+    "Hybrid SIM Slot",
+    "Dual SIM + microSD",
+    "No Card Slot",
+    "Internal Storage",
+    "Cloud Storage",
+    "UFS 2.0",
+    "UFS 2.1",
+    "UFS 2.2",
+    "UFS 3.0",
+    "UFS 3.1",
+    "UFS 4.0",
+    "eMMC 5.1",
+    "NVMe Storage",
+    "SSD Storage",
+    "Read Speed Optimized",
+    "Write Speed Optimized",
+    "High Speed Storage",
+    "Encrypted Storage",
+    "Secure Storage",
+    "Storage Expansion Supported"
+],
+
+Ram: [
+    "1GB",
+    "2GB",
+    "3GB",
+    "4GB",
+    "6GB",
+    "8GB",
+    "10GB",
+    "12GB",
+    "14GB",
+    "16GB",
+    "18GB",
+    "20GB",
+    "24GB",
+    "32GB",
+    "LPDDR3",
+    "LPDDR4",
+    "LPDDR4X",
+    "LPDDR5",
+    "LPDDR5X",
+    "LPDDR6",
+    "Virtual RAM",
+    "RAM Expansion",
+    "Memory Fusion",
+    "Dynamic RAM Expansion",
+    "Turbo RAM",
+    "Memory Boost",
+    "AI Memory Management",
+    "High Bandwidth RAM",
+    "Dual Channel RAM",
+    "Low Power RAM",
+    "Gaming Optimized RAM",
+    "Multitasking Optimized",
+    "Fast App Switching"
+],
+
+    Screen: [
+    "Under 4.5\"",
+    "4.5-4.9\"",
+    "5.0-5.4\"",
+    "Under 5.5\"",
+    "5.5-5.9\"",
+    "Under 6.0\"",
+    "6.0-6.2\"",
+    "6.3-6.5\"",
+    "6.6-6.8\"",
+    "6.8-7.0\"",
+    "7.0-7.5\"",
+    "Over 6.8\"",
+    "Over 7.0\"",
+    "Compact Display",
+    "Large Display",
+    "Ultra Large Display",
+    "Foldable",
+    "Flip Phone",
+    "Dual Screen",
+    "Rollable Display",
+    "Flexible Display",
+    "Edge Display",
+    "Curved Display",
+    "Quad Curved Display",
+    "Micro Curved Display",
+    "Flat Display",
+    "Infinity Display",
+    "Infinity-O Display",
+    "Infinity-U Display",
+    "Infinity-V Display",
+    "Punch Hole",
+    "Center Punch Hole",
+    "Corner Punch Hole",
+    "Dual Punch Hole",
+    "Waterdrop Notch",
+    "Small Notch",
+    "Wide Notch",
+    "Dynamic Island",
+    "No Notch",
+    "Bezel Less",
+    "Ultra Thin Bezels",
+    "Symmetrical Bezels",
+    "Always On Display",
+    "Adaptive Refresh Rate",
+    "60Hz",
+    "90Hz",
+    "100Hz",
+    "120Hz",
+    "144Hz",
+    "165Hz",
+    "240Hz",
+    "240Hz Touch Sampling",
+    "300Hz Touch Sampling",
+    "360Hz Touch Sampling",
+    "480Hz Touch Sampling",
+    "720Hz Touch Sampling",
+    "960Hz Touch Sampling",
+    "HDR",
+    "HDR10",
+    "HDR10+",
+    "HDR Vivid",
+    "Dolby Vision",
+    "DCI-P3",
+    "Wide Color Gamut",
+    "10-Bit Color",
+    "1 Billion Colors",
+    "1000 Nits+",
+    "1200 Nits+",
+    "1500 Nits+",
+    "1800 Nits+",
+    "2000 Nits+",
+    "2500 Nits+",
+    "3000 Nits+",
+    "4500 Nits+",
+    "Corning Gorilla Glass",
+    "Gorilla Glass 3",
+    "Gorilla Glass 5",
+    "Gorilla Glass Victus",
+    "Victus",
+    "Victus 2",
+    "Ceramic Shield",
+    "Dragontrail Glass",
+    "Sapphire Glass",
+    "Anti Reflective Coating",
+    "Scratch Resistant",
+    "Glove Mode",
+    "Wet Touch",
+    "Eye Comfort",
+    "Blue Light Filter",
+    "Reading Mode",
+    "Sunlight Display",
+    "High Brightness Mode",
+    "Ambient Display"
+],
+
+Disp: [
+    "LCD",
+    "TFT",
+    "TFT LCD",
+    "IPS",
+    "IPS LCD",
+    "OLED",
+    "P-OLED",
+    "Flexible OLED",
+    "Rigid OLED",
+    "AMOLED",
+    "Super AMOLED",
+    "Fluid AMOLED",
+    "E4 AMOLED",
+    "E5 AMOLED",
+    "Dynamic AMOLED",
+    "Dynamic AMOLED 2X",
+    "LTPS",
+    "LTPO",
+    "LTPO AMOLED",
+    "LTPO 2.0",
+    "LTPO 3.0",
+    "LTPO 4.0",
+    "Micro OLED",
+    "Mini LED",
+    "Micro LED",
+    "Quantum Dot",
+    "Retina",
+    "Liquid Retina",
+    "Liquid Retina HD",
+    "Liquid Retina XDR",
+    "Retina HD",
+    "Super Retina",
+    "Super Retina HD",
+    "Super Retina XDR",
+    "XDR OLED",
+    "True Tone",
+    "ProMotion",
+    "Always On OLED",
+    "HDR Display",
+    "HDR10 Display",
+    "HDR10+ Display",
+    "Dolby Vision Display",
+    "Wide Color Display",
+    "DCI-P3 Display",
+    "High Brightness OLED",
+    "Adaptive Display",
+    "Eco OLED",
+    "Eye Comfort Display",
+    "Color Accurate Display",
+    "Factory Calibrated Display",
+    "Ultra Thin Display"
+],
+
+    Net: [
+        "2G",
+        "3G",
+        "4G",
+        "4G LTE",
+        "LTE Advanced",
+        "5G",
+        "5G SA",
+        "5G NSA",
+        "Wi-Fi 4",
+        "Wi-Fi 5",
+        "Wi-Fi 6",
+        "Wi-Fi 6E",
+        "Wi-Fi 7",
+        "Bluetooth 4.2",
+        "Bluetooth 5.0",
+        "Bluetooth 5.1",
+        "Bluetooth 5.2",
+        "Bluetooth 5.3",
+        "Bluetooth 5.4",
+        "NFC",
+        "GPS",
+        "GLONASS",
+        "Galileo",
+        "BeiDou",
+        "NavIC",
+        "Ultra Wideband",
+        "Satellite Connectivity",
+        "USB-C",
+        "USB 3.2",
+        "USB 4",
+        "Lightning"
+    ],
+
+    Batt: [
+        "2000mAh",
+        "2500mAh",
+        "3000mAh",
+        "3500mAh",
+        "4000mAh",
+        "4300mAh",
+        "4500mAh",
+        "4800mAh",
+        "5000mAh",
+        "5200mAh",
+        "5500mAh",
+        "5800mAh",
+        "6000mAh",
+        "6500mAh",
+        "7000mAh",
+        "6000mAh+",
+        "18W Charging",
+        "25W Charging",
+        "33W Charging",
+        "45W Charging",
+        "67W Charging",
+        "80W Charging",
+        "100W Charging",
+        "120W Charging",
+        "150W Charging",
+        "Wireless Charging",
+        "MagSafe",
+        "Qi2",
+        "Reverse Charging",
+        "Reverse Wireless Charging"
+    ],
+
+    Cam: [
+        "Single",
+        "Dual",
+        "Triple",
+        "Quad",
+        "8MP+",
+        "12MP+",
+        "16MP+",
+        "24MP+",
+        "48MP+",
+        "50MP+",
+        "64MP+",
+        "108MP+",
+        "150MP+",
+        "200MP+",
+        "Telephoto",
+        "Periscope Zoom",
+        "Ultra Wide",
+        "Macro",
+        "Depth Sensor",
+        "Laser Autofocus",
+        "OIS",
+        "EIS",
+        "Night Mode",
+        "Portrait Mode",
+        "HDR",
+        "8K Video",
+        "4K 60FPS",
+        "4K 120FPS",
+        "Slow Motion",
+        "Pro Mode",
+        "RAW Support",
+        "Leica Camera",
+        "Zeiss Camera",
+        "Hasselblad Camera"
+    ],
+
+    Feat: [
+        "Face ID",
+        "Face Unlock",
+        "Fingerprint",
+        "Under Display Fingerprint",
+        "Side Fingerprint",
+        "Rear Fingerprint",
+        "Wireless Charging",
+        "Reverse Wireless Charging",
+        "Reverse Charging",
+        "Fast Charging",
+        "Super Fast Charging",
+        "Dual SIM",
+        "Triple SIM",
+        "eSIM",
+        "Dual eSIM",
+        "Water Resistant",
+        "IP52",
+        "IP53",
+        "IP54",
+        "IP67",
+        "IP68",
+        "IP69",
+        "Dust Resistant",
+        "Military Grade",
+        "NFC",
+        "IR Blaster",
+        "FM Radio",
+        "Stereo Speakers",
+        "Dolby Atmos",
+        "Hi-Res Audio",
+        "Headphone Jack",
+        "MicroSD Support",
+        "Stylus Support",
+        "Gaming Mode",
+        "VC Cooling",
+        "AI Features",
+        "AI Camera",
+        "AI Translation",
+        "AI Assistant",
+        "Desktop Mode",
+        "Secure Folder",
+        "Knock Unlock",
+        "SOS Emergency",
+        "Satellite SOS"
+    ],
+
+OS: [
+    "Android",
+    "Android Go",
+    "Android One",
+    "Android 10",
+    "Android 11",
+    "Android 12",
+    "Android 13",
+    "Android 14",
+    "Android 15",
+    "iOS",
+    "iOS 15",
+    "iOS 16",
+    "iOS 17",
+    "iOS 18",
+    "HarmonyOS",
+    "HarmonyOS NEXT",
+    "HyperOS",
+    "HyperOS 2",
+    "MIUI",
+    "MIUI 14",
+    "One UI",
+    "One UI 5",
+    "One UI 6",
+    "One UI 7",
+    "OxygenOS",
+    "ColorOS",
+    "OriginOS",
+    "Funtouch OS",
+    "MagicOS",
+    "Nothing OS",
+    "ZenUI",
+    "Pixel UI",
+    "EMUI",
+    "Flyme",
+    "Hello UI",
+    "Realme UI",
+    "nubia UI",
+    "RedMagic OS",
+    "Stock Android",
+    "Near Stock Android",
+    "Android Enterprise Recommended",
+    "Guaranteed Updates",
+    "Long Term Support",
+    "Monthly Security Updates",
+    "Quarterly Security Updates",
+    "Custom ROM Supported",
+    "Bootloader Unlock",
+    "Root Supported",
+    "Developer Friendly"
+]
 },
 
 Cars: {
-    Brand: ["BMW", "Audi", "Tesla", "Mercedes", "Toyota", "Honda", "Ford", "Kia", "Hyundai"],
-    Price: { min: 3000, max: 80000 },
-    Year: ["2020+", "2015-2020", "Before 2015"],
-    Fuel: ["Gas", "Diesel", "Electric"]
+    Make: ["Toyota", "Honda", "Ford", "Chevrolet", "BMW", "Mercedes-Benz", "Audi", "Volkswagen", "Hyundai", "Kia", "Tesla", "Nissan", "Mazda", "Lexus", "Volvo"],
+    Price: { min: 1000, max: 500000 },
+    Cond: ["New", "Used", "Certified Pre-Owned"],
+    Body: ["Sedan", "SUV", "Coupe", "Hatchback", "Convertible", "Pickup", "Van", "Wagon"],
+    Fuel: ["Gasoline", "Diesel", "Hybrid", "Plug-in Hybrid", "Electric", "Hydrogen"],
+    Trans: ["Automatic", "Manual", "CVT", "Dual Clutch"],
+    Drive: ["FWD", "RWD", "AWD", "4WD"],
+    Year: ["2026", "2025", "2024", "2023", "2020-2022", "2015-2019", "2010-2014", "Before 2010"],
+    Miles: ["0-10K", "10K-30K", "30K-60K", "60K-100K", "100K+"],
+    Eng: ["1.0L", "1.5L", "2.0L", "2.5L", "3.0L", "V6", "V8", "Electric"],
+    Door: ["2", "3", "4", "5"],
+    Seat: ["2", "4", "5", "6", "7", "8+"],
+    Color: ["Black", "White", "Silver", "Gray", "Blue", "Red", "Green", "Brown", "Orange", "Yellow"],
+    Feat: ["Navigation", "Leather Seats", "Sunroof", "Panoramic Roof", "Heated Seats", "Ventilated Seats", "Apple CarPlay", "Android Auto", "360 Camera", "Adaptive Cruise Control", "Blind Spot Monitor", "Parking Sensors", "Keyless Entry", "Remote Start"]
 },
 
 Furniture: {
-    Type: ["Chair", "Table", "Sofa", "Bed", "Wardrobe", "Shelf", "Desk", "Cabinet", "Stool"],
-    Price: { min: 20, max: 5000 },
-    Condition: ["New", "Used"],
-    Material: ["Wood", "Metal", "Plastic", "Glass"]
+
+    Type: [
+        "Chair",
+        "Office Chair",
+        "Gaming Chair",
+        "Dining Chair",
+        "Rocking Chair",
+        "Recliner",
+        "Massage Chair",
+        "Bean Bag",
+        "Stool",
+        "Bar Stool",
+        "Bench",
+        "Table",
+        "Dining Table",
+        "Coffee Table",
+        "Side Table",
+        "Console",
+        "TV Stand",
+        "Desk",
+        "Standing Desk",
+        "Cabinet",
+        "Wardrobe",
+        "Closet",
+        "Drawer",
+        "Dresser",
+        "Chest",
+        "Nightstand",
+        "Shelf",
+        "Bookcase",
+        "Shoe Rack",
+        "Wine Rack",
+        "Bed",
+        "Bunk Bed",
+        "Loft Bed",
+        "Crib",
+        "Sofa",
+        "Sectional",
+        "Loveseat",
+        "Sofa Bed",
+        "Futon",
+        "Ottoman",
+        "Vanity",
+        "Mirror",
+        "Island",
+        "Headboard",
+        "Mattress",
+        "Frame",
+        "Armchair",
+"Accent Chair",
+"Lounge Chair",
+"Chaise Lounge",
+"Sideboard",
+"Buffet",
+"Credenza",
+"Display Cabinet",
+"Hutch",
+"Media Console",
+"Hall Tree",
+"Coat Rack",
+"Plant Stand",
+"Nesting Table",
+"Folding Table",
+"Picnic Table",
+"Murphy Bed",
+"Daybed",
+"Storage Bed"
+    ],
+
+    Price: {
+        min: 20,
+        max: 1000000
+    },
+
+    Cond: [
+    "Brand New",
+    "New",
+    "Sealed",
+    "Open Box",
+    "Like New",
+    "Mint",
+    "Excellent",
+    "Very Good",
+    "Good",
+    "Fair",
+    "Used",
+    "Refurb",
+    "Restored",
+    "Vintage",
+    "Retro",
+    "Antique",
+    "Collector",
+    "Custom",
+    "Damaged",
+    "For Parts",
+    "Factory New",
+    "Display",
+    "Floor Model",
+    "Demo",
+    "Assembled",
+    "Unassembled",
+    "Handmade",
+    "Handcrafted",
+    "Pre Owned",
+    "Commercial",
+    "Residential",
+    "Indoor",
+    "Outdoor",
+    "Weathered",
+    "Distressed",
+    "Reclaimed",
+    "Renewed",
+    "Scratch",
+    "Minor Wear",
+    "Heavy Wear",
+    "Incomplete"
+],
+
+Mat: [
+    // Wood
+    "Solid Wood",
+    "Wood",
+    "Hardwood",
+    "Softwood",
+    "Engineered Wood",
+    "Reclaimed Wood",
+    "Oak",
+    "Red Oak",
+    "White Oak",
+    "Walnut",
+    "Black Walnut",
+    "Pine",
+    "Maple",
+    "Cherry",
+    "Mahogany",
+    "Teak",
+    "Beech",
+    "Birch",
+    "Ash",
+    "Cedar",
+    "Acacia",
+    "Rubberwood",
+    "Mango Wood",
+    "Poplar",
+    "Elm",
+    "Hickory",
+    "Eucalyptus",
+    "Bamboo",
+    "Cane",
+    "Rattan",
+    "Wicker",
+    "Cork",
+
+    // Wood Panels
+    "MDF",
+    "HDF",
+    "Particle Board",
+    "Chipboard",
+    "Plywood",
+    "OSB",
+    "Laminate",
+    "Melamine",
+    "Veneer",
+    "Wood Veneer",
+    "Composite Wood",
+
+    // Metals
+    "Metal",
+    "Steel",
+    "Carbon Steel",
+    "Stainless",
+    "Stainless Steel",
+    "Galvanized Steel",
+    "Iron",
+    "Cast Iron",
+    "Wrought Iron",
+    "Aluminum",
+    "Brass",
+    "Copper",
+    "Bronze",
+    "Chrome",
+    "Nickel",
+    "Titanium",
+    "Zinc",
+
+    // Glass
+    "Glass",
+    "Tempered Glass",
+    "Laminated Glass",
+    "Frosted Glass",
+    "Tinted Glass",
+    "Clear Glass",
+    "Smoked Glass",
+
+    // Stone
+    "Stone",
+    "Marble",
+    "Granite",
+    "Quartz",
+    "Quartzite",
+    "Slate",
+    "Travertine",
+    "Limestone",
+    "Onyx",
+    "Terrazzo",
+    "Concrete",
+
+    // Ceramic
+    "Ceramic",
+    "Porcelain",
+
+    // Plastics
+    "Plastic",
+    "ABS",
+    "Polycarbonate",
+    "Polypropylene",
+    "PVC",
+    "Acrylic",
+    "Resin",
+    "Fiberglass",
+
+    // Carbon
+    "Carbon Fiber",
+
+    // Leather
+    "Genuine Leather",
+    "Full Grain Leather",
+    "Top Grain Leather",
+    "Split Leather",
+    "Bonded Leather",
+    "PU Leather",
+    "Faux Leather",
+    "Vegan Leather",
+    "Suede",
+
+    // Fabrics
+    "Fabric",
+    "Velvet",
+    "Linen",
+    "Cotton",
+    "Wool",
+    "Boucle",
+    "Chenille",
+    "Microfiber",
+    "Mesh",
+    "Polyester",
+    "Nylon",
+    "Canvas",
+    "Olefin",
+    "Acrylic Fabric",
+    "Performance Fabric",
+    "Outdoor Fabric",
+    "Sunbrella",
+
+    // Natural
+    "Jute",
+    "Hemp",
+    "Seagrass",
+    "Water Hyacinth",
+    "Palm",
+    "Banana Fiber",
+
+    // Foam / Fill
+    "Memory Foam",
+    "High Density Foam",
+    "Latex Foam",
+    "Gel Foam",
+
+    // Hybrid
+    "Mixed Material",
+    "Wood Metal",
+    "Wood Glass",
+    "Metal Glass",
+    "Stone Metal",
+    "Composite",
+    "Recycled Material",
+    "Eco Material"
+],
+
+Room: [
+    "Living",
+    "Bedroom",
+    "Dining",
+    "Kitchen",
+    "Office",
+    "Home Office",
+    "Kids",
+    "Nursery",
+    "Bathroom",
+    "Hallway",
+    "Entry",
+    "Laundry",
+    "Closet",
+    "Walk In",
+    "Balcony",
+    "Patio",
+    "Terrace",
+    "Garden",
+    "Garage",
+    "Basement",
+    "Studio",
+    "Cafe",
+    "Restaurant",
+    "Hotel",
+    "Lobby",
+    "Reception",
+    "Conference",
+    "Library",
+    "Outdoor",
+    "Indoor",
+    "Dorm",
+    "Apartment",
+    "Workspace",
+    "Gaming",
+    "Media Room"
+],
+
+Style: [
+    "Modern",
+    "Minimal",
+    "Classic",
+    "Traditional",
+    "Contemporary",
+    "Industrial",
+    "Scandinavian",
+    "Rustic",
+    "Farmhouse",
+    "Boho",
+    "Luxury",
+    "Mid Century",
+    "Victorian",
+    "Art Deco",
+    "Japanese",
+    "Coastal",
+    "Urban",
+    "Retro",
+    "Vintage",
+    "Nordic",
+    "Japandi",
+    "Eclectic",
+    "Transitional",
+    "French",
+    "Italian",
+    "Mediterranean",
+    "Colonial",
+    "Shabby Chic",
+    "Modern Farmhouse",
+    "Minimal Luxe",
+    "Soft Modern",
+    "Contemporary Luxe",
+    "Loft",
+    "Zen",
+    "Asian",
+    "Moroccan",
+    "Glam",
+    "Cottage",
+    "Country",
+    "Tropical"
+],
+
+Color: [
+    "Black",
+    "White",
+    "Gray",
+    "Dark Gray",
+    "Light Gray",
+    "Charcoal",
+    "Brown",
+    "Dark Brown",
+    "Light Brown",
+    "Beige",
+    "Cream",
+    "Ivory",
+    "Blue",
+    "Navy",
+    "Sky Blue",
+    "Green",
+    "Olive",
+    "Sage",
+    "Emerald",
+    "Forest Green",
+    "Moss Green",
+    "Mint",
+    "Teal",
+    "Aqua",
+    "Red",
+    "Burgundy",
+    "Orange",
+    "Terracotta",
+    "Yellow",
+    "Mustard",
+    "Pink",
+    "Blush",
+    "Purple",
+    "Lavender",
+    "Gold",
+    "Silver",
+    "Bronze",
+    "Copper",
+    "Rose Gold",
+    "Transparent",
+    "Clear",
+    "Smoke",
+    "Natural",
+    "Wood Tone",
+    "Oak",
+    "Walnut",
+    "Espresso",
+    "Chocolate",
+    "Taupe",
+    "Sand",
+    "Ash",
+    "Stone Gray",
+    "Anthracite",
+    "Graphite",
+    "Coral",
+    "Multi"
+],
+
+Size: [
+    "Micro",
+    "Mini",
+    "Compact",
+    "Ultra Compact",
+    "Small",
+    "Medium",
+    "Large",
+    "Extra Large",
+    "Oversize",
+    "Slim",
+    "Ultra Slim",
+    "Thin",
+    "Ultra Thin",
+    "Narrow",
+    "Extra Narrow",
+    "Wide",
+    "Extra Wide",
+    "Ultra Wide",
+    "Tall",
+    "Extra Tall",
+    "Low",
+    "Low Profile",
+    "Mid Height",
+    "Standard Height",
+    "Counter Height",
+    "Bar Height",
+    "High",
+    "Deep",
+    "Extra Deep",
+    "Shallow",
+    "Long",
+    "Extra Long",
+    "Short",
+    "Short Length",
+    "Full Size",
+    "Standard",
+    "King Size",
+    "Queen Size",
+    "Apartment Size",
+    "Studio Size",
+    "Dorm Size",
+    "Kids Size",
+    "Youth Size",
+    "Adult Size",
+    "Family Size",
+    "Executive Size",
+    "Commercial Size",
+    "Industrial Size",
+    "Heavy Duty",
+    "Lightweight",
+    "Portable",
+    "Travel Size",
+    "Space Saving",
+    "Small Footprint",
+    "Wall Saving",
+    "Corner Fit",
+    "Stackable Size",
+    "Foldable Size",
+    "Expandable",
+    "Extendable",
+    "Adjustable",
+    "Height Adjustable",
+    "Width Adjustable",
+    "Depth Adjustable",
+    "Length Adjustable",
+    "One Size",
+    "Universal",
+    "Modular",
+    "Custom",
+    "Made To Measure",
+    "Jumbo",
+    "Grand",
+    "XL",
+    "XXL",
+    "XXXL",
+    "4XL",
+    "5XL"
+],
+
+BedSize: [
+    "Bassinet",
+    "Moses Basket",
+    "Cradle",
+    "Crib",
+    "Toddler",
+    "Junior",
+    "Small Single",
+    "Single",
+    "Single XL",
+    "Twin",
+    "Twin XL",
+    "Twin XXL",
+    "Twin Long",
+    "Small Double",
+    "Double",
+    "Double XL",
+    "Full",
+    "Full XL",
+    "Queen",
+    "Olympic Queen",
+    "Short Queen",
+    "RV Queen",
+    "King",
+    "Standard King",
+    "Eastern King",
+    "Western King",
+    "California King",
+    "Split King",
+    "Split California King",
+    "RV King",
+    "Super King",
+    "Emperor",
+    "Alaskan King",
+    "Wyoming King",
+    "Texas King",
+    "Family Bed",
+    "Custom",
+    "European Single",
+"European Double",
+"European Queen",
+"European King"
+],
+
+Seat: [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "20+",
+    "Single",
+    "Double",
+    "Triple",
+    "Quad",
+    "Family",
+    "Banquet",
+    "Loveseat",
+    "3 Seater",
+    "4 Seater",
+    "5 Seater",
+    "6 Seater",
+    "Corner",
+    "Sectional",
+    "Chaise",
+    "Bench",
+    "Bar",
+    "Stool"
+],
+
+Shape: [
+    "Round",
+    "Square",
+    "Rect",
+    "Oval",
+    "Triangle",
+    "Hex",
+    "Octagon",
+    "L",
+    "U",
+    "C",
+    "Corner",
+    "Curve",
+    "Arc",
+    "Wave",
+    "Cylinder",
+    "Cube",
+    "Cone",
+    "Freeform",
+    "Organic",
+    "Asym",
+    "Linear",
+    "Cross",
+    "Diamond",
+    "Semi Circle",
+    "Half Moon",
+    "Pill",
+    "Capsule",
+    "T Shape",
+    "X Shape",
+    "Rectangular",
+"Modular",
+"Sectional"
+
+],
+
+Use: [
+    "Home",
+    "Office",
+    "Commercial",
+    "Restaurant",
+    "Cafe",
+    "Hotel",
+    "Resort",
+    "Outdoor",
+    "Indoor",
+    "Garden",
+    "Patio",
+    "Balcony",
+    "Pool",
+    "School",
+    "College",
+    "Library",
+    "Medical",
+    "Clinic",
+    "Hospital",
+    "Lab",
+    "Retail",
+    "Store",
+    "Showroom",
+    "Reception",
+    "Lobby",
+    "Event",
+    "Wedding",
+    "Conference",
+    "Studio",
+    "Workshop",
+    "Garage",
+    "Warehouse",
+    "Gym",
+    "Spa",
+    "Salon",
+    "Camping",
+    "RV",
+    "Apartment",
+    "Dorm",
+    "Kitchen",
+    "Dining",
+    "Bedroom",
+    "Living",
+    "Kids Room",
+    "Nursery",
+    "Gaming",
+    "Home Office",
+    "Coworking",
+    "Waiting Room",
+    "Airport",
+    "Public",
+    "Exhibition"
+],
+
+Feat: [
+    "Fold",
+    "Portable",
+    "Extend",
+    "Expandable",
+    "Storage",
+    "Hidden Storage",
+    "Drawer",
+    "Shelf",
+    "Cabinet",
+    "Lift Top",
+    "Flip Top",
+    "Wheels",
+    "Caster",
+    "Lock",
+    "Soft Close",
+    "Push Open",
+    "USB",
+    "USB-C",
+    "AC Outlet",
+    "Wireless Charge",
+    "LED",
+    "RGB",
+    "Dimmable",
+    "Height Adj",
+    "Electric Height",
+    "Tilt",
+    "Swivel",
+    "Rotate",
+    "Recline",
+    "Massage",
+    "Heat",
+    "Cooling",
+    "Headrest",
+    "Footrest",
+    "Armrest",
+    "Cup Holder",
+    "Bottle Holder",
+    "Phone Holder",
+    "Tablet Holder",
+    "Laptop Stand",
+    "Cable Mgmt",
+    "Stackable",
+    "Nestable",
+    "Wall Mount",
+    "Floating",
+    "Anti Tip",
+    "Non Slip",
+    "Waterproof",
+    "Water Resistant",
+    "Fireproof",
+    "Heat Resistant",
+    "Cold Resistant",
+    "UV Resistant",
+    "Scratch Resistant",
+    "Stain Resistant",
+    "Fade Resistant",
+    "Rust Resistant",
+    "Corrosion Resistant",
+    "Pet Friendly",
+    "Child Safe",
+    "Easy Clean",
+    "Washable",
+    "Removable Cover",
+    "Replace Cover",
+    "Modular",
+    "Convertible",
+    "Smart",
+    "Bluetooth",
+    "WiFi",
+    "Voice",
+    "App",
+    "Memory",
+    "Auto Lock",
+    "Quiet Close",
+    "Eco",
+    "Tool Free",
+    "Quick Assemble",
+    "No Assembly"
+],
+
+Brand: [
+    "IKEA",
+    "Herman Miller",
+    "Steelcase",
+    "Haworth",
+    "Knoll",
+    "Humanscale",
+    "Secretlab",
+    "DXRacer",
+    "La-Z-Boy",
+    "Flexsteel",
+    "Natuzzi",
+    "West Elm",
+    "Pottery Barn",
+    "CB2",
+    "Crate & Barrel",
+    "Wayfair",
+    "Article",
+    "Joybird",
+    "Kartell",
+    "HAY",
+    "BoConcept",
+    "Roche Bobois",
+    "Calligaris",
+    "Muji",
+    "Nilkamal",
+    "Godrej",
+    "Sauder",
+    "Bush",
+    "Walker Edison",
+    "Lifetime",
+    "Keter",
+    "Home Depot",
+    "Lowe's",
+    "Costco",
+    "Target",
+    "Walmart",
+    "Amazon Basics",
+    "Iittala",
+    "Vitra",
+    "B&B Italia",
+    "Poliform",
+    "Molteni",
+    "Minotti",
+    "Fendi Casa",
+    "Duravit",
+    "Karton",
+    "Ashley Furniture",
+    "Hooker",
+    "Ethan Allen",
+    "Bassett",
+    "Bernhardt",
+    "Thomasville",
+    "Coaster",
+    "ACME",
+    "Zinus",
+    "Novogratz",
+    "DHP",
+    "Flash Furniture",
+    "HON",
+    "OFM",
+    "Staples",
+    "Bush Business",
+    "Other",
+    "Room & Board",
+"Restoration Hardware",
+"IKEA PS",
+"Flexform",
+"Natuzzi Italia",
+"Ekornes",
+"Stressless"
+],
+
+Load: [
+    "25kg",
+    "50kg",
+    "75kg",
+    "100kg",
+    "120kg",
+    "150kg",
+    "180kg",
+    "200kg",
+    "225kg",
+    "250kg",
+    "300kg",
+    "350kg",
+    "400kg",
+    "450kg",
+    "500kg",
+    "600kg",
+    "800kg",
+    "1000kg",
+    "1200kg",
+    "1500kg",
+    "2000kg",
+    "Heavy Duty",
+    "Extra Heavy",
+    "Commercial",
+    "Industrial",
+    "Residential",
+    "Light Duty",
+    "Medium Duty",
+    "High Capacity",
+    "Reinforced",
+    "Static Load",
+    "Dynamic Load"
+],
+
+Fold: [
+    "No",
+    "Yes",
+    "One Click",
+    "Portable",
+    "Compact",
+    "Flat",
+    "Travel",
+    "Wall Fold",
+    "Collapsible",
+    "Quick Fold",
+    "Drop Leaf",
+    "Butterfly",
+    "Slide",
+    "Pull Out",
+    "Bi Fold",
+    "Tri Fold",
+    "Quad Fold",
+    "Space Saver",
+    "Easy Fold",
+    "Lock Fold",
+    "Auto Fold",
+    "Soft Fold",
+    "Hidden Fold",
+    "Flip Top",
+    "Lift Fold",
+    "Nested",
+    "Expandable",
+    "Telescopic",
+    "Retractable",
+    "Rolling"
+],
+
+Storage: [
+    "None",
+    "Drawer",
+    "1 Drawer",
+    "2 Drawers",
+    "3 Drawers",
+    "4 Drawers",
+    "5 Drawers",
+    "6+ Drawers",
+    "Shelf",
+    "Open Shelf",
+    "Closed Shelf",
+    "Adjust Shelf",
+    "Cabinet",
+    "Door",
+    "Sliding Door",
+    "Glass Door",
+    "Basket",
+    "Box",
+    "Bin",
+    "Locker",
+    "Hidden",
+    "Secret",
+    "Lift Top",
+    "Under Bed",
+    "Under Seat",
+    "Side Pocket",
+    "Back Pocket",
+    "Organizer",
+    "Rack",
+    "Wine",
+    "Shoe",
+    "Book",
+    "Media",
+    "Cable",
+    "Jewelry",
+    "File",
+    "Lockable",
+    "Open Storage",
+    "Closed Storage",
+    "Cube",
+    "Magazine",
+    "Toy",
+    "Pantry",
+    "Closet",
+    "Wardrobe",
+    "Hanging",
+    "Overhead",
+    "Pull Out",
+    "Soft Close"
+],
+
+Mount: [
+    "Floor",
+    "Wall",
+    "Ceiling",
+    "Corner",
+    "Free",
+    "Built In",
+    "Floating",
+    "Portable",
+    "Freestanding",
+    "Hanging",
+    "Fold Wall",
+    "Under Mount",
+    "Top Mount",
+    "Side Mount",
+    "Rail",
+    "Magnetic",
+    "Clamp",
+    "Hook",
+    "Bracket",
+    "Stand",
+    "Desk Clamp",
+    "Pole",
+    "Suction",
+    "Adhesive",
+    "Bolt",
+    "Screw",
+    "Anchor",
+    "Track",
+    "Flush",
+    "Recessed"
+],
+
+Care: [
+    "Washable",
+    "Machine Wash",
+    "Hand Wash",
+    "Dry Clean",
+    "Spot Clean",
+    "Easy Clean",
+    "Low Care",
+    "No Care",
+    "Waterproof",
+    "Water Resistant",
+    "Stain Resistant",
+    "Scratch Resistant",
+    "Fade Resistant",
+    "UV Resistant",
+    "Heat Resistant",
+    "Cold Resistant",
+    "Fire Resistant",
+    "Mold Resistant",
+    "Rust Resistant",
+    "Dust Resistant",
+    "Oil Resistant",
+    "Chemical Resistant",
+    "Pet Friendly",
+    "Child Safe",
+    "Anti Bacterial",
+    "Anti Microbial",
+    "Odor Resistant",
+    "Bleach Safe",
+    "Steam Clean",
+    "Replace Cover",
+    "Removable Cover",
+    "Quick Dry"
+],
+
+Eco: [
+    "FSC",
+    "PEFC",
+    "Recycled",
+    "Eco",
+    "Green",
+    "Organic",
+    "Natural",
+    "Renewable",
+    "Sustainable",
+    "Low VOC",
+    "Non Toxic",
+    "Zero Waste",
+    "Biodegradable",
+    "Compostable",
+    "Plastic Free",
+    "Carbon Neutral",
+    "Solar Made",
+    "Handmade",
+    "Local",
+    "Fair Trade",
+    "Eco Pack",
+    "Reclaimed",
+    "Recycled Wood",
+    "Recycled Metal",
+    "Water Based",
+    "Low Emission",
+    "Vegan",
+    "Plant Based",
+    "Responsible",
+    "Energy Efficient"
+],
+
+WarrantyDuration: [
+    "None",
+    "7D",
+    "14D",
+    "21D",
+    "30D",
+    "45D",
+    "60D",
+    "90D",
+    "120D",
+    "180D",
+    "270D",
+    "6M",
+    "9M",
+    "12M",
+    "18M",
+    "24M",
+    "1Y",
+    "2Y",
+    "3Y",
+    "4Y",
+    "5Y",
+    "6Y",
+    "7Y",
+    "8Y",
+    "9Y",
+    "10Y",
+    "12Y",
+    "15Y",
+    "20Y",
+    "25Y",
+    "30Y",
+    "40Y",
+    "50Y",
+    "Lifetime",
+    "Limited Lifetime"
+],
+
+WarType: [
+    "Manufacturer",
+    "Store",
+    "Dealer",
+    "Distributor",
+    "Seller",
+    "Brand",
+    "OEM",
+    "Authorized Service",
+    "Limited",
+    "Extended",
+    "Full",
+    "Premium",
+    "Replacement",
+    "Repair",
+    "Exchange",
+    "Money Back",
+    "Satisfaction Guarantee",
+    "Parts",
+    "Labor",
+    "Frame",
+    "Structure",
+    "Mechanism",
+    "Motor",
+    "Dual Motor",
+    "Electronics",
+    "Electrical",
+    "Control Panel",
+    "Remote",
+    "Battery",
+    "USB Module",
+    "LED System",
+    "Spring",
+    "Pocket Spring",
+    "Foam",
+    "Memory Foam",
+    "Latex",
+    "Fabric",
+    "Leather",
+    "Upholstery",
+    "Finish",
+    "Paint",
+    "Coating",
+    "Hardware",
+    "Handles",
+    "Hinges",
+    "Drawer Slides",
+    "Glass",
+    "Mirror",
+    "Stone Top",
+    "Wood Top",
+    "Cushion",
+    "Seat",
+    "Backrest",
+    "Armrest",
+    "Legs",
+    "Casters",
+    "Residential",
+    "Commercial",
+    "Hospitality",
+    "Office",
+    "Indoor",
+    "Outdoor",
+    "On Site",
+    "In Home",
+    "Carry In",
+    "Mail In",
+    "Pickup Service",
+    "Return To Base",
+    "Free Service",
+    "Priority Service",
+    "Technical Support",
+    "Phone Support",
+    "Online Support",
+    "Accidental Damage",
+    "Water Damage",
+    "Fire Damage",
+    "Structural Damage",
+    "Wear Coverage",
+    "Manufacturing Defect",
+    "Material Defect",
+    "Workmanship",
+    "Lifetime Frame",
+    "Lifetime Structure",
+    "Lifetime Mechanism"
+],
+
+Fab: [
+    "Cotton",
+    "Organic Cotton",
+    "Linen",
+    "Belgian Linen",
+    "Velvet",
+    "Performance Velvet",
+    "Boucle",
+    "Chenille",
+    "Canvas",
+    "Denim",
+    "Mesh",
+    "Silk",
+    "Wool",
+    "Cashmere",
+    "Jute",
+    "Hemp",
+    "Bamboo Fabric",
+    "Polyester",
+    "Recycled Polyester",
+    "Nylon",
+    "Olefin",
+    "Performance Fabric",
+    "Outdoor Fabric",
+    "Sunbrella",
+    "Crypton",
+    "Microfiber",
+    "Micro Suede",
+    "Tweed",
+    "Corduroy",
+    "Felt",
+    "Satin",
+    "Jacquard",
+    "Tencel",
+    "Rayon",
+    "Viscose",
+    "Lycra Blend",
+    "Spandex Blend",
+    "Poly Blend",
+    "Cotton Blend",
+    "Linen Blend",
+    "Breathable",
+    "Stretch",
+    "Eco Fabric",
+    "Recycled Fabric"
+],
+
+Foam: [
+    "Soft",
+    "Medium",
+    "Firm",
+    "Extra Firm",
+    "Ultra Firm",
+    "Memory Foam",
+    "Memory Gel",
+    "Gel Foam",
+    "Gel Infused Foam",
+    "Cooling Foam",
+    "Air Foam",
+    "Ventilated Foam",
+    "Open Cell Foam",
+    "Closed Cell Foam",
+    "High Density Foam",
+    "Medium Density Foam",
+    "Low Density Foam",
+    "High Resilience Foam",
+    "HR Foam",
+    "HD Foam",
+    "PU Foam",
+    "Polyurethane Foam",
+    "Latex Foam",
+    "Natural Latex",
+    "Synthetic Latex",
+    "Hybrid Foam",
+    "Reflex Foam",
+    "Support Foam",
+    "Comfort Foam",
+    "Transition Foam",
+    "Base Foam",
+    "Pressure Relief Foam",
+    "Orthopedic Foam",
+    "Contour Foam",
+    "Egg Crate Foam",
+    "Reticulated Foam",
+    "Slow Recovery Foam",
+    "Quick Recovery Foam",
+    "Resilient Foam",
+    "Eco Foam",
+    "Plant Based Foam",
+    "Recycled Foam",
+    "Charcoal Foam",
+    "Copper Foam",
+    "Graphite Foam",
+    "Bamboo Charcoal Foam",
+    "Antimicrobial Foam",
+    "Hypoallergenic Foam",
+    "Fire Retardant Foam",
+    "Moisture Resistant Foam",
+    "Odor Resistant Foam"
+],
+
+Spring: [
+    "Pocket",
+    "Coil",
+    "Bonnell",
+    "Offset",
+    "Zigzag",
+    "Steel",
+    "Web",
+    "Elastic",
+    "Heavy",
+    "Mini",
+    "Micro",
+    "Continuous",
+    "Sinuous",
+    "Double Coil",
+    "High Carbon",
+    "Tempered",
+    "Reinforced",
+    "Edge Support",
+    "None"
+],
+
+Hard: [
+    "Handle",
+    "Pull Handle",
+    "Knob",
+    "Bar Handle",
+    "Edge Pull",
+    "Cup Pull",
+    "Recessed Handle",
+    "Hidden Handle",
+    "Push Open",
+    "Touch Latch",
+    "Magnetic Catch",
+    "Magnetic Lock",
+    "Soft Close",
+    "Quiet Close",
+    "Self Close",
+    "Drawer Slide",
+    "Ball Bearing Slide",
+    "Undermount Slide",
+    "Side Mount Slide",
+    "Full Extension Slide",
+    "Hinge",
+    "Soft Close Hinge",
+    "Concealed Hinge",
+    "Pivot Hinge",
+    "Lift Hinge",
+    "Folding Hinge",
+    "Gas Strut",
+    "Gas Spring",
+    "Lift Support",
+    "Lock",
+    "Key Lock",
+    "Combination Lock",
+    "Child Lock",
+    "Latch",
+    "Hook",
+    "Bracket",
+    "Corner Bracket",
+    "Rail",
+    "Track",
+    "Guide Rail",
+    "Support Bar",
+    "Cross Brace",
+    "Reinforcement Plate",
+    "Bolt",
+    "Screw",
+    "Anchor",
+    "Dowel",
+    "Cam Lock",
+    "Cam Connector",
+    "Threaded Insert",
+    "Nut",
+    "Washer",
+    "Spacer",
+    "Leveling Feet",
+    "Rubber Feet",
+    "Anti Slip Feet",
+    "Adjustable Feet",
+    "Caster",
+    "Locking Caster",
+    "Swivel Caster",
+    "Heavy Duty Caster",
+    "Floor Protector",
+    "Wall Anchor Kit",
+    "Cable Grommet",
+    "Cable Tray",
+    "Cable Clip"
+],
+
+Mech: [
+    "Manual",
+    "Electric",
+    "Hydraulic",
+    "Gas",
+    "Lift",
+    "Tilt",
+    "Swivel",
+    "Rock",
+    "Glide",
+    "Recline",
+    "Rotate",
+    "Lock",
+    "Memory",
+    "Auto",
+    "Remote",
+    "Motor",
+    "Sensor",
+    "Dual Motor",
+    "Triple Motor",
+    "Silent",
+    "Programmable",
+    "Touch",
+    "One Touch",
+    "Smart",
+    "Sync"
+],
+
+Prot: [
+    "Water",
+    "Stain",
+    "Scratch",
+    "Heat",
+    "Fire",
+    "Rust",
+    "UV",
+    "Fade",
+    "Mold",
+    "Impact",
+    "Dust",
+    "Pet",
+    "Kid",
+    "Oil",
+    "Chemical",
+    "Slip",
+    "Noise",
+    "Weather",
+    "Moisture",
+    "Sun",
+    "Corrosion",
+    "Bacteria",
+    "Odor",
+    "Termite",
+    "Insect"
+],
+
+Power: [
+    "None",
+    "USB",
+    "USB-C",
+    "AC",
+    "DC",
+    "Qi",
+    "Qi2",
+    "BT",
+    "WiFi",
+    "Alexa",
+    "Google",
+    "App",
+    "Remote",
+    "Battery",
+    "Rechargeable",
+    "Solar",
+    "Sensor",
+    "Timer",
+    "Motion",
+    "Touch",
+    "Voice",
+    "Power Bank",
+    "Fast Charge"
+],
+
+Pack: [
+    "Flat",
+    "Box",
+    "Wrap",
+    "Crate",
+    "Pallet",
+    "Gift",
+    "Eco",
+    "Bulk",
+    "Original",
+    "Ready",
+    "Vacuum",
+    "Foam",
+    "Protect",
+    "Premium",
+    "Retail",
+    "Export",
+    "Wood Crate",
+    "Double Box",
+    "Shrink Wrap",
+    "Assembly Kit",
+    "Instruction",
+    "Secure Pack"
+],
+
+Stock: [
+    "In Stock",
+    "Low Stock",
+    "Out",
+    "Pre",
+    "Order",
+    "Backorder",
+    "Custom",
+    "Made To Order",
+    "Limited",
+    "Last",
+    "Soon",
+    "Sold Out",
+    "New",
+    "Restock",
+    "Coming Soon",
+    "Seasonal",
+    "Exclusive",
+    "Online Only",
+    "Store Only",
+    "Discontinued",
+    "Clearance",
+    "Best Seller",
+    "Hot"
+],
+
+Grade: [
+    "Basic",
+    "Std",
+    "Plus",
+    "Premium",
+    "Luxury",
+    "Pro",
+    "Elite",
+    "Ultra",
+    "Ultimate",
+    "Signature",
+    "Master",
+    "Executive",
+    "Professional",
+    "Commercial",
+    "Industrial",
+    "Hospitality",
+    "Residential",
+    "Custom",
+    "Bespoke",
+    "Limited",
+    "Collector",
+    "Designer",
+    "Exclusive",
+    "Special",
+    "Anniversary",
+    "Flagship",
+    "High End",
+    "Top Tier",
+    "Value",
+    "Economy",
+    "Entry",
+    "Mid Range",
+    "OEM",
+    "Artisan",
+    "Handcrafted"
+],
+
+Clean: [
+    "Easy",
+    "Wash",
+    "Machine",
+    "Hand",
+    "Spot",
+    "Dry",
+    "Polish",
+    "Oil",
+    "Wax",
+    "Removable",
+    "Replace",
+    "Vacuum",
+    "Steam",
+    "Quick Clean",
+    "Low Care",
+    "No Maintenance",
+    "Microfiber Cloth",
+    "Soap Safe",
+    "Water Clean",
+    "Leather Care",
+    "Wood Care",
+    "Fabric Care",
+    "UV Clean",
+    "Sanitize",
+    "Disinfect",
+    "Dust",
+    "Lint Free",
+    "Easy Wipe",
+    "Stain Remove",
+    "Odor Remove",
+    "Cover Wash",
+    "Cushion Wash",
+    "Outdoor Clean",
+    "Weather Care"
+],
+
+Look: [
+    "Plain",
+    "Striped",
+    "Floral",
+    "Geo",
+    "Marble",
+    "Wood",
+    "Stone",
+    "Textured",
+    "Modern",
+    "Classic",
+    "Retro",
+    "Luxury",
+    "Rustic",
+    "Industrial",
+    "Minimal",
+    "Vintage",
+    "Matte",
+    "Glossy",
+    "Natural",
+    "Oak",
+    "Walnut",
+    "Concrete",
+    "Metal",
+    "Leather",
+    "Velvet",
+    "Scandinavian",
+    "Japandi",
+    "Boho",
+    "Farmhouse",
+    "Art Deco",
+    "Mid Century",
+    "Contemporary",
+    "Coastal",
+    "Urban",
+    "Elegant",
+    "Bold",
+    "Soft",
+    "Neutral",
+    "Patterned",
+    "Color Block"
+],
+
+Tech: [
+    "Smart",
+    "Sensor",
+    "Touch",
+    "Voice",
+    "Auto",
+    "Remote",
+    "Timer",
+    "Motion",
+    "Clock",
+    "Speaker",
+    "Camera",
+    "App",
+    "WiFi",
+    "USB-C",
+    "Qi",
+    "Alexa",
+    "Google",
+    "Apple HomeKit",
+    "Matter",
+    "Thread",
+    "Zigbee",
+    "Automation",
+    "Scene",
+    "Schedule",
+    "Night Mode",
+    "Energy Monitor",
+    "OTA",
+    "Cloud",
+    "Local Control",
+    "AI",
+"Samsung SmartThings",
+"Home Assistant",
+"Matter Controller",
+"Energy Saving",
+"Power Monitoring",
+"Firmware Update",
+"Occupancy Sensor",
+"Presence Sensor"
+],
+
+
+Build: [
+    "DIY",
+    "Ready",
+    "Easy",
+    "Basic",
+    "Full",
+    "Pro",
+    "Factory",
+    "Handmade",
+    "Handcrafted",
+    "Custom",
+    "Bespoke",
+    "Modular",
+    "Prefab",
+    "Assembly Free",
+    "Tool Free",
+    "Quick Assemble",
+    "Flat Pack",
+    "Knock Down",
+    "Pre Assembled",
+    "Ready To Use",
+    "Made To Order",
+    "Built To Order",
+    "CNC",
+    "Precision",
+    "Reinforced",
+    "Welded",
+    "Mortise",
+    "Dovetail",
+    "Screw",
+    "Bolt",
+    "Glue Free",
+    "Heavy Duty",
+    "Commercial Grade",
+    "Residential Grade",
+    "Outdoor Grade"
+],
+
+Finish: [
+    "Matte",
+    "Ultra Matte",
+    "Gloss",
+    "High Gloss",
+    "Mirror Gloss",
+    "Semi Gloss",
+    "Satin",
+    "Silk Finish",
+    "Eggshell",
+    "Flat Finish",
+    "Natural",
+    "Raw",
+    "Unfinished",
+    "Painted",
+    "Hand Painted",
+    "Spray Painted",
+    "Lacquered",
+    "Clear Lacquer",
+    "Colored Lacquer",
+    "Oiled",
+    "Natural Oil",
+    "Hardwax Oil",
+    "Waxed",
+    "White Wax",
+    "Dark Wax",
+    "Polished",
+    "Mirror Polished",
+    "Brushed",
+    "Wire Brushed",
+    "Textured",
+    "Embossed",
+    "Hammered",
+    "Distressed",
+    "Aged",
+    "Weathered",
+    "Reclaimed Finish",
+    "Rustic Finish",
+    "Vintage Finish",
+    "Patina",
+    "Antique Finish",
+    "Stone Finish",
+    "Concrete Finish",
+    "Marble Finish",
+    "Wood Grain",
+    "Open Grain",
+    "Closed Grain",
+    "Burned Wood",
+    "Charred Finish",
+    "Carbon Finish",
+    "Powder Coated",
+    "Electroplated",
+    "Anodized",
+    "Ceramic Coated",
+    "Nano Coated",
+    "Anti Fingerprint",
+    "Fingerprint Resistant",
+    "Scratch Resistant Finish",
+    "Stain Resistant Finish",
+    "Water Resistant Finish",
+    "Waterproof Finish",
+    "UV Protected Finish",
+    "Fade Resistant Finish",
+    "Heat Resistant Finish",
+    "Outdoor Finish",
+    "Indoor Finish",
+    "Food Safe Finish",
+    "Low VOC Finish",
+    "Eco Finish",
+    "Transparent Finish",
+    "Tinted Finish",
+    "Color Washed",
+    "Whitewashed",
+    "Blackwashed",
+    "Graywashed",
+    "Smoked Finish",
+    "Bleached Finish",
+    "Two Tone Finish",
+    "Multi Layer Finish",
+    "Premium Finish",
+    "Luxury Finish",
+    "Designer Finish"
+],
+
+Frame: [
+    "Wood Frame",
+    "Solid Wood Frame",
+    "Hardwood Frame",
+    "Softwood Frame",
+    "Engineered Wood Frame",
+    "Plywood Frame",
+    "LVL Frame",
+    "Laminated Wood Frame",
+    "Bamboo Frame",
+    "Rattan Frame",
+    "Metal Frame",
+    "Steel Frame",
+    "Carbon Steel Frame",
+    "Stainless Steel Frame",
+    "Galvanized Steel Frame",
+    "Powder Coated Steel Frame",
+    "Iron Frame",
+    "Cast Iron Frame",
+    "Wrought Iron Frame",
+    "Aluminum Frame",
+    "Cast Aluminum Frame",
+    "Titanium Frame",
+    "Brass Frame",
+    "Copper Frame",
+    "Chrome Frame",
+    "Composite Frame",
+    "Carbon Fiber Frame",
+    "Fiberglass Frame",
+    "Glass Reinforced Frame",
+    "Plastic Frame",
+    "ABS Frame",
+    "Polycarbonate Frame",
+    "PVC Frame",
+    "Concrete Frame",
+    "Stone Frame",
+    "Marble Frame",
+    "Hybrid Frame",
+    "Platform Frame",
+    "Tubular Frame",
+    "Box Frame",
+    "Floating Frame",
+    "Low Profile Frame",
+    "Raised Frame",
+    "Foldable Frame",
+    "Collapsible Frame",
+    "Knock Down Frame",
+    "Modular Frame",
+    "Welded Frame",
+    "Bolted Frame",
+    "Pinned Frame",
+    "Mortise and Tenon Frame",
+    "Dovetail Frame",
+    "Cross Braced Frame",
+    "Double Reinforced Frame",
+    "Heavy Duty Frame",
+    "Commercial Grade Frame",
+    "Industrial Frame",
+    "Residential Frame",
+    "Outdoor Frame",
+    "Indoor Frame",
+    "Rust Resistant Frame",
+    "Weather Resistant Frame",
+    "Corrosion Resistant Frame",
+    "No Frame"
+],
+
+Legs: [
+    "Wood",
+    "Oak Legs",
+    "Walnut Legs",
+    "Beech Legs",
+    "Maple Legs",
+    "Metal",
+    "Steel",
+    "Stainless Steel",
+    "Chrome",
+    "Brass",
+    "Copper",
+    "Iron",
+    "Aluminum",
+    "Plastic",
+    "Carbon Fiber",
+    "Hairpin",
+    "Tapered",
+    "Straight",
+    "Square",
+    "Round",
+    "Cone",
+    "Turned",
+    "Cabriole",
+    "Sled",
+    "Pedestal",
+    "Cross",
+    "X Frame",
+    "Y Frame",
+    "U Frame",
+    "T Frame",
+    "Spider Base",
+    "Trumpet Base",
+    "Tulip Base",
+    "Four Leg",
+    "Three Leg",
+    "Five Leg",
+    "Center Support",
+    "Double Pedestal",
+    "Hidden",
+    "Inset Legs",
+    "Floating Base",
+    "Adjustable Feet",
+    "Leveling Feet",
+    "Rubber Feet",
+    "Anti Slip Feet",
+    "Locking Feet",
+    "Caster Wheels",
+    "Locking Casters",
+    "Heavy Duty Casters",
+    "Silent Casters",
+    "Swivel Casters",
+    "Industrial Legs",
+    "Commercial Legs",
+    "Decorative Legs",
+    "Gold Legs",
+    "Black Legs",
+    "White Legs",
+    "Brushed Legs",
+    "Matte Legs",
+    "Gloss Legs",
+    "Powder Coated Legs",
+    "Outdoor Legs",
+    "Folding Legs",
+    "Removable Legs"
+],
+
+Cert: [
+    "FSC",
+    "FSC 100%",
+    "FSC Mix",
+    "PEFC",
+    "GREENGUARD",
+    "GREENGUARD Gold",
+    "BIFMA",
+    "ANSI BIFMA",
+    "ASTM",
+    "EN",
+    "EN 12520",
+    "EN 1728",
+    "EN 581",
+    "ISO",
+    "ISO 9001",
+    "ISO 14001",
+    "CARB",
+    "CARB Phase 2",
+    "TSCA",
+    "TSCA Title VI",
+    "OEKO TEX",
+    "OEKO TEX Standard 100",
+    "CertiPUR-US",
+    "UL Listed",
+    "UL Certified",
+    "CE",
+    "RoHS",
+    "REACH",
+    "Intertek",
+    "SGS Tested",
+    "TUV Certified",
+    "CSA Certified",
+    "ETL Listed",
+    "NFPA",
+    "Fire Rated",
+    "Flame Retardant Certified",
+    "Low VOC",
+    "Indoor Air Quality Certified",
+    "Eco Certified",
+    "Sustainably Sourced",
+    "Responsible Forestry",
+    "Recycled Material Certified",
+    "Organic Certified",
+    "Fair Trade",
+    "Made Safe",
+    "Lead Free Certified",
+    "BPA Free",
+    "Child Safe Certified",
+    "Commercial Grade Certified",
+    "Hospitality Grade",
+    "Heavy Duty Certified",
+    "Load Tested",
+    "Impact Tested",
+    "Durability Tested",
+    "Quality Assured",
+    "Factory Certified",
+    "Manufacturer Certified"
+],
+
+Cushion: [
+    "Fixed",
+    "Removable",
+    "Reversible",
+    "Replaceable",
+    "Loose",
+    "Attached",
+    "Single Cushion",
+    "Double Cushion",
+    "Triple Cushion",
+    "Seat Cushion",
+    "Back Cushion",
+    "Lumbar Cushion",
+    "Head Cushion",
+    "Neck Cushion",
+    "Arm Cushion",
+    "Box Cushion",
+    "Knife Edge Cushion",
+    "T Cushion",
+    "Bullnose Cushion",
+    "Waterfall Cushion",
+    "Tufted Cushion",
+    "Button Tufted",
+    "Quilted Cushion",
+    "Channel Tufted",
+    "Plain Cushion",
+    "Piped Cushion",
+    "Flanged Cushion",
+    "Extra Padding",
+    "Plush",
+    "Soft",
+    "Medium",
+    "Medium Firm",
+    "Firm",
+    "Extra Firm",
+    "Ultra Firm",
+    "Indoor Cushion",
+    "Outdoor Cushion",
+    "Weather Resistant Cushion",
+    "UV Resistant Cushion",
+    "Water Resistant Cushion",
+    "Waterproof Cover",
+    "Stain Resistant Cover",
+    "Washable",
+    "Removable Cover",
+    "Zip Cover",
+    "Machine Wash Cover",
+    "Replaceable Cover",
+    "Eco Fill",
+    "Recycled Fill",
+    "Cotton Fill",
+    "Wool Fill",
+    "Fiber Fill",
+    "Poly Fiber",
+    "Feather Fill",
+    "Down Fill",
+    "Feather Blend",
+    "Bamboo Fill",
+    "Pocket Spring Cushion",
+    "Mini Pocket Spring",
+    "Dual Layer Cushion",
+    "Multi Layer Cushion",
+    "Quick Recovery",
+    "Shape Retention",
+    "Ergonomic Cushion",
+    "Orthopedic Cushion"
+],
+
+Weight: [
+    "Ultra Light",
+    "Lightweight",
+    "Compact Weight",
+    "Portable",
+    "Standard",
+    "Medium Weight",
+    "Heavy",
+    "Extra Heavy",
+    "Heavy Duty",
+    "Commercial Grade",
+    "Industrial Grade",
+    "Featherweight",
+    "Ultra Heavy",
+    "Residential Grade",
+    "Professional Grade",
+    "Furniture Grade",
+    "Solid Construction",
+    "Reinforced",
+    "Balanced Weight",
+    "Counter Weighted",
+    "Easy Lift",
+    "One Person Lift",
+    "Two Person Lift",
+    "Forklift Required",
+    "1kg",
+    "2kg",
+    "3kg",
+    "4kg",
+    "5kg",
+    "6kg",
+    "7kg",
+    "8kg",
+    "9kg",
+    "10kg",
+    "12kg",
+    "15kg",
+    "18kg",
+    "20kg",
+    "22kg",
+    "25kg",
+    "28kg",
+    "30kg",
+    "35kg",
+    "40kg",
+    "45kg",
+    "50kg",
+    "60kg",
+    "70kg",
+    "80kg",
+    "90kg",
+    "100kg",
+    "120kg",
+    "150kg",
+    "175kg",
+    "200kg",
+    "250kg",
+    "300kg",
+    "350kg",
+    "400kg",
+    "450kg",
+    "500kg",
+    "600kg",
+    "750kg",
+    "1000kg",
+    "Custom Weight"
+],
+
+Height: [
+    "Floor Level",
+    "Ultra Low",
+    "Low",
+    "Low Profile",
+    "Short",
+    "Medium",
+    "Standard",
+    "Counter Height",
+    "Kitchen Height",
+    "Desk Height",
+    "Dining Height",
+    "Coffee Table Height",
+    "Bar Height",
+    "High",
+    "Tall",
+    "Extra Tall",
+    "Adjustable",
+    "Height Adjustable",
+    "Electric Height",
+    "Manual Height",
+    "Gas Lift",
+    "Hydraulic Lift",
+    "Multi Position",
+    "Lockable Height",
+    "Child Height",
+    "Adult Height",
+    "Commercial Height",
+    "25cm",
+    "30cm",
+    "35cm",
+    "40cm",
+    "45cm",
+    "50cm",
+    "55cm",
+    "60cm",
+    "65cm",
+    "70cm",
+    "72cm",
+    "74cm",
+    "75cm",
+    "76cm",
+    "80cm",
+    "85cm",
+    "90cm",
+    "95cm",
+    "100cm",
+    "110cm",
+    "120cm",
+    "130cm",
+    "140cm",
+    "150cm",
+    "160cm",
+    "170cm",
+    "180cm",
+    "190cm",
+    "200cm",
+    "220cm",
+    "240cm",
+    "Custom Height"
+],
+
+Width: [
+    "Ultra Narrow",
+    "Extra Narrow",
+    "Narrow",
+    "Slim",
+    "Compact",
+    "Standard",
+    "Wide",
+    "Extra Wide",
+    "Ultra Wide",
+    "Oversized",
+    "Expandable",
+    "Extendable",
+    "Adjustable",
+    "Wall To Wall",
+    "Space Saving",
+    "Commercial Width",
+    "Residential Width",
+    "30cm",
+    "40cm",
+    "45cm",
+    "50cm",
+    "55cm",
+    "60cm",
+    "70cm",
+    "80cm",
+    "90cm",
+    "100cm",
+    "110cm",
+    "120cm",
+    "130cm",
+    "140cm",
+    "150cm",
+    "160cm",
+    "170cm",
+    "180cm",
+    "200cm",
+    "220cm",
+    "240cm",
+    "260cm",
+    "280cm",
+    "300cm",
+    "350cm",
+    "400cm",
+    "Custom Width"
+],
+
+Depth: [
+    "Ultra Shallow",
+    "Extra Shallow",
+    "Shallow",
+    "Standard",
+    "Deep",
+    "Extra Deep",
+    "Oversized",
+    "Extendable",
+    "Adjustable",
+    "Compact Depth",
+    "Comfort Depth",
+    "Ergonomic Depth",
+    "Commercial Depth",
+    "Residential Depth",
+    "25cm",
+    "30cm",
+    "35cm",
+    "40cm",
+    "45cm",
+    "50cm",
+    "55cm",
+    "60cm",
+    "65cm",
+    "70cm",
+    "75cm",
+    "80cm",
+    "85cm",
+    "90cm",
+    "95cm",
+    "100cm",
+    "110cm",
+    "120cm",
+    "130cm",
+    "140cm",
+    "150cm",
+    "160cm",
+    "180cm",
+    "200cm",
+    "Custom Depth"
+],
+
+Length: [
+    "Very Short",
+    "Short",
+    "Standard",
+    "Long",
+    "Extra Long",
+    "Ultra Long",
+    "Expandable",
+    "Extendable",
+    "Adjustable",
+    "Compact Length",
+    "Commercial Length",
+    "Residential Length",
+    "50cm",
+    "60cm",
+    "70cm",
+    "80cm",
+    "90cm",
+    "100cm",
+    "110cm",
+    "120cm",
+    "130cm",
+    "140cm",
+    "150cm",
+    "160cm",
+    "170cm",
+    "180cm",
+    "190cm",
+    "200cm",
+    "220cm",
+    "240cm",
+    "260cm",
+    "280cm",
+    "300cm",
+    "320cm",
+    "350cm",
+    "400cm",
+    "450cm",
+    "500cm",
+    "Custom Length"
+],
+
+Asm: [
+    "None",
+    "Instant",
+    "Under 30 Seconds",
+    "30 Seconds",
+    "1 Minute",
+    "2 Minutes",
+    "5 Minutes",
+    "10 Minutes",
+    "15 Minutes",
+    "20 Minutes",
+    "30 Minutes",
+    "45 Minutes",
+    "1 Hour",
+    "90 Minutes",
+    "2 Hours",
+    "3 Hours",
+    "4 Hours",
+    "5 Hours",
+    "6+ Hours",
+    "Tool Free",
+    "One Tool",
+    "Allen Key Included",
+    "Hardware Included",
+    "Instruction Included",
+    "Video Guide",
+    "Quick Assemble",
+    "Easy Assembly",
+    "Simple Assembly",
+    "DIY",
+    "Self Assembly",
+    "Professional Installation",
+    "White Glove Assembly",
+    "Factory Assembled",
+    "Fully Assembled",
+    "Pre Assembled",
+    "Partially Assembled",
+    "Assembly Required",
+    "Minimal Assembly",
+    "Complex Assembly",
+    "No Experience Required",
+    "Two Person Assembly",
+    "Single Person Assembly"
+],
+
+COO: [
+    "United States",
+    "Canada",
+    "Mexico",
+    "Brazil",
+    "Argentina",
+    "Chile",
+    "United Kingdom",
+    "Ireland",
+    "Germany",
+    "France",
+    "Italy",
+    "Spain",
+    "Portugal",
+    "Netherlands",
+    "Belgium",
+    "Luxembourg",
+    "Switzerland",
+    "Austria",
+    "Poland",
+    "Czech Republic",
+    "Slovakia",
+    "Hungary",
+    "Romania",
+    "Bulgaria",
+    "Croatia",
+    "Slovenia",
+    "Serbia",
+    "Bosnia",
+    "Greece",
+    "Turkey",
+    "Ukraine",
+    "Lithuania",
+    "Latvia",
+    "Estonia",
+    "Norway",
+    "Sweden",
+    "Denmark",
+    "Finland",
+    "Iceland",
+    "Russia",
+    "Israel",
+    "Saudi Arabia",
+    "UAE",
+    "Qatar",
+    "Kuwait",
+    "Oman",
+    "Jordan",
+    "Egypt",
+    "Morocco",
+    "Tunisia",
+    "South Africa",
+    "Nigeria",
+    "China",
+    "Hong Kong",
+    "Macau",
+    "Taiwan",
+    "Japan",
+    "South Korea",
+    "North Korea",
+    "Vietnam",
+    "Thailand",
+    "Malaysia",
+    "Singapore",
+    "Indonesia",
+    "Philippines",
+    "India",
+    "Pakistan",
+    "Bangladesh",
+    "Sri Lanka",
+    "Nepal",
+    "Australia",
+    "New Zealand",
+    "Imported",
+    "Locally Made",
+    "Made in EU",
+    "Made in USA",
+    "Made in Canada",
+    "Made in Italy",
+    "Made in Germany",
+    "Made in Japan",
+    "Made in China",
+    "Made in Vietnam",
+    "Made in India",
+    "Handcrafted Locally",
+    "Region Specific",
+    "Multi Country",
+    "Global Production",
+    "International",
+"North Macedonia",
+"Montenegro",
+"Albania",
+"Georgia",
+"Armenia",
+"Azerbaijan"
+],
+
+Mfg: [
+    "OEM",
+    "ODM",
+    "OBM",
+    "Original Manufacturer",
+    "Authorized Manufacturer",
+    "Licensed Manufacturer",
+    "Certified Manufacturer",
+    "Approved Manufacturer",
+    "Factory Direct",
+    "Factory Outlet",
+    "In House",
+    "Private Label",
+    "White Label",
+    "Custom Builder",
+    "Furniture Maker",
+    "Cabinet Maker",
+    "Artisan",
+    "Master Craftsman",
+    "Handmade",
+    "Handcrafted",
+    "Boutique Workshop",
+    "Commercial Factory",
+    "Industrial Factory",
+    "Local Factory",
+    "Global Factory",
+    "Family Business",
+    "Independent Manufacturer",
+    "Premium Manufacturer",
+    "Luxury Manufacturer",
+    "Designer Brand",
+    "Mass Production",
+    "Small Batch",
+    "Limited Production",
+    "Custom Production",
+    "Made To Order",
+    "Built To Order",
+    "Contract Manufacturer",
+    "Assembly Plant",
+    "Export Factory",
+    "Residential Manufacturer",
+    "Commercial Manufacturer",
+    "Hospitality Manufacturer",
+    "Eco Manufacturer",
+    "Sustainable Manufacturer",
+    "ISO Certified",
+    "FSC Certified",
+    "BIFMA Certified"
+],
+
+Coll: [
+    "Essential",
+    "Classic",
+    "Traditional",
+    "Modern",
+    "Contemporary",
+    "Minimal",
+    "Minimalist",
+    "Luxury",
+    "Premium",
+    "Elite",
+    "Executive",
+    "Signature",
+    "Designer",
+    "Exclusive",
+    "Limited Edition",
+    "Anniversary",
+    "Flagship",
+    "Heritage",
+    "Vintage",
+    "Retro",
+    "Scandinavian",
+    "Nordic",
+    "Japandi",
+    "Japanese",
+    "Industrial",
+    "Rustic",
+    "Farmhouse",
+    "Urban",
+    "Loft",
+    "Coastal",
+    "Mediterranean",
+    "Boho",
+    "Country",
+    "Mid Century",
+    "Art Deco",
+    "Victorian",
+    "Colonial",
+    "Italian",
+    "French",
+    "Eco",
+    "Outdoor",
+    "Indoor",
+    "Office",
+    "Gaming",
+    "Kids",
+    "Hospitality",
+    "Commercial",
+    "Residential",
+    "Student",
+    "Apartment",
+    "Studio",
+    "Family",
+    "Smart Living",
+    "Space Saving",
+    "Custom Collection",
+    "Seasonal Collection"
+],
+
+Series: [
+    "Series 1",
+    "Series 2",
+    "Series 3",
+    "Series 4",
+    "Series 5",
+    "Series 6",
+    "Series 7",
+    "Series 8",
+    "Series 9",
+    "Series 10",
+    "Series X",
+    "Series S",
+    "Series A",
+    "Series C",
+    "Series M",
+    "Series Pro",
+    "Series Plus",
+    "Series Max",
+    "Series Ultra",
+    "Series Elite",
+    "Series Premium",
+    "Series Executive",
+    "Series Signature",
+    "Series Commercial",
+    "Series Residential",
+    "Series Designer",
+    "Gen 1",
+    "Gen 2",
+    "Gen 3",
+    "Gen 4",
+    "Gen 5",
+    "MK I",
+    "MK II",
+    "MK III",
+    "MK IV",
+    "MK V",
+    "Version 1",
+    "Version 2",
+    "Version 3",
+    "Legacy Series",
+    "Next Gen"
+],
+
+SKU: [
+    "Auto Generated",
+    "Custom SKU",
+    "Manufacturer SKU",
+    "Retail SKU",
+    "Distributor SKU",
+    "Warehouse SKU",
+    "Internal SKU",
+    "Store SKU",
+    "Supplier SKU",
+    "Global SKU",
+    "Regional SKU",
+    "Product SKU",
+    "Barcode SKU",
+    "QR SKU",
+    "Serial SKU",
+    "Batch SKU",
+    "Numeric",
+    "Alpha",
+    "Alpha Numeric",
+    "Short SKU",
+    "Medium SKU",
+    "Long SKU",
+    "Custom Code",
+    "Internal Code",
+    "Tracking Code",
+    "Inventory Code",
+    "Warehouse Code"
+],
+
+UPCEAN: [
+    "UPC",
+    "UPC-A",
+    "UPC-E",
+    "EAN",
+    "EAN-8",
+    "EAN-13",
+    "GTIN-8",
+    "GTIN-12",
+    "GTIN-13",
+    "GTIN-14",
+    "ISBN",
+    "Barcode",
+    "QR Code",
+    "Data Matrix",
+    "Serial Number",
+    "Batch Number",
+    "Lot Number",
+    "Product ID",
+    "Model Number",
+    "Part Number",
+    "Tracking Number",
+    "Inventory ID",
+    "Asset Tag",
+    "RFID",
+    "NFC Tag"
+],
+
+Year: [
+    "Before 1980",
+    "1980-1989",
+    "1990-1999",
+    "Before 2000",
+    "2000",
+    "2001",
+    "2002",
+    "2003",
+    "2004",
+    "2005",
+    "2006",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026",
+    "Upcoming",
+    "Future Release",
+    "Prototype",
+    "Concept",
+    "Pre Production",
+    "Limited Release",
+    "Special Edition",
+    "Discontinued",
+    "Legacy Model",
+    "Collector Edition",
+    "Reissue",
+    "Reproduction",
+    "Anniversary Edition"
+]
+
 },
 
 Gaming: {
@@ -151,21 +3436,50 @@ Office: {
 // ELEMENTS
 // =================
 const dropdown = document.querySelector(".dropdown");
+const textarea = document.querySelector(".describe-box textarea");
 const header = document.querySelector(".dropdown-header");
 const clearBtn = document.querySelector(".clear-btn");
 const items = document.querySelectorAll("#dropdownList .dropdown-item");
 const searchInput = document.querySelector(".dropdown-search");
 const sub = document.getElementById("subDropdown");
-let SearchButtom = false
 const scrollBtn = document.getElementById("scrollTopBtn");
 const floatingBtn = document.getElementById("floatingSearchBtn");
 let scrollTimeout;
+
+
+const MIN_HEIGHT = 34;
+const MAX_HEIGHT = 220;
+
+
+textarea.addEventListener("input", () => {
+
+    textarea.style.height = `${MIN_HEIGHT}px`;
+
+    const newHeight = Math.min(
+        textarea.scrollHeight,
+        MAX_HEIGHT
+    );
+
+    textarea.style.height = `${newHeight}px`;
+
+    textarea.style.overflowY =
+        textarea.scrollHeight > MAX_HEIGHT
+            ? "auto"
+            : "hidden";
+
+    if (textarea.value === "") {
+        floatingBtn.classList.remove("show");
+    } else {
+        floatingBtn.classList.add("show");
+    }
+});
 
 // =================
 // פתיחה בפוקוס
 // =================
 searchInput.addEventListener("focus", () => {
     updateClearButton();
+    clearBtnOn();
     dropdown.classList.add("open");
 });
 
@@ -173,26 +3487,26 @@ searchInput.addEventListener("focus", () => {
 // בחירה
 // =================
 const shrinkWidths = {
-    phones: 49,
-    cars: 42,
-    furniture: 52,
-    gaming: 49,
-    clothing: 52,
-    books: 46.5,
-    sports: 46,
-    toys: 41,
-    music: 45,
-    appliances: 58,
-    jewelry: 48,
-    beauty: 48,
-    shoes: 45,
-    bags: 41,
-    watches: 51,
-    garden: 48,
-    pets: 43,
-    tools: 41,
-    art: 36,
-    office: 44
+    phones: 42,
+    cars: 38,
+    furniture: 44,
+    gaming: 41,
+    clothing: 44,
+    books: 40,
+    sports: 40,
+    toys: 37,
+    music: 39,
+    appliances: 48,
+    jewelry: 41,
+    beauty: 41,
+    shoes: 39,
+    bags: 37,
+    watches: 43,
+    garden: 41,
+    pets: 38,
+    tools: 37,
+    art: 34,
+    office: 39
 };
 
 function handleSearchChange(value) {
@@ -200,9 +3514,10 @@ function handleSearchChange(value) {
     const isEmpty = v === "";
 
     if (isEmpty) {
-        floatingBtn.classList.remove("show");
-        SearchButtom = false;
         DeleteSubDropdown();
+        if (textarea.value.trim() === ""){
+        floatingBtn.classList.remove("show");
+        }
         clearBtn.style.display = "none";
         dropdown.classList.add("open");
     }
@@ -249,7 +3564,7 @@ searchInput.addEventListener("input", (e) => {
 items.forEach(item => {
     item.addEventListener("click", () => {
         handleSearchChange(item.textContent);
-
+        clearBtnOff();
         dropdown.classList.remove("open");
     });
 });
@@ -258,11 +3573,21 @@ items.forEach(item => {
 // =================
 document.addEventListener("click", (e) => {
     if (!dropdown.contains(e.target)) {
+        clearBtnOff();
         dropdown.classList.remove("open");
         
     }
 });
 
+function clearBtnOn() {
+    clearBtn.style.background = "#000000";
+    clearBtn.style.color = "#ffffff";
+}
+
+function clearBtnOff() {
+    clearBtn.style.background = "#101010";
+    clearBtn.style.color = "gray";
+}
 
 function activateCategory(name) {
     const categories = document.querySelectorAll(".category");
@@ -286,7 +3611,6 @@ function updateClearButton() {
 // לחיצה על X
 clearBtn.addEventListener("click", () => {
     searchInput.value = "";
-    
     handleSearchChange(searchInput.value)
     searchInput.focus(); // מחזיר פוקוס
 });
@@ -331,7 +3655,6 @@ function buildSubDropdown(category) {
     }
   
     updateClearButton();
-    SearchButtom = true;
     floatingBtn.classList.add("show");
     const html = Object.entries(data).map(([group, items]) => {
         
@@ -373,56 +3696,219 @@ if (group === "Price") {
 
 </div>
 
-                <div class="currency-box">
-                    <div class="currency-header">USD ($) ▼</div>
+<div class="currency-box">
+    <div class="currency-header">USD ($) ▼</div>
 
-                    <div class="currency-dropdown">
-                        <input type="text" class="currency-search" placeholder="Search...">
-                        
-                            <div class="currency-list">
-                        <div class="currency-item">USD ($)</div>
-                        <div class="currency-item">EUR (€)</div>
-                        <div class="currency-item">ILS (₪)</div>
-                        <div class="currency-item">GEL (₾)</div>
-                        <div class="currency-item">GBP (£)</div>
-                        <div class="currency-item">JPY (¥)</div>
-                        <div class="currency-item">CAD (C$)</div>
-                        <div class="currency-item">AUD (A$)</div>
-                        <div class="currency-item">CHF (Fr)</div>
-                        <div class="currency-item">CNY (¥)</div>
-                        <div class="currency-item">INR (₹)</div>
-                        <div class="currency-item">KRW (₩)</div>
-                        <div class="currency-item">BRL (R$)</div>
-                        <div class="currency-item">RUB (₽)</div>
-                        <div class="currency-item">TRY (₺)</div>
-                        <div class="currency-item">ZAR (R)</div>
-                        <div class="currency-item">MXN ($)</div>
-                        <div class="currency-item">SEK (kr)</div>
-                        <div class="currency-item">NOK (kr)</div>
-                        <div class="currency-item">DKK (kr)</div>
-                        <div class="currency-item">PLN (zł)</div>
-                        <div class="currency-item">THB (฿)</div>
-                        <div class="currency-item">AED (د.إ)</div>
-                        <div class="currency-item">SAR (﷼)</div>
-                        <div class="currency-item">HKD (HK$)</div>
-                        <div class="currency-item">SGD (S$)</div>
-                    </div>
-                </div>
-                </div>
-            </div>
+    <div class="currency-dropdown">
+        <input type="text" class="currency-search" placeholder="Search...">
+
+        <div class="currency-list">
+            <div class="currency-item">AED (د.إ)</div>
+            <div class="currency-item">AFN (؋)</div>
+            <div class="currency-item">ALL (L)</div>
+            <div class="currency-item">AMD (֏)</div>
+            <div class="currency-item">ANG (ƒ)</div>
+            <div class="currency-item">AOA (Kz)</div>
+            <div class="currency-item">ARS ($)</div>
+            <div class="currency-item">AUD (A$)</div>
+            <div class="currency-item">AWG (ƒ)</div>
+            <div class="currency-item">AZN (₼)</div>
+
+            <div class="currency-item">BAM (KM)</div>
+            <div class="currency-item">BBD (Bds$)</div>
+            <div class="currency-item">BDT (৳)</div>
+            <div class="currency-item">BGN (лв)</div>
+            <div class="currency-item">BHD (.د.ب)</div>
+            <div class="currency-item">BIF (FBu)</div>
+            <div class="currency-item">BMD (BD$)</div>
+            <div class="currency-item">BND (B$)</div>
+            <div class="currency-item">BOB (Bs.)</div>
+            <div class="currency-item">BRL (R$)</div>
+            <div class="currency-item">BSD (B$)</div>
+            <div class="currency-item">BTN (Nu.)</div>
+            <div class="currency-item">BWP (P)</div>
+            <div class="currency-item">BYN (Br)</div>
+            <div class="currency-item">BZD (BZ$)</div>
+
+            <div class="currency-item">CAD (C$)</div>
+            <div class="currency-item">CDF (FC)</div>
+            <div class="currency-item">CHF (Fr)</div>
+            <div class="currency-item">CLP ($)</div>
+            <div class="currency-item">CNY (¥)</div>
+            <div class="currency-item">COP ($)</div>
+            <div class="currency-item">CRC (₡)</div>
+            <div class="currency-item">CUP ($)</div>
+            <div class="currency-item">CVE ($)</div>
+            <div class="currency-item">CZK (Kč)</div>
+
+            <div class="currency-item">DJF (Fdj)</div>
+            <div class="currency-item">DKK (kr)</div>
+            <div class="currency-item">DOP (RD$)</div>
+            <div class="currency-item">DZD (دج)</div>
+
+            <div class="currency-item">EGP (£)</div>
+            <div class="currency-item">ERN (Nfk)</div>
+            <div class="currency-item">ETB (Br)</div>
+            <div class="currency-item">EUR (€)</div>
+
+            <div class="currency-item">FJD (FJ$)</div>
+
+            <div class="currency-item">GBP (£)</div>
+            <div class="currency-item">GEL (₾)</div>
+            <div class="currency-item">GHS (₵)</div>
+            <div class="currency-item">GIP (£)</div>
+            <div class="currency-item">GMD (D)</div>
+            <div class="currency-item">GNF (FG)</div>
+            <div class="currency-item">GTQ (Q)</div>
+            <div class="currency-item">GYD (GY$)</div>
+
+            <div class="currency-item">HKD (HK$)</div>
+            <div class="currency-item">HNL (L)</div>
+            <div class="currency-item">HTG (G)</div>
+            <div class="currency-item">HUF (Ft)</div>
+
+            <div class="currency-item">IDR (Rp)</div>
+            <div class="currency-item">ILS (₪)</div>
+            <div class="currency-item">INR (₹)</div>
+            <div class="currency-item">IQD (ع.د)</div>
+            <div class="currency-item">IRR (﷼)</div>
+            <div class="currency-item">ISK (kr)</div>
+
+            <div class="currency-item">JMD (J$)</div>
+            <div class="currency-item">JOD (JD)</div>
+            <div class="currency-item">JPY (¥)</div>
+
+            <div class="currency-item">KES (KSh)</div>
+            <div class="currency-item">KGS (с)</div>
+            <div class="currency-item">KHR (៛)</div>
+            <div class="currency-item">KMF (CF)</div>
+            <div class="currency-item">KPW (₩)</div>
+            <div class="currency-item">KRW (₩)</div>
+            <div class="currency-item">KWD (KD)</div>
+            <div class="currency-item">KYD (CI$)</div>
+            <div class="currency-item">KZT (₸)</div>
+
+            <div class="currency-item">LAK (₭)</div>
+            <div class="currency-item">LBP (£)</div>
+            <div class="currency-item">LKR (Rs)</div>
+            <div class="currency-item">LRD (L$)</div>
+            <div class="currency-item">LSL (L)</div>
+            <div class="currency-item">LYD (LD)</div>
+
+            <div class="currency-item">MAD (د.م.)</div>
+            <div class="currency-item">MDL (L)</div>
+            <div class="currency-item">MGA (Ar)</div>
+            <div class="currency-item">MKD (ден)</div>
+            <div class="currency-item">MMK (K)</div>
+            <div class="currency-item">MNT (₮)</div>
+            <div class="currency-item">MOP (MOP$)</div>
+            <div class="currency-item">MRU (UM)</div>
+            <div class="currency-item">MUR (₨)</div>
+            <div class="currency-item">MVR (Rf)</div>
+            <div class="currency-item">MWK (MK)</div>
+            <div class="currency-item">MXN (MX$)</div>
+            <div class="currency-item">MYR (RM)</div>
+            <div class="currency-item">MZN (MT)</div>
+
+            <div class="currency-item">NAD (N$)</div>
+            <div class="currency-item">NGN (₦)</div>
+            <div class="currency-item">NIO (C$)</div>
+            <div class="currency-item">NOK (kr)</div>
+            <div class="currency-item">NPR (₨)</div>
+            <div class="currency-item">NZD (NZ$)</div>
+
+            <div class="currency-item">OMR (﷼)</div>
+
+            <div class="currency-item">PAB (B/.)</div>
+            <div class="currency-item">PEN (S/)</div>
+            <div class="currency-item">PGK (K)</div>
+            <div class="currency-item">PHP (₱)</div>
+            <div class="currency-item">PKR (₨)</div>
+            <div class="currency-item">PLN (zł)</div>
+            <div class="currency-item">PYG (₲)</div>
+
+            <div class="currency-item">QAR (﷼)</div>
+
+            <div class="currency-item">RON (lei)</div>
+            <div class="currency-item">RSD (дин)</div>
+            <div class="currency-item">RUB (₽)</div>
+            <div class="currency-item">RWF (FRw)</div>
+
+            <div class="currency-item">SAR (﷼)</div>
+            <div class="currency-item">SBD (SI$)</div>
+            <div class="currency-item">SCR (₨)</div>
+            <div class="currency-item">SDG (ج.س.)</div>
+            <div class="currency-item">SEK (kr)</div>
+            <div class="currency-item">SGD (S$)</div>
+            <div class="currency-item">SHP (£)</div>
+            <div class="currency-item">SLE (Le)</div>
+            <div class="currency-item">SOS (Sh)</div>
+            <div class="currency-item">SRD (SR$)</div>
+            <div class="currency-item">SSP (£)</div>
+            <div class="currency-item">STN (Db)</div>
+            <div class="currency-item">SYP (£)</div>
+            <div class="currency-item">SZL (E)</div>
+
+            <div class="currency-item">THB (฿)</div>
+            <div class="currency-item">TJS (ЅМ)</div>
+            <div class="currency-item">TMT (m)</div>
+            <div class="currency-item">TND (د.ت)</div>
+            <div class="currency-item">TOP (T$)</div>
+            <div class="currency-item">TRY (₺)</div>
+            <div class="currency-item">TTD (TT$)</div>
+            <div class="currency-item">TWD (NT$)</div>
+            <div class="currency-item">TZS (Sh)</div>
+
+            <div class="currency-item">UAH (₴)</div>
+            <div class="currency-item">UGX (USh)</div>
+            <div class="currency-item">USD ($)</div>
+            <div class="currency-item">UYU ($U)</div>
+            <div class="currency-item">UZS (so'm)</div>
+
+            <div class="currency-item">VES (Bs.)</div>
+            <div class="currency-item">VND (₫)</div>
+            <div class="currency-item">VUV (VT)</div>
+
+            <div class="currency-item">WST (WS$)</div>
+
+            <div class="currency-item">XAF (FCFA)</div>
+            <div class="currency-item">XCD (EC$)</div>
+            <div class="currency-item">XOF (CFA)</div>
+            <div class="currency-item">XPF (₣)</div>
+
+            <div class="currency-item">YER (﷼)</div>
+
+            <div class="currency-item">ZAR (R)</div>
+            <div class="currency-item">ZMW (ZK)</div>
+            <div class="currency-item">ZWG (ZiG)</div>
         </div>
+    </div>
+</div>
     `;
 }
 
         // ================= OTHER FILTERS =================
         const MAX_VISIBLE = 8;
         const isLong = items.length > MAX_VISIBLE;
+        const searchWidth =
+    group.length < 8 ? "40%" :
+    group.length < 12 ? "45%" :
+    group.length < 15 ?  "50%" :
+    group.length < 20 ? "55%" :
+    group.length < 25 ? "70%" :
+    "100%";
 
         return `
+        
             <div class="filter-group">
                 <div class="filter-title">${group}</div>
 
-                <input type="text" class="sub-search" placeholder="Search ${group}...">
+             <input  
+            type="text"  
+            class="sub-search"  
+            style="width:${searchWidth};"  
+            placeholder="Search ${group}..."  
+        >  
 
                 <div class="filter-options">
                     ${items.map((item, i) => `
@@ -459,12 +3945,14 @@ const maxInput  = document.querySelector(".max-input");
 const range = document.querySelector(".price-range");
 
 
+
 if (minSlider && maxSlider && minInput && maxInput) {
 
     const ABS_MIN = parseInt(minSlider.min) || 0;
     const ABS_MAX = parseInt(maxSlider.max) || 10000;
 
     const updateBars = () => {
+        
 
         const min = parseInt(minSlider.value);
         const max = parseInt(maxSlider.value);
@@ -565,6 +4053,14 @@ let waves = new Array(WAVE_COUNT);
 let noiseOffset = 0;
 let animationId = null;
 let pathUpdateAccumulator = 0;
+let colors = [
+    "rgba(25,25,25,1)",
+    "rgba(25,25,25,1)",
+    "rgba(25,25,25,1)",
+    "rgba(25,25,25,1)",
+    "rgba(25,25,25,1)",
+    "rgba(25,25,25,1)"
+];
 
 /* =========================================
 CREATE FLOW
@@ -582,19 +4078,20 @@ function createWaveFlow(){
 createWaveLayer(
     0.0,
     1.00,
-    1.00,
+    0.75,
     0
 );
 
 createWaveLayer(
     1.4,
     0.90,
-    0.90,
+    0.65,
     1
 );
 
     animateWaves();
 }
+
 /* =========================================
 CREATE LAYER
 ========================================= */
@@ -694,14 +4191,7 @@ gradient.setAttribute(
     "0"  
 );  
 
-const colors = [
-    "rgba(5,5,5,0.95)",
-    "rgba(12,12,12,0.98)",
-    "rgba(25,25,25,1)",
-    "rgba(45,45,45,1)",
-    "rgba(25,25,25,1)",
-    "rgba(8,8,8,0.96)"
-];
+
 for(  
     let i = 0;  
     i < colors.length;  
@@ -752,8 +4242,7 @@ svg.appendChild(
     path  
 ); 
 
-path.style.filter =
-    "drop-shadow(0 0 35px rgba(255,255,255,0.95))";
+
 
 barInner.appendChild(  
     svg  
@@ -1136,7 +4625,105 @@ document.addEventListener(
         }
     }
 );
+
+
+
 createWaveFlow();
+function setWaveColor(color){
+
+    document.querySelectorAll(
+        '#waveGradient_0 stop, #waveGradient_1 stop'
+    ).forEach(stop => {
+
+        stop.setAttribute(
+            "stop-color",
+            color
+        );
+
+    });
+
+}
+
+sliders.forEach(slider => {
+
+    slider.addEventListener("pointerdown", () => {
+
+        setWaveColor(
+            "rgba(20,20,20,1)"
+        );
+
+        document.documentElement.style.setProperty(
+            "--slider-thumb-bg",
+            "#000000"
+        );
+
+        document.documentElement.style.setProperty(
+            "--slider-thumb-border",
+            "1px solid rgba(255,120,120,0.45)"
+        );
+
+        document.documentElement.style.setProperty(
+            "--before-range-line-bg",
+            "#000000"
+        );
+
+        document.documentElement.style.setProperty(
+            "--before-range-line-border",
+            "1px solid rgba(200,70,70,0.22)"
+        );
+
+        document.documentElement.style.setProperty(
+            "--after-range-line-bg",
+            "#000000"
+        );
+
+        document.documentElement.style.setProperty(
+            "--after-range-line-border",
+            "1px solid rgba(200,70,70,0.22)"
+        );
+
+    });
+
+
+    slider.addEventListener("pointerup", () => {
+
+        setWaveColor(
+            "rgba(25,25,25,1)"
+        );
+
+        document.documentElement.style.setProperty(
+            "--slider-thumb-bg",
+            "#121212"
+        );
+
+        document.documentElement.style.setProperty(
+            "--slider-thumb-border",
+            "1px solid rgba(90,90,90,.85)"
+        );
+
+        document.documentElement.style.setProperty(
+            "--before-range-line-bg",
+            "#121212"
+        );
+
+        document.documentElement.style.setProperty(
+            "--before-range-line-border",
+            "1px solid rgba(90,90,90,.75)"
+        );
+
+        document.documentElement.style.setProperty(
+            "--after-range-line-bg",
+            "#121212"
+        );
+
+        document.documentElement.style.setProperty(
+            "--after-range-line-border",
+            "1px solid rgba(90,90,90,.85)"
+        );
+
+    });
+
+});
 
     // ================= GROUPS =================//
     document.querySelectorAll(".filter-group").forEach(groupEl => {
@@ -1243,7 +4830,10 @@ window.addEventListener("DOMContentLoaded", () => {
     let scrollTimeout;
 
     window.addEventListener("scroll", () => {
-        if (!SearchButtom) return
+        if (
+    sub.innerHTML.trim() === "" &&
+    textarea.value.trim() === ""
+) return;
         floatingBtn.classList.remove("show");
 
         clearTimeout(scrollTimeout);
@@ -1252,7 +4842,6 @@ window.addEventListener("DOMContentLoaded", () => {
             floatingBtn.classList.add("show");
         }, 300);
     });
-
 });
 function DeleteSubDropdown() {
     
