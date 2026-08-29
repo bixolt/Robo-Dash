@@ -1737,6 +1737,8 @@ Cars: {
         ]
       }
     ],
+
+    
     "Price": {
       "min": 200,
       "max": 6000000,
@@ -1781,6 +1783,7 @@ Cars: {
           "רכב שטח"
         ]
       },
+      
       {
         "value": "Sedan",
         "synonyms": [
@@ -1813,6 +1816,15 @@ Cars: {
       "Fuel Cell Electric",
       "Range Extender Electric"
     ],
+    
+    "EngineDisplacement": {
+    "min": 0.5,
+    "max": 20,
+    "step": 0.1,
+    "unit": "L"
+  },
+  
+  
     "engineForcedInduction": [
       {
         "value": "Naturally Aspirated",
@@ -2373,6 +2385,13 @@ Cars: {
         ]
       }
     ],
+    "Torque": {
+    "min": 20,
+    "max": 3000,
+    "step": 10,
+    "unit": "Nm"
+        
+    },
     "engineOrientation": [
       {
         "value": "Longitudinal",
@@ -2611,22 +2630,129 @@ Cars: {
         ]
       }
     ],
-    "motorCooling": [
-      {
-        "value": "Liquid-Cooled Motor",
-        "synonyms": [
-          "EV Motor Liquid Cooling",
-          "Coolant-Cooled Electric Motor"
-        ]
-      },
-      {
-        "value": "Air-Cooled Motor",
-        "synonyms": [
-          "EV Motor Air Cooling",
-          "Air-Cooled Electric Motor"
-        ]
-      }
-    ],
+"motorCooling": [
+  {
+    "value": "Liquid-Cooled Motor",
+    "synonyms": [
+      "EV Motor Liquid Cooling",
+      "Coolant-Cooled Electric Motor"
+    ]
+  },
+  {
+    "value": "Air-Cooled Motor",
+    "synonyms": [
+      "EV Motor Air Cooling",
+      "Air-Cooled Electric Motor"
+    ]
+  },
+  {
+    "value": "Oil-Cooled Motor",
+    "synonyms": [
+      "EV Motor Oil Cooling",
+      "Oil-Cooled Electric Motor"
+    ]
+  },
+  {
+    "value": "Direct Oil Cooling",
+    "synonyms": [
+      "Direct Oil-Cooled Motor",
+      "In-Slot Oil Cooling"
+    ]
+  },
+  {
+    "value": "Jacket Water Cooling",
+    "synonyms": [
+      "Water Jacket Motor Cooling",
+      "Motor Housing Water Jacket"
+    ]
+  },
+  {
+    "value": "Hairpin Winding Cooling",
+    "synonyms": [
+      "Hairpin Cooling System",
+      "Direct Winding Cooling"
+    ]
+  },
+  {
+    "value": "Passive Air Cooling",
+    "synonyms": [
+      "Natural Convection Cooling",
+      "Passive Motor Cooling"
+    ]
+  },
+  {
+    "value": "Forced Air Cooling",
+    "synonyms": [
+      "Fan-Forced Motor Cooling",
+      "Active Air Cooling"
+    ]
+  },
+  {
+    "value": "Dual Cooling System",
+    "synonyms": [
+      "Combined Liquid & Oil Cooling",
+      "Hybrid Motor Cooling"
+    ]
+  },
+  {
+    "value": "Rotor Cooling",
+    "synonyms": [
+      "Rotor-Specific Cooling",
+      "Internal Rotor Cooling System"
+    ]
+  },
+  {
+    "value": "Stator Cooling",
+    "synonyms": [
+      "Stator-Specific Cooling",
+      "Stator Jacket Cooling"
+    ]
+  },
+  {
+    "value": "Spray Cooling",
+    "synonyms": [
+      "Oil Spray Cooling",
+      "Direct Spray Motor Cooling"
+    ]
+  },
+  {
+    "value": "Immersion Cooling",
+    "synonyms": [
+      "Fluid Immersion Motor Cooling",
+      "Submerged Motor Cooling"
+    ]
+  },
+  {
+    "value": "Heat Pump Assisted Cooling",
+    "synonyms": [
+      "Heat Pump Motor Cooling",
+      "Integrated Heat Pump Cooling"
+    ]
+  },
+  {
+    "value": "Shared Coolant Loop Cooling",
+    "synonyms": [
+      "Integrated Coolant Circuit",
+      "Combined Powertrain Cooling Loop"
+    ]
+  },
+  {
+    "value": "Independent Coolant Loop Cooling",
+    "synonyms": [
+      "Separate Motor Cooling Circuit",
+      "Dedicated Coolant Loop"
+    ]
+  }
+],
+
+    
+    "CO2Emissions": {
+    "min": 0,
+    "max": 1000,
+    "step": 1,
+    "unit": "g/km"
+  },
+    
     "transmissionCooling": [
       {
         "value": "Transmission Fluid Cooling",
@@ -2636,6 +2762,13 @@ Cars: {
         ]
       }
     ],
+    "ChargingTime": {
+    "min": 0.1,
+    "max": 48,
+    "step": 0.1,
+    "unit": "hours"
+  },
+ 
     "engineFuelDelivery": [
       {
         "value": "Direct Injection",
@@ -2871,6 +3004,13 @@ Cars: {
         ]
       }
     ],
+    "Horsepower": {
+    "min": 10,
+    "max": 3000,
+    "step": 10,
+    "unit": "HP"
+  },
+
     "Transmission": [
       "Manual",
       "Automatic",
@@ -2896,6 +3036,8 @@ Cars: {
       "Single Clutch",
       "Electro-Hydraulic"
     ],
+    
+
     "suspensionGeometry": [
       {
         "value": "MacPherson Strut",
@@ -3236,6 +3378,12 @@ Cars: {
         ]
       }
     ],
+      "ElectricRange": {
+    "min": 20,
+    "max": 1500,
+    "step": 10,
+    "unit": "km"
+  },
     "suspensionTuning": [
       "Passive Suspension",
       "Semi-Active Suspension",
@@ -3500,6 +3648,12 @@ Cars: {
         ]
       }
     ],
+    "Acceleration": {
+    "min": 1.5,
+    "max": 30,
+    "step": 0.1,
+    "unit": "0-100 km/h"
+  }, 
     "steeringMechanism": [
       {
         "value": "Rack and Pinion",
@@ -3570,6 +3724,14 @@ Cars: {
         ]
       }
     ],
+    
+    "GrossWeight": {
+    "min": 500,
+    "max": 7000,
+    "step": 10,
+    "unit": "kg"
+  },
+    
     "steeringAssistType": [
       {
         "value": "Manual Steering (Unassisted)",
@@ -3871,6 +4033,14 @@ Cars: {
         ]
       }
     ],
+    
+    "Length": {
+    "min": 2000,
+    "max": 7000,
+    "step": 10,
+    "unit": "mm"
+  },
+    
     "brakeType": [
       {
         "value": "Disc Brakes (Front)",
@@ -4056,6 +4226,14 @@ Cars: {
         ]
       }
     ],
+    
+    "CurbWeight": {
+    "min": 300,
+    "max": 5000,
+    "step": 10,
+    "unit": "kg"
+  },
+    
     "brakeSystem": [
       "Anti-Lock Braking System (ABS)",
       "Electronic Brakeforce Distribution (EBD)",
@@ -4074,17 +4252,12 @@ Cars: {
       "Brake Cooling Ducts",
       "Limited-Slip Differential Braking (Brake-Based)"
     ],
-    "seatingCapacity": [
-      "2 Seats",
-      "4 Seats",
-      "5 Seats",
-      "6 Seats",
-      "7 Seats",
-      "8 Seats",
-      "9 Seats",
-      "12 Seats",
-      "15 Seats"
-    ],
+    "FuelTankCapacity": {
+    "min": 10,
+    "max": 200,
+    "step": 1,
+    "unit": "L"
+  },
     "upholsteryMaterial": [
       "Cloth",
       "Fabric",
@@ -4115,6 +4288,14 @@ Cars: {
       "Brushed Aluminum Trim",
       "Chrome Trim"
     ],
+    
+    "Width": {
+    "min": 1200,
+    "max": 3000,
+    "step": 10,
+    "unit": "mm"
+  },
+    
     "roofType": [
       "Standard Roof",
       "Sunroof",
@@ -4137,18 +4318,48 @@ Cars: {
       "Glass Roof (Fixed)",
       "No Roof Option (Open Top)"
     ],
-    "roofOperation": [
-      "Manual",
-      "Power",
-      "Express Open/Close"
-    ],
-    "doorCount": [
-      "2 Doors",
-      "3 Doors",
-      "4 Doors",
-      "5 Doors",
-      "6 Doors"
-    ],
+    "FuelConsumption": {
+    "min": 1,
+    "max": 50,
+    "step": 0.1,
+    "unit": "L/100km"
+  },
+"roofOperation": [
+  "Manual",
+  "Power",
+  "Express Open/Close",
+  "One-Touch Open",
+  "One-Touch Close",
+  "Remote Operation",
+  "Voice-Activated",
+  "Automatic (Rain-Sensing Close)",
+  "Timed Auto-Close",
+  "Anti-Pinch Safety Stop",
+  "Semi-Automatic",
+  "Cable-Operated Manual",
+  "Crank-Operated Manual",
+  "Electro-Hydraulic",
+  "Electro-Mechanical",
+  "Smartphone App Controlled",
+  "Key Fob Controlled",
+  "Tilt-Only Operation",
+  "Slide-Only Operation",
+  "Tilt-and-Slide Combined",
+  "Sequential Multi-Panel Operation",
+  "Wind Deflector Auto-Deploy",
+  "Sunshade Auto-Close",
+  "Manual Sunshade with Power Glass",
+  "Convertible Top Power Fold",
+  "Convertible Top Manual Fold",
+  "Retractable Hardtop Sequence",
+  "Programmable Position Memory"
+],
+    "Height": {
+    "min": 1000,
+    "max": 3000,
+    "step": 10,
+    "unit": "mm"
+  },
     "Features": [
       {
         "value": "Air Conditioning",
@@ -5524,6 +5735,12 @@ Cars: {
         ]
       }
     ],
+    "Year": {
+    "min": 1886,
+    "max": 2026,
+    "step": 1,
+    "unit": "year"
+  },
     "Model": [
       {
         "value": "Aygo",
@@ -14095,6 +14312,13 @@ Cars: {
       "26\"", "28\"", "30\""
     ],
     
+    "Wheelbase": {
+    "min": 1500,
+    "max": 5000,
+    "step": 10,
+    "unit": "mm"
+  },
+    
     "wheelMaterial": [
       { "value": "Steel", "synonyms": ["Steel Wheels", "Steelies"] },
       { "value": "Alloy", "synonyms": ["Alloy Wheels", "Aluminum Wheels", "Mag Wheels"] },
@@ -14121,6 +14345,14 @@ Cars: {
       { "value": "Split-Spoke", "synonyms": ["Split-Spoke Alloy Wheels"] },
       { "value": "Turbine Style", "synonyms": ["Turbine Wheels"] }
     ],
+    
+    "BatteryCapacity": {
+    "min": 5,
+    "max": 250,
+    "step": 1,
+    "unit": "kWh"
+  },
+    
     "tireType": [
       { "value": "All-Season", "synonyms": ["All Season Tires", "AS Tires"] },
       { "value": "All-Weather", "synonyms": ["All Weather Tires"] },
@@ -14151,6 +14383,14 @@ Cars: {
       { "value": "Symmetric", "synonyms": ["Symmetric Tread Tires"] },
       { "value": "Highway/Rib", "synonyms": ["Highway Tires", "Rib Tires"] }
     ],
+    
+    "BatteryCapacity": {
+    "min": 5,
+    "max": 250,
+    "step": 1,
+    "unit": "kWh"
+  },
+    
     "emissionStandard": [
       { "value": "Euro 6" },
       { "value": "Euro 6d", "synonyms": ["Euro 6d-TEMP", "Euro 6d-Full"] },
@@ -14193,6 +14433,14 @@ Cars: {
       { "value": "Low Emission Zone Exempt", "synonyms": ["ULEZ Compliant", "LEZ Compliant"] },
       { "value": "Congestion Charge Exempt" }
     ],
+    
+    "ChargingPower": {
+    "min": 1,
+    "max": 500,
+    "step": 1,
+    "unit": "kW"
+  },
+    
     "inspectionStatus": [
       { "value": "Valid Roadworthiness Test", "synonyms": ["Valid Inspection", "Current Test"] },
       { "value": "Test Expired", "synonyms": ["Inspection Expired"] },
@@ -14245,6 +14493,14 @@ Cars: {
       { "value": "Rental Vehicle Plate" },
       { "value": "Unregistered/No Plate" }
     ],
+    
+    "TopSpeed": {
+    "min": 20,
+    "max": 500,
+    "step": 5,
+    "unit": "km/h"
+  },
+    
     "EngineBlockMaterial": [
   { "value": "Cast Iron", "synonyms": ["Iron Block", "Cast-Iron Block"] },
   { "value": "Compacted Graphite Iron (CGI)", "synonyms": ["CGI", "Compacted Graphite Iron"] },
@@ -14382,6 +14638,106 @@ Cars: {
   { "value": "Diesel DOC with DPF", "synonyms": ["DOC + DPF", "DOC and DPF System"] },
   { "value": "EGR with DPF", "synonyms": ["EGR + DPF", "EGR and DPF System"] }
 ],
+
+
+
+
+
+
+
+
+
+
+  "Wheelbase": {
+    "min": 1500,
+    "max": 5000,
+    "step": 10,
+    "unit": "mm"
+  },
+
+  "GroundClearance": {
+    "min": 50,
+    "max": 500,
+    "step": 5,
+    "unit": "mm"
+  },
+
+  "CargoCapacity": {
+    "min": 50,
+    "max": 3000,
+    "step": 10,
+    "unit": "L"
+  },
+
+  "SeatingCapacity": {
+    "min": 1,
+    "max": 20,
+    "step": 1,
+    "unit": "seats"
+  },
+
+  "Doors": {
+    "min": 2,
+    "max": 6,
+    "step": 1,
+    "unit": "doors"
+  },
+
+  "Cylinders": {
+    "min": 1,
+    "max": 16,
+    "step": 1,
+    "unit": "cylinders"
+  },
+
+  "Gears": {
+    "min": 1,
+    "max": 12,
+    "step": 1,
+    "unit": "gears"
+  },
+
+  "TowingCapacity": {
+    "min": 0,
+    "max": 10000,
+    "step": 50,
+    "unit": "kg"
+  },
+
+  "PayloadCapacity": {
+    "min": 0,
+    "max": 5000,
+    "step": 10,
+    "unit": "kg"
+  },
+
+  "BatteryHealth": {
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "unit": "%"
+  },
+
+  "NumberOfOwners": {
+    "min": 1,
+    "max": 20,
+    "step": 1,
+    "unit": "owners"
+  },
+
+  "Warranty": {
+    "min": 0,
+    "max": 15,
+    "step": 1,
+    "unit": "years"
+  },
+
+  "EngineHours": {
+    "min": 0,
+    "max": 30000,
+    "step": 100,
+    "unit": "hours"
+  }
   },
 Furniture: {
     Make: ["Toyota", "Honda", "Ford", "Chevrolet", "BMW", "Mercedes-Benz", "Audi", "Volkswagen", "Hyundai", "Kia", "Tesla", "Nissan", "Mazda", "Lexus", "Volvo"],
@@ -14526,7 +14882,7 @@ Office: {
 
 // =================
 // ELEMENTS
-// =================
+// ============
 const dropdown = document.querySelector(".dropdown");
 const textarea = document.querySelector(".describe-box textarea");
 const header = document.querySelector(".dropdown-header");
@@ -14536,28 +14892,20 @@ const searchInput = document.querySelector(".dropdown-search");
 const sub = document.getElementById("subDropdown");
 const scrollBtn = document.getElementById("scrollTopBtn");
 const floatingBtn = document.getElementById("floatingSearchBtn");
-let scrollTimeout;
-
 
 const MIN_HEIGHT = 34;
 const MAX_HEIGHT = 220;
 
-
+// =================
+// TEXTAREA AUTO-RESIZE
+// =================
 textarea.addEventListener("input", () => {
-
     textarea.style.height = `${MIN_HEIGHT}px`;
 
-    const newHeight = Math.min(
-        textarea.scrollHeight,
-        MAX_HEIGHT
-    );
-
+    const newHeight = Math.min(textarea.scrollHeight, MAX_HEIGHT);
     textarea.style.height = `${newHeight}px`;
 
-    textarea.style.overflowY =
-        textarea.scrollHeight > MAX_HEIGHT
-            ? "auto"
-            : "hidden";
+    textarea.style.overflowY = textarea.scrollHeight > MAX_HEIGHT ? "auto" : "hidden";
 
     if (textarea.value === "") {
         floatingBtn.classList.remove("show");
@@ -14607,8 +14955,8 @@ function handleSearchChange(value) {
 
     if (isEmpty) {
         DeleteSubDropdown();
-        if (textarea.value.trim() === ""){
-        floatingBtn.classList.remove("show");
+        if (textarea.value.trim() === "") {
+            floatingBtn.classList.remove("show");
         }
         clearBtn.style.display = "none";
         dropdown.classList.add("open");
@@ -14621,17 +14969,15 @@ function handleSearchChange(value) {
         item.style.display = text.includes(v) ? "block" : "none";
     });
 
-    const match = Array.from(items).find(item =>
-        item.textContent.toLowerCase().trim() === v
+    const match = Array.from(items).find(
+        item => item.textContent.toLowerCase().trim() === v
     );
 
     if (!match) {
         dropdown.classList.remove("shrink");
         dropdown.style.width = "";
 
-        const hasResults = Array.from(items).some(item =>
-            item.style.display === "block"
-        );
+        const hasResults = Array.from(items).some(item => item.style.display === "block");
 
         if (!hasResults && !isEmpty) {
             dropdown.classList.remove("open");
@@ -14639,20 +14985,20 @@ function handleSearchChange(value) {
 
         return;
     }
-    searchInput.value = v.charAt(0).toUpperCase() + v.slice(1);
-    dropdown.style.setProperty(
-        "--shrink-width",
-        `${shrinkWidths[v] ?? 40}%`
-    );
 
+    searchInput.value = v.charAt(0).toUpperCase() + v.slice(1);
+    dropdown.style.setProperty("--shrink-width", `${shrinkWidths[v] ?? 40}%`);
     dropdown.classList.add("shrink");
     sub.style.display = "block";
+
     buildSubDropdown(match.textContent);
     activateCategory(match.textContent);
 }
+
 searchInput.addEventListener("input", (e) => {
     handleSearchChange(e.target.value);
 });
+
 items.forEach(item => {
     item.addEventListener("click", () => {
         handleSearchChange(item.textContent);
@@ -14660,6 +15006,7 @@ items.forEach(item => {
         dropdown.classList.remove("open");
     });
 });
+
 // =================
 // לחיצה מחוץ
 // =================
@@ -14667,7 +15014,6 @@ document.addEventListener("click", (e) => {
     if (!dropdown.contains(e.target)) {
         clearBtnOff();
         dropdown.classList.remove("open");
-
     }
 });
 
@@ -14695,23 +15041,24 @@ function activateCategory(name) {
             cat.classList.add("hidden");
         }
     });
-};
+}
 
 function updateClearButton() {
     clearBtn.style.display = searchInput.value ? "block" : "none";
 }
+
 // לחיצה על X
 clearBtn.addEventListener("click", () => {
     searchInput.value = "";
-    handleSearchChange(searchInput.value)
+    handleSearchChange(searchInput.value);
     searchInput.focus(); // מחזיר פוקוס
 });
+
 // =================
 // CATEGORIES
 // =================
 document.querySelectorAll(".category").forEach(cat => {
     cat.addEventListener("click", () => {
-
         const isActive = cat.classList.contains("active");
 
         if (isActive) {
@@ -14734,49 +15081,37 @@ document.querySelectorAll(".category").forEach(cat => {
     });
 });
 
-
 // =================
 // BUILD FILTERS
 // =================
-
 const Range = [
-    "Price",
-    "Year",
-    "ScreenSize",
-    "RAM",
-    "Storage",
-    "TouchSampling",
-    "RefreshRate",
-    "Brightness",
-    "ScreenToBodyRatio"
+    "Price", "Mileage", "Year", "EngineDisplacement", "Horsepower", "Torque",
+    "TopSpeed", "Acceleration", "FuelTankCapacity", "FuelConsumption",
+    "ElectricRange", "BatteryCapacity", "ChargingPower", "ChargingTime",
+    "CO2Emissions", "CurbWeight", "GrossWeight", "Length", "Width", "Height",
+    "Wheelbase", "GroundClearance", "CargoCapacity", "SeatingCapacity", "Doors",
+    "Cylinders", "Gears", "Drivetrain", "TowingCapacity", "PayloadCapacity",
+    "BatteryHealth", "NumberOfOwners", "Warranty", "EngineHours"
 ];
 
-const Currency = [
-    "Price"
-];
+const Currency = ["Price"];
 
-const Standard = [
-    "Price"
-];
+const Standard = ["Price"];
 
 const Rectangular = [
-    "Year",
-    "RAM",
-    "Storage",
-    "RefreshRate",
-    "ScreenSize",
-    "TouchSampling",
-    "Brightness",
-    "ScreenToBodyRatio"
+    "Price", "Mileage", "Year", "EngineDisplacement", "Horsepower", "Torque",
+    "TopSpeed", "Acceleration", "FuelTankCapacity", "FuelConsumption",
+    "ElectricRange", "BatteryCapacity", "ChargingPower", "ChargingTime",
+    "CO2Emissions", "CurbWeight", "GrossWeight", "Length", "Width", "Height",
+    "Wheelbase", "GroundClearance", "CargoCapacity", "SeatingCapacity", "Doors",
+    "Cylinders", "Gears", "Drivetrain", "TowingCapacity", "PayloadCapacity",
+    "BatteryHealth", "NumberOfOwners", "Warranty", "EngineHours"
 ];
-
 
 // =================
 // BUILD SUB DROPDOWN
 // =================
-
 function buildSubDropdown(category) {
-
     const data = filterData[category];
 
     if (!data) {
@@ -14787,246 +15122,111 @@ function buildSubDropdown(category) {
     updateClearButton();
     floatingBtn.classList.add("show");
 
-
     const html = Object.entries(data).map(([group, items]) => {
 
         // ==================================================
         // RANGE FILTERS
         // ==================================================
-
         if (Range.includes(group)) {
+
+            const step = items.step || 1;
 
             // ==================================================
             // STANDARD RANGE
             // ==================================================
-
             if (Standard.includes(group)) {
-
                 return `
                     <div class="filter-group">
-
-                        <div class="filter-title">
-                            ${group}
-                        </div>
+                        <div class="filter-title">${group}</div>
 
                         <div class="standard-range-axis">
-
                             <div class="bar">
                                 <div class="bar-inner"></div>
                             </div>
 
-                            <input
-                                type="range"
-                                min="${items.min}"
-                                max="${items.max}"
-                                value="${items.min}"
-                                class="standard-range-slider standard-range-min"
-                            >
-
-                            <input
-                                type="range"
-                                min="${items.min}"
-                                max="${items.max}"
-                                value="${items.max}"
-                                class="standard-range-slider standard-range-max"
-                            >
+                            <input type="range" min="${items.min}" max="${items.max}" step="${step}" value="${items.min}" class="standard-range-slider standard-range-min">
+                            <input type="range" min="${items.min}" max="${items.max}" step="${step}" value="${items.max}" class="standard-range-slider standard-range-max">
 
                             <div class="standard-range-values">
-
                                 <div class="standard-range-field">
-
-                                    <label>
-                                        Min ${group}
-                                    </label>
-
-                                    <input
-                                        type="number"
-                                        class="standard-range-min-input"
-                                        min="${items.min}"
-                                        max="${items.max}"
-                                        value="${items.min}"
-                                    >
-
+                                    <label>Min ${group}</label>
+                                    <input type="number" class="standard-range-min-input" min="${items.min}" max="${items.max}" step="${step}" value="${items.min}">
                                 </div>
-
                                 <div class="standard-range-field">
-
-                                    <label>
-                                        Max ${group}
-                                    </label>
-
-                                    <input
-                                        type="number"
-                                        class="standard-range-max-input"
-                                        min="${items.min}"
-                                        max="${items.max}"
-                                        value="${items.max}"
-                                    >
-
+                                    <label>Max ${group}</label>
+                                    <input type="number" class="standard-range-max-input" min="${items.min}" max="${items.max}" step="${step}" value="${items.max}">
                                 </div>
-
                             </div>
 
                             ${
                                 Currency.includes(group)
-                                ? `
-                                    <div class="currency-box">
-
-                                        <div class="currency-header">
-                                            USD ($) ▼
-                                        </div>
-
-                                        <div class="currency-dropdown">
-
-                                            <input
-                                                type="text"
-                                                class="currency-search"
-                                                placeholder="Search..."
-                                            >
-
-                                            <div class="currency-list">
-
-                                                <div class="currency-item">
-                                                    AED (د.إ)
+                                    ? `
+                                        <div class="currency-box">
+                                            <div class="currency-header">USD ($) ▼</div>
+                                            <div class="currency-dropdown">
+                                                <input type="text" class="currency-search" placeholder="Search...">
+                                                <div class="currency-list">
+                                                    <div class="currency-item">AED (د.إ)</div>
                                                 </div>
-
                                             </div>
-
                                         </div>
-
-                                    </div>
-                                `
-                                : ""
+                                    `
+                                    : ""
                             }
-
                         </div>
-
                     </div>
                 `;
             }
 
-
             // ==================================================
             // RECTANGULAR RANGE
             // ==================================================
-
             if (Rectangular.includes(group)) {
-
                 return `
                     <div class="filter-group">
+                        <div class="filter-title">${group}</div>
 
-                        <div class="filter-title">
-                            ${group}
-                        </div>
-
-                        <div
-                            class="rectangular-range-axis"
-                            style="
-                                --min:0%;
-                                --max:100%;
-                            "
-                        >
-
-                            <input
-                                type="range"
-                                min="${items.min}"
-                                max="${items.max}"
-                                value="${items.min}"
-                                class="rectangular-range-slider rectangular-range-min"
-                            >
-
-                            <input
-                                type="range"
-                                min="${items.min}"
-                                max="${items.max}"
-                                value="${items.max}"
-                                class="rectangular-range-slider rectangular-range-max"
-                            >
+                        <div class="rectangular-range-axis" style="--min:0%; --max:100%;">
+                            <input type="range" min="${items.min}" max="${items.max}" step="${step}" value="${items.min}" class="rectangular-range-slider rectangular-range-min">
+                            <input type="range" min="${items.min}" max="${items.max}" step="${step}" value="${items.max}" class="rectangular-range-slider rectangular-range-max">
 
                             <div class="rectangular-range-values">
-
                                 <div class="value-box">
-
-                                    <span>
-                                        Min ${group}
-                                    </span>
-
-                                    <input
-                                        type="number"
-                                        class="rectangular-range-min-input"
-                                        min="${items.min}"
-                                        max="${items.max}"
-                                        value="${items.min}"
-                                    >
-
+                                    <span>Min ${group}</span>
+                                    <input type="number" class="rectangular-range-min-input" min="${items.min}" max="${items.max}" step="${step}" value="${items.min}">
                                 </div>
-
                                 <div class="value-box">
-
-                                    <span>
-                                        Max ${group}
-                                    </span>
-
-                                    <input
-                                        type="number"
-                                        class="rectangular-range-max-input"
-                                        min="${items.min}"
-                                        max="${items.max}"
-                                        value="${items.max}"
-                                    >
-
+                                    <span>Max ${group}</span>
+                                    <input type="number" class="rectangular-range-max-input" min="${items.min}" max="${items.max}" step="${step}" value="${items.max}">
                                 </div>
-
                             </div>
 
                             ${
                                 Currency.includes(group)
-                                ? `
-                                    <div class="currency-box">
-
-                                        <div class="currency-header">
-                                            USD ($) ▼
-                                        </div>
-
-                                        <div class="currency-dropdown">
-
-                                            <input
-                                                type="text"
-                                                class="currency-search"
-                                                placeholder="Search..."
-                                            >
-
-                                            <div class="currency-list">
-
-                                                <div class="currency-item">
-                                                    AED (د.إ)
+                                    ? `
+                                        <div class="currency-box">
+                                            <div class="currency-header">USD ($) ▼</div>
+                                            <div class="currency-dropdown">
+                                                <input type="text" class="currency-search" placeholder="Search...">
+                                                <div class="currency-list">
+                                                    <div class="currency-item">AED (د.إ)</div>
                                                 </div>
-
                                             </div>
-
                                         </div>
-
-                                    </div>
-                                `
-                                : ""
+                                    `
+                                    : ""
                             }
-
                         </div>
-
                     </div>
                 `;
             }
         }
 
-
         // ==================================================
         // OTHER FILTERS
         // ==================================================
-
         const MAX_VISIBLE = 8;
-
         const isLong = items.length > MAX_VISIBLE;
-
 
         const searchWidth =
             group.length < 8  ? "40%" :
@@ -15038,64 +15238,28 @@ function buildSubDropdown(category) {
             group.length < 35 ? "85%" :
             "100%";
 
-
         // ==================================================
         // BUILD NORMAL ITEMS
         // ==================================================
-
         const itemsHTML = items.map((item, i) => {
-
-            const value =
-                typeof item === "string"
-                    ? item
-                    : item.value;
-
-            const synonymsArr =
-                typeof item === "string"
-                    ? []
-                    : (item.synonyms || []);
-
+            const value = typeof item === "string" ? item : item.value;
+            const synonymsArr = typeof item === "string" ? [] : (item.synonyms || []);
 
             const div = document.createElement("div");
-
             div.className = "sub-item";
-
             div.textContent = value;
-
             div.dataset.value = value;
-
-            div.dataset.synonyms =
-                synonymsArr
-                    .join(",")
-                    .toLowerCase();
-
-            div.style.display =
-                i < MAX_VISIBLE
-                    ? "block"
-                    : "none";
-
+            div.dataset.synonyms = synonymsArr.join(",").toLowerCase();
+            div.style.display = i < MAX_VISIBLE ? "block" : "none";
 
             return div.outerHTML;
-
         }).join("");
 
-
         return `
-            <div
-                class="filter-group"
-                data-category="${group}"
-            >
+            <div class="filter-group" data-category="${group}">
+                <div class="filter-title">${group}</div>
 
-                <div class="filter-title">
-                    ${group}
-                </div>
-
-                <input
-                    type="text"
-                    class="sub-search"
-                    style="width:${searchWidth};"
-                    placeholder="Search ${group}..."
-                >
+                <input type="text" class="sub-search" style="width:${searchWidth};" placeholder="Search ${group}...">
 
                 <div class="filter-options">
                     ${itemsHTML}
@@ -15103,36 +15267,23 @@ function buildSubDropdown(category) {
 
                 ${
                     isLong
-                    ? `
-                        <div
-                            class="show-more"
-                            data-expanded="false"
-                        >
-                            More ${group}
-                        </div>
-                    `
-                    : ""
+                        ? `<div class="show-more" data-expanded="false">More ${group}</div>`
+                        : ""
                 }
-
             </div>
         `;
 
     }).join("");
 
-
     // ==================================================
     // INSERT HTML
     // ==================================================
-
     sub.innerHTML = html;
-
 
     // ==================================================
     // INITIALIZE RANGE / SLIDER / OTHER SUB LOGIC
     // ==================================================
-
     setupSub();
-
 }
 
 // =================
@@ -15142,1210 +15293,526 @@ function setupSub() {
 
     document.querySelectorAll(".filter-group").forEach(group => {
 
-
         // ==================================================
         // STANDARD / RECTANGULAR RANGE
         // ==================================================
-
-        const minSlider =
-            group.querySelector(
-                ".standard-range-min, .rectangular-range-min"
-            );
-
-        const maxSlider =
-            group.querySelector(
-                ".standard-range-max, .rectangular-range-max"
-            );
-
-
-        const minInput =
-            group.querySelector(
-                ".standard-range-min-input, .rectangular-range-min-input"
-            );
-
-        const maxInput =
-            group.querySelector(
-                ".standard-range-max-input, .rectangular-range-max-input"
-            );
-
-
-        const range =
-            group.querySelector(
-                ".standard-range-axis, .rectangular-range-axis"
-            );
-
+        const minSlider = group.querySelector(".standard-range-min, .rectangular-range-min");
+        const maxSlider = group.querySelector(".standard-range-max, .rectangular-range-max");
+        const minInput = group.querySelector(".standard-range-min-input, .rectangular-range-min-input");
+        const maxInput = group.querySelector(".standard-range-max-input, .rectangular-range-max-input");
+        const range = group.querySelector(".standard-range-axis, .rectangular-range-axis");
 
         // אין RANGE בקבוצה הזאת
-        if (
-            !minSlider ||
-            !maxSlider ||
-            !minInput ||
-            !maxInput
-        ) {
+        if (!minSlider || !maxSlider || !minInput || !maxInput) {
             return;
         }
 
+        // ==================================================
+        // ABSOLUTE MIN / MAX / STEP
+        // ==================================================
+        const ABS_MIN = parseFloat(minSlider.min) || 0;
+        const ABS_MAX = parseFloat(maxSlider.max) || 10000;
+        const STEP = parseFloat(minSlider.step) || 1;
 
         // ==================================================
-        // ABSOLUTE MIN / MAX
+        // SNAP VALUE TO STEP (RELATIVE TO ABS_MIN)
         // ==================================================
+        const snapToStep = (val) => {
+            const steps = Math.round((val - ABS_MIN) / STEP);
+            let snapped = ABS_MIN + steps * STEP;
 
-        const ABS_MIN =
-            parseInt(minSlider.min) || 0;
+            if (snapped < ABS_MIN) snapped = ABS_MIN;
+            if (snapped > ABS_MAX) snapped = ABS_MAX;
 
-        const ABS_MAX =
-            parseInt(maxSlider.max) || 10000;
-
+            // round floating point noise (e.g. 0.1 + 0.2)
+            const decimals = (STEP.toString().split(".")[1] || "").length;
+            return decimals > 0 ? parseFloat(snapped.toFixed(decimals)) : Math.round(snapped);
+        };
 
         // ==================================================
         // UPDATE RANGE BAR
         // ==================================================
-
         const updateBars = () => {
-
-            const min =
-                parseInt(minSlider.value) || ABS_MIN;
-
-            const max =
-                parseInt(maxSlider.value) || ABS_MAX;
-
-
-            const total =
-                ABS_MAX - ABS_MIN;
-
+            const min = parseFloat(minSlider.value) || ABS_MIN;
+            const max = parseFloat(maxSlider.value) || ABS_MAX;
+            const total = ABS_MAX - ABS_MIN;
 
             let minPercent = 0;
             let maxPercent = 100;
 
-
             if (total > 0) {
-
-                minPercent =
-                    ((min - ABS_MIN) / total) * 100;
-
-                maxPercent =
-                    ((max - ABS_MIN) / total) * 100;
-
+                minPercent = ((min - ABS_MIN) / total) * 100;
+                maxPercent = ((max - ABS_MIN) / total) * 100;
             }
-
-
-            // ==============================================
-            // STANDARD + RECTANGULAR
-            // ==============================================
 
             if (range) {
-
-                range.style.setProperty(
-                    "--min",
-                    minPercent + "%"
-                );
-
-                range.style.setProperty(
-                    "--max",
-                    maxPercent + "%"
-                );
-
+                range.style.setProperty("--min", minPercent + "%");
+                range.style.setProperty("--max", maxPercent + "%");
             }
-
         };
-
 
         // ==================================================
         // UPDATE ALL VALUES
         // ==================================================
-
         const update = () => {
+            let min = parseFloat(minSlider.value);
+            let max = parseFloat(maxSlider.value);
 
-            let min =
-                parseInt(minSlider.value);
-
-            let max =
-                parseInt(maxSlider.value);
-
-
-            // ==============================================
             // FALLBACK
-            // ==============================================
+            if (isNaN(min)) min = ABS_MIN;
+            if (isNaN(max)) max = ABS_MAX;
 
-            if (isNaN(min)) {
-                min = ABS_MIN;
-            }
+            // SNAP TO STEP
+            min = snapToStep(min);
+            max = snapToStep(max);
 
-            if (isNaN(max)) {
-                max = ABS_MAX;
-            }
-
-
-            // ==============================================
             // LIMITS
-            // ==============================================
+            if (min < ABS_MIN) min = ABS_MIN;
+            if (min > ABS_MAX) min = ABS_MAX;
+            if (max < ABS_MIN) max = ABS_MIN;
+            if (max > ABS_MAX) max = ABS_MAX;
 
-            if (min < ABS_MIN) {
-                min = ABS_MIN;
-            }
-
-            if (min > ABS_MAX) {
-                min = ABS_MAX;
-            }
-
-
-            if (max < ABS_MIN) {
-                max = ABS_MIN;
-            }
-
-            if (max > ABS_MAX) {
-                max = ABS_MAX;
-            }
-
-
-            // ==============================================
             // MIN / MAX RELATION
-            // ==============================================
+            if (min > max) min = max;
+            if (max < min) max = min;
 
-            if (min > max) {
-                min = max;
-            }
-
-            if (max < min) {
-                max = min;
-            }
-
-
-            // ==============================================
             // UPDATE SLIDERS
-            // ==============================================
-
             minSlider.value = min;
             maxSlider.value = max;
 
-
-            // ==============================================
             // UPDATE INPUTS
-            // ==============================================
-
             minInput.value = min;
             maxInput.value = max;
 
-
-            // ==============================================
             // UPDATE VISUAL RANGE
-            // ==============================================
-
             updateBars();
-
         };
-
 
         // ==================================================
         // MIN INPUT
         // ==================================================
-
         const applyMinInput = () => {
+            let val = parseFloat(minInput.value);
 
-            let val =
-                parseInt(minInput.value);
+            if (isNaN(val)) val = ABS_MIN;
+            val = snapToStep(val);
 
+            if (val < ABS_MIN) val = ABS_MIN;
+            if (val > ABS_MAX) val = ABS_MAX;
 
-            if (isNaN(val)) {
-                val = ABS_MIN;
-            }
-
-
-            if (val < ABS_MIN) {
-                val = ABS_MIN;
-            }
-
-            if (val > ABS_MAX) {
-                val = ABS_MAX;
-            }
-
-
-            const currentMax =
-                parseInt(maxSlider.value);
-
-
-            if (!isNaN(currentMax) && val > currentMax) {
-                val = currentMax;
-            }
-
+            const currentMax = parseFloat(maxSlider.value);
+            if (!isNaN(currentMax) && val > currentMax) val = currentMax;
 
             minSlider.value = val;
-
             update();
-
         };
-
 
         // ==================================================
         // MAX INPUT
         // ==================================================
-
         const applyMaxInput = () => {
+            let val = parseFloat(maxInput.value);
 
-            let val =
-                parseInt(maxInput.value);
+            if (isNaN(val)) val = ABS_MAX;
+            val = snapToStep(val);
 
+            if (val < ABS_MIN) val = ABS_MIN;
+            if (val > ABS_MAX) val = ABS_MAX;
 
-            if (isNaN(val)) {
-                val = ABS_MAX;
-            }
-
-
-            if (val < ABS_MIN) {
-                val = ABS_MIN;
-            }
-
-            if (val > ABS_MAX) {
-                val = ABS_MAX;
-            }
-
-
-            const currentMin =
-                parseInt(minSlider.value);
-
-
-            if (!isNaN(currentMin) && val < currentMin) {
-                val = currentMin;
-            }
-
+            const currentMin = parseFloat(minSlider.value);
+            if (!isNaN(currentMin) && val < currentMin) val = currentMin;
 
             maxSlider.value = val;
-
             update();
-
         };
-
 
         // ==================================================
         // SLIDERS
         // ==================================================
-
-        minSlider.addEventListener(
-            "input",
-            update
-        );
-
-
-        maxSlider.addEventListener(
-            "input",
-            update
-        );
-
+        minSlider.addEventListener("input", update);
+        maxSlider.addEventListener("input", update);
 
         // ==================================================
         // MIN INPUT
         // ==================================================
-
-        minInput.addEventListener(
-            "keydown",
-            event => {
-
-                if (event.key === "Enter") {
-
-                    applyMinInput();
-
-                    minInput.blur();
-
-                }
-
+        minInput.addEventListener("keydown", event => {
+            if (event.key === "Enter") {
+                applyMinInput();
+                minInput.blur();
             }
-        );
-
+        });
 
         // ==================================================
         // MAX INPUT
         // ==================================================
-
-        maxInput.addEventListener(
-            "keydown",
-            event => {
-
-                if (event.key === "Enter") {
-
-                    applyMaxInput();
-
-                    maxInput.blur();
-
-                }
-
+        maxInput.addEventListener("keydown", event => {
+            if (event.key === "Enter") {
+                applyMaxInput();
+                maxInput.blur();
             }
-        );
-
+        });
 
         // ==================================================
         // BLUR
         // ==================================================
-
-        minInput.addEventListener(
-            "blur",
-            applyMinInput
-        );
-
-
-        maxInput.addEventListener(
-            "blur",
-            applyMaxInput
-        );
-
+        minInput.addEventListener("blur", applyMinInput);
+        maxInput.addEventListener("blur", applyMaxInput);
 
         // ==================================================
         // INITIALIZE
         // ==================================================
-
         update();
-
     });
 
     // =================
     // STANDARD RANGE ELEMENTS
     // =================
-
-const bar =
-document.querySelector(".bar");
-
-const barInner =
-document.querySelector(".bar-inner");
-
-const standardSliders =
-    document.querySelectorAll(
-        ".standard-range-slider"
-    );
-const rectangularSliders =
-    document.querySelectorAll(
-        ".rectangular-range-slider"
-    );
-
-/* =========================================
-   CLEAR WAVES
-========================================= */
-const WAVE_WIDTH = 2400;
-
-const WAVE_COUNT = 2;
-
-let waves = new Array(WAVE_COUNT);
-
-let noiseOffset = 0;
-let animationId = null;
-let pathUpdateAccumulator = 0;
-let colors = [
-    "rgba(25,25,25,1)",
-    "rgba(25,25,25,1)",
-    "rgba(25,25,25,1)",
-    "rgba(25,25,25,1)",
-    "rgba(25,25,25,1)",
-    "rgba(25,25,25,1)"
-];
-
-/* =========================================
-CREATE FLOW
-========================================= */
-function createWaveFlow(){
-
-    cancelAnimationFrame(animationId);
-
-    barInner.innerHTML = "";
-
-    waves = new Array(WAVE_COUNT);
-
-    noiseOffset = 0;
-
-createWaveLayer(
-    0.0,
-    1.00,
-    0.75,
-    0
-);
-
-createWaveLayer(
-    1.4,
-    0.90,
-    0.65,
-    1
-);
-
-    animateWaves();
-}
-
-/* =========================================
-CREATE LAYER
-========================================= */
-function createWaveLayer(
-phase,
-amplitudeMultiplier,
-opacity,
-index
-){
-
-const svg =  
-    document.createElementNS(  
-        "http://www.w3.org/2000/svg",  
-        "svg"  
-    ); 
-svg.style.willChange = "transform";
-
-svg.setAttribute(  
-    "viewBox",  
-    `0 0 ${WAVE_WIDTH} 320`  
-);  
-
-svg.setAttribute(  
-    "preserveAspectRatio",  
-    "none"  
-);  
-
-svg.style.position =  
-    "absolute";  
-
-svg.style.left =  
-    "0";  
-
-svg.style.top =  
-    "70%";  
-
-svg.style.width =  
-    "110%";  
-
-svg.style.height =  
-    "180%";  
-
-svg.style.pointerEvents =  
-    "none";  
-
-svg.style.opacity =  
-    opacity;  
-
-    svg.style.mixBlendMode =
-    navigator.hardwareConcurrency <= 4
-        ? "normal"
-        : "screen";
-
-
-const defs =  
-    document.createElementNS(  
-        "http://www.w3.org/2000/svg",  
-        "defs"  
-    );  
-
-const gradient =  
-    document.createElementNS(  
-        "http://www.w3.org/2000/svg",  
-        "linearGradient"  
-    );  
-
-const gradientId =  
-    `waveGradient_${index}`;  
-
-gradient.setAttribute(  
-    "id",  
-    gradientId  
-);  
-
-gradient.setAttribute(  
-    "gradientUnits",  
-    "userSpaceOnUse"  
-);  
-
-gradient.setAttribute(  
-    "x1",  
-    "0"  
-);  
-
-gradient.setAttribute(  
-    "x2",  
-    WAVE_WIDTH  
-);  
-
-gradient.setAttribute(  
-    "y1",  
-    "0"  
-);  
-
-gradient.setAttribute(  
-    "y2",  
-    "0"  
-);  
-
-
-for(  
-    let i = 0;  
-    i < colors.length;  
-    i++  
-){  
-
-    const stop =  
-        document.createElementNS(  
-            "http://www.w3.org/2000/svg",  
-            "stop"  
-        );  
-
-    stop.setAttribute(  
-        "offset",  
-        `${(i / (colors.length - 1)) * 100}%`  
-    );  
-
-    stop.setAttribute(  
-        "stop-color",  
-        colors[i]  
-    );  
-
-    gradient.appendChild(  
-        stop  
-    );  
-}  
-
-defs.appendChild(  
-    gradient  
-);  
-
-const path =  
-    document.createElementNS(  
-        "http://www.w3.org/2000/svg",  
-        "path"  
-    );  
-
-path.setAttribute(  
-    "fill",  
-    `url(#${gradientId})`  
-);  
-
-svg.appendChild(  
-    defs  
-);  
-
-svg.appendChild(  
-    path  
-); 
-
-
-
-barInner.appendChild(  
-    svg  
-);  
-
-waves[index] = {  
-    svg,  
-    path,  
-    gradient,  
-    phase,  
-    amplitudeMultiplier  
-};
-
-}
-
-/* =========================================
-ADVANCED FLUID SURFACE
-========================================= */
-const WAVE_STEP = 80;
-
-const wavePoints = [];
-
-for(
-    let i = 0;
-    i < WAVE_COUNT;
-    i++
-){
-    wavePoints[i] = [];
-}
-
-/* =========================================
-BUILD WAVE PATH
-========================================= */
-function buildWavePath(
-    time,
-    amplitudeMultiplier,
-    index
-
-
-){
-
-
-
-    const width =
-        WAVE_WIDTH;
-
-    const height =
-        280;
-
-    const points =
-        wavePoints[index];
-
-    const centerY =
-
-        200 +
-
-        Math.sin(
-            time * 0.15
-        ) * 10 +
-
-        Math.cos(
-            time * 0.07
-        ) * 5;
-
-    const breathing =
-
-        Math.sin(
-            time * 0.28
-        ) *
-
-        12 *
-
-        amplitudeMultiplier;
-
-    let pointIndex = 0;
-
-    for(
-        let x = 0;
-        x <= width;
-        x += WAVE_STEP
-    ){
-
-        let point =
-            points[pointIndex];
-
-        if(!point){
-
-            point =
-
-                points[pointIndex] = {
-
-                    x: 0,
-                    y: 0
-
-                };
-        }
-
-        point.x =
-            x;
-
-        point.y =
-
-
-    centerY +
-
-    Math.sin(
-        x * 0.0014 +
-        time * 0.55
-    ) *
-
-    60 *
-
-    amplitudeMultiplier +
-
-    Math.cos(
-        x * 0.0028 -
-        time * 0.90
-    ) *
-
-    35 *
-
-    amplitudeMultiplier +
-
-    Math.sin(
-        x * 0.0055 +
-        time * 1.60
-    ) *
-
-    20 *
-
-    amplitudeMultiplier +
-
-    Math.sin(
-        x * 0.016 +
-        time * 3.2
-    ) *
-
-    4 *
-
-    amplitudeMultiplier +
-
-    breathing;
-    pointIndex++;
+    const barInner = document.querySelector(".bar-inner");
+    const standardSliders = document.querySelectorAll(".standard-range-slider");
+    const rectangularSliders = document.querySelectorAll(".rectangular-range-slider");
+
+    /* =========================================
+       CLEAR WAVES
+    ========================================= */
+    const WAVE_WIDTH = 2400;
+    const WAVE_COUNT = 2;
+
+    let waves = new Array(WAVE_COUNT);
+    let noiseOffset = 0;
+    let animationId = null;
+
+    const colors = [
+        "rgba(25,25,25,1)",
+        "rgba(25,25,25,1)",
+        "rgba(25,25,25,1)",
+        "rgba(25,25,25,1)",
+        "rgba(25,25,25,1)",
+        "rgba(25,25,25,1)"
+    ];
+
+    /* =========================================
+       CREATE FLOW
+    ========================================= */
+    function createWaveFlow() {
+        cancelAnimationFrame(animationId);
+
+        barInner.innerHTML = "";
+        waves = new Array(WAVE_COUNT);
+        noiseOffset = 0;
+
+        createWaveLayer(0.0, 1.00, 0.75, 0);
+        createWaveLayer(1.4, 0.90, 0.65, 1);
+
+        animateWaves();
     }
 
-    let d =
-        "M 0 " +
-        height;
+    /* =========================================
+       CREATE LAYER
+    ========================================= */
+    function createWaveLayer(phase, amplitudeMultiplier, opacity, index) {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.style.willChange = "transform";
+        svg.setAttribute("viewBox", `0 0 ${WAVE_WIDTH} 320`);
+        svg.setAttribute("preserveAspectRatio", "none");
+        svg.style.position = "absolute";
+        svg.style.left = "0";
+        svg.style.top = "70%";
+        svg.style.width = "110%";
+        svg.style.height = "180%";
+        svg.style.pointerEvents = "none";
+        svg.style.opacity = opacity;
+        svg.style.mixBlendMode = navigator.hardwareConcurrency <= 4 ? "normal" : "screen";
 
-    d +=
-        " L " +
-        points[0].x +
-        " " +
-        points[0].y;
+        const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+        const gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+        const gradientId = `waveGradient_${index}`;
 
-    for(
-        let i = 0;
-        i < pointIndex - 1;
-        i++
-    ){
+        gradient.setAttribute("id", gradientId);
+        gradient.setAttribute("gradientUnits", "userSpaceOnUse");
+        gradient.setAttribute("x1", "0");
+        gradient.setAttribute("x2", WAVE_WIDTH);
+        gradient.setAttribute("y1", "0");
+        gradient.setAttribute("y2", "0");
 
-        const current =
-            points[i];
+        for (let i = 0; i < colors.length; i++) {
+            const stop = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+            stop.setAttribute("offset", `${(i / (colors.length - 1)) * 100}%`);
+            stop.setAttribute("stop-color", colors[i]);
+            gradient.appendChild(stop);
+        }
 
-        const next =
-            points[i + 1];
+        defs.appendChild(gradient);
+
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("fill", `url(#${gradientId})`);
+
+        svg.appendChild(defs);
+        svg.appendChild(path);
+        barInner.appendChild(svg);
+
+        waves[index] = { svg, path, gradient, phase, amplitudeMultiplier };
+    }
+
+    /* =========================================
+       ADVANCED FLUID SURFACE
+    ========================================= */
+    const WAVE_STEP = 80;
+    const wavePoints = [];
+
+    for (let i = 0; i < WAVE_COUNT; i++) {
+        wavePoints[i] = [];
+    }
+
+    /* =========================================
+       BUILD WAVE PATH
+    ========================================= */
+    function buildWavePath(time, amplitudeMultiplier, index) {
+        const width = WAVE_WIDTH;
+        const height = 280;
+        const points = wavePoints[index];
+
+        const centerY =
+            200 +
+            Math.sin(time * 0.15) * 10 +
+            Math.cos(time * 0.07) * 5;
+
+        const breathing = Math.sin(time * 0.28) * 12 * amplitudeMultiplier;
+
+        let pointIndex = 0;
+
+        for (let x = 0; x <= width; x += WAVE_STEP) {
+            let point = points[pointIndex];
+
+            if (!point) {
+                point = points[pointIndex] = { x: 0, y: 0 };
+            }
+
+            point.x = x;
+
+            point.y =
+                centerY +
+                Math.sin(x * 0.0014 + time * 0.55) * 60 * amplitudeMultiplier +
+                Math.cos(x * 0.0028 - time * 0.90) * 35 * amplitudeMultiplier +
+                Math.sin(x * 0.0055 + time * 1.60) * 20 * amplitudeMultiplier +
+                Math.sin(x * 0.016 + time * 3.2) * 4 * amplitudeMultiplier +
+                breathing;
+
+            pointIndex++;
+        }
+
+        let d = "M 0 " + height;
+        d += " L " + points[0].x + " " + points[0].y;
+
+        for (let i = 0; i < pointIndex - 1; i++) {
+            const current = points[i];
+            const next = points[i + 1];
+
+            d +=
+                " Q " + current.x + " " + current.y +
+                " " + ((current.x + next.x) * 0.5) +
+                " " + ((current.y + next.y) * 0.5);
+        }
+
+        const last = points[pointIndex - 1];
 
         d +=
+            " L " + last.x + " " + last.y +
+            " L " + width + " " + height +
+            " L 0 " + height +
+            " Z";
 
-            " Q " +
-
-            current.x +
-
-            " " +
-
-            current.y +
-
-            " " +
-
-            (
-                (current.x + next.x) *
-                0.5
-            ) +
-
-            " " +
-
-            (
-                (current.y + next.y) *
-                0.5
-            );
+        return d;
     }
 
-    const last =
-        points[
-            pointIndex - 1
-        ];
+    /* =========================================
+       ANIMATION
+    ========================================= */
+    let frameCounter = 0;
 
-    d +=
+    function animateWaves() {
+        noiseOffset += 0.055;
 
-        " L " +
-
-        last.x +
-
-        " " +
-
-        last.y +
-
-        " L " +
-
-        width +
-
-        " " +
-
-        height +
-
-        " L 0 " +
-
-        height +
-
-        " Z";
-
-    return d;
-}
-
-/* =========================================
-ANIMATION
-========================================= */
-let frameCounter = 0;
-
-function animateWaves(){
-
-    noiseOffset += 0.055;
-
-    if (noiseOffset > 60) {
-        noiseOffset = 0;
-    }
-
-    frameCounter++;
-
-    const updatePath =
-        (frameCounter & 1) === 0;
-
-    const updateGradient =
-        (frameCounter & 3) === 0;
-
-    for(
-        let i = 0;
-        i < WAVE_COUNT;
-        i++
-    ){
-        const wave =
-            waves[i];
-
-    if (!wave) continue;
-        const time =
-            noiseOffset +
-            wave.phase;
-
-        wave.svg.style.transform =
-
-            "translate3d(0,calc(-50% + " +
-
-            (
-
-                Math.sin(
-                    time * 0.35
-                ) *
-
-                8 +
-
-                Math.cos(
-                    time * 0.18
-                ) *
-
-                4
-
-            ) +
-
-            "px),0) scaleX(" +
-
-            (
-
-                1 +
-
-                Math.cos(
-                    time * 0.08
-                ) *
-
-                0.015
-
-            ) +
-
-            ") scaleY(" +
-
-            (
-
-                1 +
-
-                Math.sin(
-                    time * 0.14
-                ) *
-
-                0.045
-
-            ) +
-
-            ")";
-
-        if(updatePath){
-
-            wave.path.setAttribute(
-                "d",
-                buildWavePath(
-                    time,
-                    wave.amplitudeMultiplier,
-                    i
-                )
-            );
+        if (noiseOffset > 60) {
+            noiseOffset = 0;
         }
 
-        if(updateGradient){
+        frameCounter++;
 
-            const shift =
+        const updatePath = (frameCounter & 1) === 0;
+        const updateGradient = (frameCounter & 3) === 0;
 
-                (
-                    Math.sin(
-                        time * 0.22
-                    ) +
-                    1
-                ) *
-                400;
+        for (let i = 0; i < WAVE_COUNT; i++) {
+            const wave = waves[i];
+            if (!wave) continue;
 
-            wave.gradient.setAttribute(
-                "x1",
-                -shift
-            );
+            const time = noiseOffset + wave.phase;
 
-            wave.gradient.setAttribute(
-                "x2",
-                WAVE_WIDTH -
-                shift
-            );
+            wave.svg.style.transform =
+                "translate3d(0,calc(-50% + " +
+                (Math.sin(time * 0.35) * 8 + Math.cos(time * 0.18) * 4) +
+                "px),0) scaleX(" +
+                (1 + Math.cos(time * 0.08) * 0.015) +
+                ") scaleY(" +
+                (1 + Math.sin(time * 0.14) * 0.045) +
+                ")";
+
+            if (updatePath) {
+                wave.path.setAttribute("d", buildWavePath(time, wave.amplitudeMultiplier, i));
+            }
+
+            if (updateGradient) {
+                const shift = (Math.sin(time * 0.22) + 1) * 400;
+                wave.gradient.setAttribute("x1", -shift);
+                wave.gradient.setAttribute("x2", WAVE_WIDTH - shift);
+            }
         }
+
+        animationId = requestAnimationFrame(animateWaves);
     }
 
-    animationId =
-        requestAnimationFrame(
-            animateWaves
-        );
-}
+    /* =========================================
+       CLEAR
+    ========================================= */
+    function clearWaves() {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+        waves = new Array(WAVE_COUNT);
+        barInner.innerHTML = "";
+    }
 
-/* =========================================
-CLEAR
-========================================= */
-function clearWaves(){
-
-cancelAnimationFrame(  
-    animationId  
-);  
-animationId = null;
-waves =  
-    new Array(WAVE_COUNT);  
-
-barInner.innerHTML = "";
-
-}
-
-/* =========================================
-START
-========================================= */
-
-document.addEventListener(
-    "visibilitychange",
-    () => {
+    /* =========================================
+       START
+    ========================================= */
+    document.addEventListener("visibilitychange", () => {
         if (document.hidden) {
             cancelAnimationFrame(animationId);
-        }
-        else if (!animationId) {
+        } else if (!animationId) {
             animateWaves();
         }
-    }
-);
-
-
-
-createWaveFlow();
-function setWaveColor(color){
-
-    document.querySelectorAll(
-        '#waveGradient_0 stop, #waveGradient_1 stop'
-    ).forEach(stop => {
-
-        stop.setAttribute(
-            "stop-color",
-            color
-        );
-
     });
 
-}
+    createWaveFlow();
 
-standardSliders.forEach(slider => {
-
-    slider.addEventListener("pointerdown", () => {
-
-        setWaveColor("rgba(20,20,20,1)");
-
-        document.documentElement.style.setProperty(
-            "--slider-thumb-bg",
-            "#000000"
-        );
-
-        document.documentElement.style.setProperty(
-            "--slider-thumb-border",
-            "1px solid rgba(255,120,120,0.45)"
-        );
-
-        document.documentElement.style.setProperty(
-            "--before-range-line-bg",
-            "#000000"
-        );
-
-        document.documentElement.style.setProperty(
-            "--before-range-line-border",
-            "1px solid rgba(200,70,70,0.22)"
-        );
-
-        document.documentElement.style.setProperty(
-            "--after-range-line-bg",
-            "#000000"
-        );
-
-        document.documentElement.style.setProperty(
-            "--after-range-line-border",
-            "1px solid rgba(200,70,70,0.22)"
-        );
-
-    });
-
-
-    slider.addEventListener("pointerup", () => {
-
-        setWaveColor("rgba(25,25,25,1)");
-
-        document.documentElement.style.setProperty(
-            "--slider-thumb-bg",
-            "#121212"
-        );
-
-        document.documentElement.style.setProperty(
-            "--slider-thumb-border",
-            "1px solid rgba(90,90,90,.85)"
-        );
-
-        document.documentElement.style.setProperty(
-            "--before-range-line-bg",
-            "#121212"
-        );
-
-        document.documentElement.style.setProperty(
-            "--before-range-line-border",
-            "1px solid rgba(90,90,90,.75)"
-        );
-
-        document.documentElement.style.setProperty(
-            "--after-range-line-bg",
-            "#121212"
-        );
-
-        document.documentElement.style.setProperty(
-            "--after-range-line-border",
-            "1px solid rgba(90,90,90,.85)"
-        );
-
-    });
-
-});
-
-// ================= GROUPS (DELEGATED) =================
-
-function debounce(fn, delay = 150) {
-
-    let timer;
-
-    return (...args) => {
-
-        clearTimeout(timer);
-
-        timer = setTimeout(() => {
-            fn(...args);
-        }, delay);
-
-    };
-
-}
-
-
-function normalize(str) {
-
-    return (str || "")
-        .trim()
-        .toLowerCase();
-
-}
-
-
-sub.addEventListener("click", (e) => {
-
-    const btn = e.target.closest(".show-more");
-
-    if (btn) {
-
-        const group = btn.closest(".filter-group");
-
-        if (!group) return;
-
-        const items =
-            group.querySelectorAll(".sub-item");
-
-        const expanded =
-            btn.dataset.expanded === "true";
-
-
-        items.forEach((item, i) => {
-
-            item.style.display =
-                expanded
-                    ? (i < 8 ? "block" : "none")
-                    : "block";
-
+    function setWaveColor(color) {
+        document.querySelectorAll('#waveGradient_0 stop, #waveGradient_1 stop').forEach(stop => {
+            stop.setAttribute("stop-color", color);
         });
-
-
-        btn.textContent =
-            expanded
-                ? `More ${group.dataset.category || ""}`
-                : "Show less";
-
-
-        btn.dataset.expanded =
-            (!expanded).toString();
-
-        return;
     }
 
-
-    const item =
-        e.target.closest(".sub-item");
-
-    if (item) {
-
-        item.classList.toggle("selected");
-
+    function setSliderActiveStyle() {
+        setWaveColor("rgba(20,20,20,1)");
+        document.documentElement.style.setProperty("--slider-thumb-bg", "#000000");
+        document.documentElement.style.setProperty("--slider-thumb-border", "1px solid rgba(255,120,120,0.45)");
+        document.documentElement.style.setProperty("--before-range-line-bg", "#000000");
+        document.documentElement.style.setProperty("--before-range-line-border", "1px solid rgba(200,70,70,0.22)");
+        document.documentElement.style.setProperty("--after-range-line-bg", "#000000");
+        document.documentElement.style.setProperty("--after-range-line-border", "1px solid rgba(200,70,70,0.22)");
     }
 
-});
+    function setSliderIdleStyle() {
+        setWaveColor("rgba(25,25,25,1)");
+        document.documentElement.style.setProperty("--slider-thumb-bg", "#121212");
+        document.documentElement.style.setProperty("--slider-thumb-border", "1px solid rgba(90,90,90,.85)");
+        document.documentElement.style.setProperty("--before-range-line-bg", "#121212");
+        document.documentElement.style.setProperty("--before-range-line-border", "1px solid rgba(90,90,90,.75)");
+        document.documentElement.style.setProperty("--after-range-line-bg", "#121212");
+        document.documentElement.style.setProperty("--after-range-line-border", "1px solid rgba(90,90,90,.85)");
+    }
 
+    standardSliders.forEach(slider => {
+        slider.addEventListener("pointerdown", setSliderActiveStyle);
+        slider.addEventListener("pointerup", setSliderIdleStyle);
+    });
 
-sub.addEventListener(
-    "input",
-    debounce((e) => {
+    rectangularSliders.forEach(slider => {
+        slider.addEventListener("pointerdown", setSliderActiveStyle);
+        slider.addEventListener("pointerup", setSliderIdleStyle);
+        slider.addEventListener("pointercancel", setSliderIdleStyle);
+    });
 
-        const search =
-            e.target.closest(".sub-search");
+    // ================= GROUPS (DELEGATED) =================
+    function debounce(fn, delay = 150) {
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                fn(...args);
+            }, delay);
+        };
+    }
 
+    function normalize(str) {
+        return (str || "").trim().toLowerCase();
+    }
+
+    sub.addEventListener("click", (e) => {
+        const btn = e.target.closest(".show-more");
+
+        if (btn) {
+            const group = btn.closest(".filter-group");
+            if (!group) return;
+
+            const groupItems = group.querySelectorAll(".sub-item");
+            const expanded = btn.dataset.expanded === "true";
+
+            groupItems.forEach((item, i) => {
+                item.style.display = expanded ? (i < 8 ? "block" : "none") : "block";
+            });
+
+            btn.textContent = expanded ? `More ${group.dataset.category || ""}` : "Show less";
+            btn.dataset.expanded = (!expanded).toString();
+
+            return;
+        }
+
+        const item = e.target.closest(".sub-item");
+        if (item) {
+            item.classList.toggle("selected");
+        }
+    });
+
+    sub.addEventListener("input", debounce((e) => {
+        const search = e.target.closest(".sub-search");
         if (!search) return;
 
-
-        const group =
-            search.closest(".filter-group");
-
+        const group = search.closest(".filter-group");
         if (!group) return;
 
+        const groupItems = group.querySelectorAll(".sub-item");
+        const query = normalize(search.value);
 
-        const items =
-            group.querySelectorAll(".sub-item");
-
-
-        const query =
-            normalize(search.value);
-
-
-        items.forEach(item => {
-
-            const value =
-                normalize(item.dataset.value);
-
-
-            const synonymsList =
-                (item.dataset.synonyms || "")
-                    .split(",")
-                    .map(normalize)
-                    .filter(Boolean);
-
+        groupItems.forEach(item => {
+            const value = normalize(item.dataset.value);
+            const synonymsList = (item.dataset.synonyms || "")
+                .split(",")
+                .map(normalize)
+                .filter(Boolean);
 
             const matches =
                 query === "" ||
                 value.includes(query) ||
-                synonymsList.some(
-                    synonym =>
-                        synonym.includes(query)
-                );
+                synonymsList.some(synonym => synonym.includes(query));
 
-
-            item.style.display =
-                matches
-                    ? "block"
-                    : "none";
-
+            item.style.display = matches ? "block" : "none";
         });
-
-    }, 120)
-);
+    }, 120));
 
     const currencyHeader = document.querySelector(".currency-header");
     const currencyBox = document.querySelector(".currency-box");
 
     if (currencyHeader && currencyBox) {
-
         currencyHeader.onclick = () => {
             currencyBox.classList.toggle("open");
         };
-          const currencyItems = document.querySelectorAll(".currency-item");
+
+        const currencyItems = document.querySelectorAll(".currency-item");
         const currencySearch = document.querySelector(".currency-search");
-           document.addEventListener("click", (e) => {
-    if (!currencyBox.contains(e.target)) {
-        currencyBox.classList.remove("open");
-    }
-});
+
+        document.addEventListener("click", (e) => {
+            if (!currencyBox.contains(e.target)) {
+                currencyBox.classList.remove("open");
+            }
+        });
 
         currencyItems.forEach(item => {
             item.onclick = () => {
@@ -16359,16 +15826,16 @@ sub.addEventListener(
                 const val = currencySearch.value.toLowerCase();
 
                 currencyItems.forEach(item => {
-                    item.style.display =
-                        item.textContent.toLowerCase().includes(val)
-                            ? "block"
-                            : "none";
+                    item.style.display = item.textContent.toLowerCase().includes(val) ? "block" : "none";
                 });
             };
         }
     }
 }
 
+// =================
+// NAVBAR SCROLL STATE
+// =================
 const navbar = document.querySelector(".top-navbar");
 
 window.addEventListener("scroll", () => {
@@ -16378,26 +15845,29 @@ window.addEventListener("scroll", () => {
         navbar.classList.remove("scrolled");
     }
 });
+
+// =================
+// INITIAL QUERY FROM URL
+// =================
 window.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("query");
 
     if (!query) return;
 
-    // ניקוי
     handleSearchChange(query);
-    return
 });
+
+// =================
+// FLOATING SEARCH BUTTON ON SCROLL
+// =================
 window.addEventListener("DOMContentLoaded", () => {
     let scrollTimeout;
 
     window.addEventListener("scroll", () => {
-        if (
-    sub.innerHTML.trim() === "" &&
-    textarea.value.trim() === ""
-) return;
-        floatingBtn.classList.remove("show");
+        if (sub.innerHTML.trim() === "" && textarea.value.trim() === "") return;
 
+        floatingBtn.classList.remove("show");
         clearTimeout(scrollTimeout);
 
         scrollTimeout = setTimeout(() => {
@@ -16405,14 +15875,17 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 300);
     });
 });
-function DeleteSubDropdown() {
 
+// =================
+// SUB DROPDOWN CLEANUP
+// =================
+function DeleteSubDropdown() {
     const activeCategory = document.querySelector(".category.active");
 
     if (activeCategory) {
         activeCategory.click();
     }
+
     sub.style.display = "none";
     document.getElementById("subDropdown").innerHTML = "";
-
 }
